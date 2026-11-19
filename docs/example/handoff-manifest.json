@@ -1,0 +1,26 @@
+{
+  "notice": "Internal engineering readiness assessment. Not a SOC 2 report, certification, or auditor opinion.",
+  "raw_evidence_included": false,
+  "files": [
+    {
+      "path": "SOC2-READINESS.md",
+      "sha256": "71a6cafd62f264ff902fe956d4e3047c2a886ec014f8f8f9977811f802151402"
+    },
+    {
+      "path": "evidence-index.csv",
+      "sha256": "ce5534e913f77f2eb5b1f9715115f7b6959cfbe2a91f3b7205551c5aff5eeb9f"
+    },
+    {
+      "path": "risk-register.csv",
+      "sha256": "6cb5688c4d15504fbf6e8790dc3416033053d23e112eda527fd44de11e4ddbea"
+    },
+    {
+      "path": "assessment-redacted.json",
+      "sha256": "c25447c01710b09978a496d25672f0558b71019a419f891310eb8731601b496b"
+    },
+    {
+      "path": "SOC2-READINESS.pdf",
+      "sha256": "35b9d2228deff7a614b8affda58d28f3547c1793d6fdccb9df57bff98d97ba91"
+    }
+  ]
+}

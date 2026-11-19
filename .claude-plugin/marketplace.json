@@ -1,0 +1,22 @@
+{
+  "name": "ctoside",
+  "owner": {
+    "name": "CTOside"
+  },
+  "metadata": {
+    "description": "SOC 2 engineering readiness by CTOside",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "soc2-engineering-guardian",
+      "source": "./",
+      "description": "Evidence-first SOC 2 engineering readiness: original Security checks, separate design and period operation, GitHub metadata, PDF reports and remediation tasks.",
+      "version": "1.0.0",
+      "author": {
+        "name": "CTOside"
+      },
+      "license": "MIT"
+    }
+  ]
+}

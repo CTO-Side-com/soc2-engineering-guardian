@@ -1,0 +1,14 @@
+interface:
+  display_name: SOC 2 Engineering Guardian
+  short_description: Collect and verify SOC 2 engineering evidence
+  default_prompt: Use $soc2-engineering-guardian to assess this SaaS and produce an
+    evidence-backed readiness report.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

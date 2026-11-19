@@ -1,0 +1,878 @@
+{
+  "version": "1.0.0",
+  "framework_version": "AICPA-TSC-2017-POF-2022",
+  "reviewed_as_of": "2026-11-19",
+  "scope": "Original engineering readiness checks supporting Security common criteria; not the complete TSC or a prescribed SOC 2 checklist.",
+  "notice": "Mappings are interpretive, many-to-many and require review for the scoped engagement. AI checks are implementation examples, not separate SOC 2 requirements. Recovery checks support risk mitigation; the Availability category is not included.",
+  "controls": [
+    {
+      "id": "GOV-001",
+      "area": "Governance",
+      "title": "Assign accountable security and control owners",
+      "criteria": [
+        "CC1.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved responsibilities and dated ownership reviews"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Trace each critical system to an accountable owner.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-002",
+      "area": "Governance",
+      "title": "Maintain security policies and staff acknowledgment",
+      "criteria": [
+        "CC1.1",
+        "CC2.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved policies and acknowledgment records"
+      ],
+      "suggested_evidence_type": "policy",
+      "verification_test": "Review acknowledgments against the staff population.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-003",
+      "area": "Governance",
+      "title": "Review personnel screening and onboarding evidence",
+      "criteria": [
+        "CC1.4"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Screening confirmations and onboarding checklists"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Sample hires without reading sensitive personnel records.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-004",
+      "area": "Governance",
+      "title": "Train personnel for their security responsibilities",
+      "criteria": [
+        "CC1.4",
+        "CC2.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Training completion and role coverage records"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Reconcile completed training with in-scope personnel.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-005",
+      "area": "Governance",
+      "title": "Review risk assessments and treatment decisions",
+      "criteria": [
+        "CC3.1",
+        "CC3.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved risk register and treatment reviews"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Trace material risks to owners and decisions.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-006",
+      "area": "Governance",
+      "title": "Evaluate control performance and unresolved deficiencies",
+      "criteria": [
+        "CC4.1",
+        "CC4.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Control review records and tracked exceptions"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Sample deficiencies through resolution or accepted risk.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-007",
+      "area": "Governance",
+      "title": "Communicate security commitments and reporting channels",
+      "criteria": [
+        "CC2.1",
+        "CC2.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Published commitments and reporting instructions"
+      ],
+      "suggested_evidence_type": "policy",
+      "verification_test": "Compare customer commitments with implemented controls.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-008",
+      "area": "Governance",
+      "title": "Maintain scoped inventories and system description inputs",
+      "criteria": [
+        "CC2.1",
+        "CC3.4"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "System inventory, data flows, dependency owners"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Reconcile inventory with deployed systems and vendors.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "IAM-001",
+      "area": "Access",
+      "title": "Authenticate application and administrative users",
+      "criteria": [
+        "CC6.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Authentication tests and production configuration"
+      ],
+      "suggested_evidence_type": "test",
+      "verification_test": "Attempt protected operations without a valid identity.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "IAM-002",
+      "area": "Access",
+      "title": "Protect privileged access with strong authentication",
+      "criteria": [
+        "CC6.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Identity-provider configuration and privileged-user inventory"
+      ],
+      "suggested_evidence_type": "configuration",
+      "verification_test": "Verify enforcement for all identified administrative entry points.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "IAM-003",
+      "area": "Access",
+      "title": "Enforce server-side roles and object permissions",
+      "criteria": [
+        "CC6.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Role matrix and negative authorization tests"
+      ],
+      "suggested_evidence_type": "test",
+      "verification_test": "Attempt cross-role and cross-object actions with synthetic users.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "IAM-004",
+      "area": "Access",
+      "title": "Isolate tenant data across services and retrieval",
+      "criteria": [
+        "CC6.1",
+        "CC6.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Tenant-boundary tests for APIs, jobs, cache and vectors"
+      ],
+      "suggested_evidence_type": "test",
+      "verification_test": "Attempt cross-tenant access using synthetic records.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "IAM-005",
+      "area": "Access",
+      "title": "Approve provisioning and remove departed users",
+      "criteria": [
+        "CC6.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Access requests, approval records and offboarding evidence"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Reconcile personnel changes with granted and revoked access.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "IAM-006",
+      "area": "Access",
+      "title": "Review access rights and service identities periodically",
+      "criteria": [
+        "CC6.2",
+        "CC6.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Dated access reviews and remediation records"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Reconcile all privileged identities with reviewed entries.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "IAM-007",
+      "area": "Access",
+      "title": "Limit and rotate service credentials",
+      "criteria": [
+        "CC6.1",
+        "CC6.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Service inventory, scopes and rotation metadata"
+      ],
+      "suggested_evidence_type": "configuration",
+      "verification_test": "Inspect credential metadata without exposing values.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "IAM-008",
+      "area": "Access",
+      "title": "Constrain sessions and invalidate revoked access",
+      "criteria": [
+        "CC6.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Session expiry and revocation tests"
+      ],
+      "suggested_evidence_type": "test",
+      "verification_test": "Replay an expired or revoked session.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "CHG-001",
+      "area": "Changes",
+      "title": "Require independent review of production code changes",
+      "criteria": [
+        "CC8.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approval events reconciled with deployed commits"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Check approval timing, reviewer identity and approved commit.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "CHG-002",
+      "area": "Changes",
+      "title": "Protect release branches and review bypass permissions",
+      "criteria": [
+        "CC8.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Ruleset snapshots and bypass-role reviews"
+      ],
+      "suggested_evidence_type": "configuration",
+      "verification_test": "Assess direct pushes, administrator bypass and stale approvals.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "CHG-003",
+      "area": "Changes",
+      "title": "Run required checks before production deployment",
+      "criteria": [
+        "CC8.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Check runs and deployment records tied to commits"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Reconcile deployed commits with successful required checks.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "CHG-004",
+      "area": "Changes",
+      "title": "Restrict and trace production deployments",
+      "criteria": [
+        "CC6.3",
+        "CC8.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Deployment actor, commit, environment and approval records"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Trace releases to authorized actors and immutable commits.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "CHG-005",
+      "area": "Changes",
+      "title": "Control emergency changes and retrospective review",
+      "criteria": [
+        "CC8.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Emergency change register and retrospective decisions"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Reconcile exceptions with production release history.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "CHG-006",
+      "area": "Changes",
+      "title": "Test database migrations and recovery paths",
+      "criteria": [
+        "CC8.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Migration tests and rollback or forward-recovery exercises"
+      ],
+      "suggested_evidence_type": "test",
+      "verification_test": "Apply representative migrations to an isolated synthetic database.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "CHG-007",
+      "area": "Changes",
+      "title": "Pin and protect build inputs and dependencies",
+      "criteria": [
+        "CC8.1",
+        "CC6.8"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Lockfiles, build workflow and artifact provenance"
+      ],
+      "suggested_evidence_type": "configuration",
+      "verification_test": "Trace a deployed artifact to reviewed source and dependencies.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "CHG-008",
+      "area": "Changes",
+      "title": "Separate production credentials and development access",
+      "criteria": [
+        "CC6.1",
+        "CC8.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Environment boundaries and deployment credential scopes"
+      ],
+      "suggested_evidence_type": "configuration",
+      "verification_test": "Check development identities cannot access production secrets.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "DAT-001",
+      "area": "Data",
+      "title": "Protect sensitive traffic with authenticated encryption",
+      "criteria": [
+        "CC6.7"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Transport settings and approved endpoint tests"
+      ],
+      "suggested_evidence_type": "configuration",
+      "verification_test": "Test external and internal sensitive-data transport paths.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "DAT-002",
+      "area": "Data",
+      "title": "Protect stored information and encryption keys",
+      "criteria": [
+        "CC6.1",
+        "CC6.7"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Storage settings and key-access reviews"
+      ],
+      "suggested_evidence_type": "configuration",
+      "verification_test": "Reconcile sensitive stores with encryption and key controls.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "DAT-003",
+      "area": "Data",
+      "title": "Prevent secrets from entering source and build output",
+      "criteria": [
+        "CC6.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Sanitized secret-scan reports and remediation records"
+      ],
+      "suggested_evidence_type": "test",
+      "verification_test": "Run an approved scanner without copying detected secrets.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "DAT-004",
+      "area": "Data",
+      "title": "Restrict public storage and network exposure",
+      "criteria": [
+        "CC6.6"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Firewall, bucket and database exposure configuration"
+      ],
+      "suggested_evidence_type": "configuration",
+      "verification_test": "Review exposure against approved service requirements.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "DAT-005",
+      "area": "Data",
+      "title": "Control retention, disposal and backup deletion",
+      "criteria": [
+        "CC6.5"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Retention schedule and disposal exercise records"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Trace a synthetic deletion across stores and backup policy.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "DAT-006",
+      "area": "Data",
+      "title": "Limit sensitive information in logs and telemetry",
+      "criteria": [
+        "CC6.7"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Logging tests and approved telemetry configuration"
+      ],
+      "suggested_evidence_type": "test",
+      "verification_test": "Send synthetic sensitive fields and inspect redacted results.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "MON-001",
+      "area": "Monitoring",
+      "title": "Record security events with usable identity and context",
+      "criteria": [
+        "CC7.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Audit event tests and event schema"
+      ],
+      "suggested_evidence_type": "test",
+      "verification_test": "Verify actor, target, outcome and timestamp on critical events.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "MON-002",
+      "area": "Monitoring",
+      "title": "Protect audit logs from unauthorized alteration",
+      "criteria": [
+        "CC6.1",
+        "CC7.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Log-store permissions and retention settings"
+      ],
+      "suggested_evidence_type": "configuration",
+      "verification_test": "Attempt unauthorized modification in a safe test environment.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "MON-003",
+      "area": "Monitoring",
+      "title": "Test security alerts and escalation delivery",
+      "criteria": [
+        "CC7.2",
+        "CC7.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Alert-test receipts and response records"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Trigger a synthetic alert and confirm assigned response.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "MON-004",
+      "area": "Monitoring",
+      "title": "Review vulnerabilities and configuration changes",
+      "criteria": [
+        "CC7.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Scan history, configuration reviews and scope inventory"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Reconcile assets with dated monitoring and scan records.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "MON-005",
+      "area": "Monitoring",
+      "title": "Track vulnerability remediation and accepted exceptions",
+      "criteria": [
+        "CC7.1",
+        "CC7.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Remediation tickets, retests and risk acceptance"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Sample findings through closure or approved exception.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "MON-006",
+      "area": "Monitoring",
+      "title": "Evaluate incidents and exercise response procedures",
+      "criteria": [
+        "CC7.3",
+        "CC7.4"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Incident register and tabletop exercise records"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Trace a simulated event through classification and response.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "MON-007",
+      "area": "Monitoring",
+      "title": "Document recovery and lessons after incidents",
+      "criteria": [
+        "CC7.5"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Recovery validation and post-incident actions"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Verify recovery evidence and tracked improvements.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "REC-001",
+      "area": "Recovery",
+      "title": "Back up critical data and monitor backup failures",
+      "criteria": [
+        "CC9.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Backup inventory, schedules and job results"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Reconcile critical stores with backup coverage and failures.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "REC-002",
+      "area": "Recovery",
+      "title": "Exercise restores in an isolated environment",
+      "criteria": [
+        "CC9.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Restore receipts, integrity checks and measured recovery"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Restore synthetic data and verify application usability.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "REC-003",
+      "area": "Recovery",
+      "title": "Define recovery dependencies and continuity responsibilities",
+      "criteria": [
+        "CC9.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Recovery objectives, runbooks and dependency inventory"
+      ],
+      "suggested_evidence_type": "policy",
+      "verification_test": "Walk through loss of a critical provider or operator.",
+      "organizational_dependency": false,
+      "engineering_extension": false
+    },
+    {
+      "id": "VEN-001",
+      "area": "Vendors",
+      "title": "Inventory critical vendors and assess relevant risks",
+      "criteria": [
+        "CC9.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Vendor register, review dates and risk decisions"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Reconcile deployed integrations with reviewed vendors.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "VEN-002",
+      "area": "Vendors",
+      "title": "Review vendor commitments and shared responsibilities",
+      "criteria": [
+        "CC9.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved contractual evidence and responsibility matrix"
+      ],
+      "suggested_evidence_type": "contract",
+      "verification_test": "Identify responsibilities that remain with the SaaS operator.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "VEN-003",
+      "area": "Vendors",
+      "title": "Reassess vendor changes and termination procedures",
+      "criteria": [
+        "CC9.2",
+        "CC3.4"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Vendor change reviews and exit procedures"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Trace a vendor change to a documented risk decision.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "AI-001",
+      "area": "AI engineering",
+      "title": "Enforce authorization independently of model output",
+      "criteria": [
+        "CC6.1",
+        "CC6.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Tool authorization tests and server-side policy gates"
+      ],
+      "suggested_evidence_type": "test",
+      "verification_test": "Inject synthetic instructions requesting an unauthorized action.",
+      "organizational_dependency": false,
+      "engineering_extension": true
+    },
+    {
+      "id": "AI-002",
+      "area": "AI engineering",
+      "title": "Limit model data egress and cross-user memory",
+      "criteria": [
+        "CC6.3",
+        "CC6.7"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Model-provider inventory and retrieval isolation tests"
+      ],
+      "suggested_evidence_type": "test",
+      "verification_test": "Attempt synthetic exfiltration and cross-user retrieval.",
+      "organizational_dependency": false,
+      "engineering_extension": true
+    },
+    {
+      "id": "AI-003",
+      "area": "AI engineering",
+      "title": "Review AI behavior changes and action auditability",
+      "criteria": [
+        "CC8.1",
+        "CC7.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Prompt and model change records, evaluations, tool audit tests"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Trace a released AI configuration to review and evaluations.",
+      "organizational_dependency": false,
+      "engineering_extension": true
+    },
+    {
+      "id": "GOV-009",
+      "area": "Governance",
+      "title": "Review independent oversight of security decisions",
+      "criteria": [
+        "CC1.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved responsibilities, dated review records and documented decisions appropriate to this objective"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-010",
+      "area": "Governance",
+      "title": "Evaluate accountability for assigned control responsibilities",
+      "criteria": [
+        "CC1.5"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved responsibilities, dated review records and documented decisions appropriate to this objective"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-011",
+      "area": "Governance",
+      "title": "Assess fraud and deliberate control circumvention risks",
+      "criteria": [
+        "CC3.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved responsibilities, dated review records and documented decisions appropriate to this objective"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-012",
+      "area": "Governance",
+      "title": "Select controls in response to assessed risks",
+      "criteria": [
+        "CC5.1"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved responsibilities, dated review records and documented decisions appropriate to this objective"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-013",
+      "area": "Governance",
+      "title": "Review technology control responsibilities and dependencies",
+      "criteria": [
+        "CC5.2"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved responsibilities, dated review records and documented decisions appropriate to this objective"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-014",
+      "area": "Governance",
+      "title": "Implement approved control procedures and review execution",
+      "criteria": [
+        "CC5.3"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved responsibilities, dated review records and documented decisions appropriate to this objective"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    },
+    {
+      "id": "GOV-015",
+      "area": "Governance",
+      "title": "Review physical access responsibilities and provider evidence",
+      "criteria": [
+        "CC6.4"
+      ],
+      "mapping_status": "supporting_mapping_requires_engagement_review",
+      "evidence_examples": [
+        "Approved responsibilities, dated review records and documented decisions appropriate to this objective"
+      ],
+      "suggested_evidence_type": "operational",
+      "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
+      "organizational_dependency": true,
+      "engineering_extension": false
+    }
+  ]
+}

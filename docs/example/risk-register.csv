@@ -1,0 +1,54 @@
+ID,Title,Design,Operation,Severity,Owner,Due,Action,Verification
+GOV-001,Assign accountable security and control owners,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Trace each critical system to an accountable owner.
+GOV-002,Maintain security policies and staff acknowledgment,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Review acknowledgments against the staff population.
+GOV-003,Review personnel screening and onboarding evidence,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Sample hires without reading sensitive personnel records.
+GOV-004,Train personnel for their security responsibilities,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Reconcile completed training with in-scope personnel.
+GOV-005,Review risk assessments and treatment decisions,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Trace material risks to owners and decisions.
+GOV-006,Evaluate control performance and unresolved deficiencies,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Sample deficiencies through resolution or accepted risk.
+GOV-007,Communicate security commitments and reporting channels,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Compare customer commitments with implemented controls.
+GOV-008,Maintain scoped inventories and system description inputs,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Reconcile inventory with deployed systems and vendors.
+IAM-001,Authenticate application and administrative users,verified,insufficient_evidence,,,,Collect evidence,Attempt protected operations without a valid identity.
+IAM-002,Protect privileged access with strong authentication,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Verify enforcement for all identified administrative entry points.
+IAM-003,Enforce server-side roles and object permissions,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Attempt cross-role and cross-object actions with synthetic users.
+IAM-004,Isolate tenant data across services and retrieval,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Attempt cross-tenant access using synthetic records.
+IAM-005,Approve provisioning and remove departed users,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Reconcile personnel changes with granted and revoked access.
+IAM-006,Review access rights and service identities periodically,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Reconcile all privileged identities with reviewed entries.
+IAM-007,Limit and rotate service credentials,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Inspect credential metadata without exposing values.
+IAM-008,Constrain sessions and invalidate revoked access,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Replay an expired or revoked session.
+CHG-001,Require independent review of production code changes,insufficient_evidence,partially_verified,medium,Synthetic Release Owner,2026-11-30,Collect August release records and resolve the two approval exceptions.,Reconcile all production release paths with reviews of the deployed commits.
+CHG-002,Protect release branches and review bypass permissions,insufficient_evidence,insufficient_evidence,,,,Collect evidence,"Assess direct pushes, administrator bypass and stale approvals."
+CHG-003,Run required checks before production deployment,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Reconcile deployed commits with successful required checks.
+CHG-004,Restrict and trace production deployments,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Trace releases to authorized actors and immutable commits.
+CHG-005,Control emergency changes and retrospective review,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Reconcile exceptions with production release history.
+CHG-006,Test database migrations and recovery paths,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Apply representative migrations to an isolated synthetic database.
+CHG-007,Pin and protect build inputs and dependencies,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Trace a deployed artifact to reviewed source and dependencies.
+CHG-008,Separate production credentials and development access,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Check development identities cannot access production secrets.
+DAT-001,Protect sensitive traffic with authenticated encryption,failed,insufficient_evidence,high,Synthetic Engineering Owner,2026-11-30,Enable certificate verification and test certificate rejection.,A request using an untrusted certificate fails in an isolated test.
+DAT-002,Protect stored information and encryption keys,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Reconcile sensitive stores with encryption and key controls.
+DAT-003,Prevent secrets from entering source and build output,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Run an approved scanner without copying detected secrets.
+DAT-004,Restrict public storage and network exposure,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Review exposure against approved service requirements.
+DAT-005,"Control retention, disposal and backup deletion",insufficient_evidence,insufficient_evidence,,,,Collect evidence,Trace a synthetic deletion across stores and backup policy.
+DAT-006,Limit sensitive information in logs and telemetry,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Send synthetic sensitive fields and inspect redacted results.
+MON-001,Record security events with usable identity and context,insufficient_evidence,insufficient_evidence,,,,Collect evidence,"Verify actor, target, outcome and timestamp on critical events."
+MON-002,Protect audit logs from unauthorized alteration,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Attempt unauthorized modification in a safe test environment.
+MON-003,Test security alerts and escalation delivery,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Trigger a synthetic alert and confirm assigned response.
+MON-004,Review vulnerabilities and configuration changes,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Reconcile assets with dated monitoring and scan records.
+MON-005,Track vulnerability remediation and accepted exceptions,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Sample findings through closure or approved exception.
+MON-006,Evaluate incidents and exercise response procedures,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Trace a simulated event through classification and response.
+MON-007,Document recovery and lessons after incidents,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Verify recovery evidence and tracked improvements.
+REC-001,Back up critical data and monitor backup failures,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Reconcile critical stores with backup coverage and failures.
+REC-002,Exercise restores in an isolated environment,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Restore synthetic data and verify application usability.
+REC-003,Define recovery dependencies and continuity responsibilities,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Walk through loss of a critical provider or operator.
+VEN-001,Inventory critical vendors and assess relevant risks,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Reconcile deployed integrations with reviewed vendors.
+VEN-002,Review vendor commitments and shared responsibilities,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Identify responsibilities that remain with the SaaS operator.
+VEN-003,Reassess vendor changes and termination procedures,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Trace a vendor change to a documented risk decision.
+AI-001,Enforce authorization independently of model output,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Inject synthetic instructions requesting an unauthorized action.
+AI-002,Limit model data egress and cross-user memory,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Attempt synthetic exfiltration and cross-user retrieval.
+AI-003,Review AI behavior changes and action auditability,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Trace a released AI configuration to review and evaluations.
+GOV-009,Review independent oversight of security decisions,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Review scoped records with the responsible human owner; repository contents alone are insufficient.
+GOV-010,Evaluate accountability for assigned control responsibilities,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Review scoped records with the responsible human owner; repository contents alone are insufficient.
+GOV-011,Assess fraud and deliberate control circumvention risks,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Review scoped records with the responsible human owner; repository contents alone are insufficient.
+GOV-012,Select controls in response to assessed risks,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Review scoped records with the responsible human owner; repository contents alone are insufficient.
+GOV-013,Review technology control responsibilities and dependencies,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Review scoped records with the responsible human owner; repository contents alone are insufficient.
+GOV-014,Implement approved control procedures and review execution,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Review scoped records with the responsible human owner; repository contents alone are insufficient.
+GOV-015,Review physical access responsibilities and provider evidence,insufficient_evidence,insufficient_evidence,,,,Collect evidence,Review scoped records with the responsible human owner; repository contents alone are insufficient.

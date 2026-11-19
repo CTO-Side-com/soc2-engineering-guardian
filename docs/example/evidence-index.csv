@@ -1,0 +1,4 @@
+ID,Type,Reference,Environment,Collected,Period start,Period end,Reviewer,SHA256
+EX-TLS,code,synthetic/api/client.py:12,synthetic-production,2026-11-01,,,Synthetic Reviewer,
+EX-AUTH,test,synthetic/tests/test_auth.py:1,synthetic-production,2026-11-01,,,Synthetic Reviewer,
+EX-CHANGES,operational,synthetic/change-review-register.json,synthetic-production,2026-11-01,2026-09-01,2026-10-31,Synthetic Reviewer,
