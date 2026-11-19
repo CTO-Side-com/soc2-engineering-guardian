@@ -1,6 +1,7 @@
 """Offline behavioral tests; all examples are synthetic."""
 import copy
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -162,5 +163,26 @@ class GuardianTests(unittest.TestCase):
         with self.assertRaises(ValueError):normalize({},'https://bad.test','2026-08-01','2026-10-31')
     def test_github_rejects_nonobject_export(self):
         with self.assertRaises(ValueError):normalize([],'example/repo','2026-08-01','2026-10-31')
+    def in_tmp(self,sub=False):
+        tmp=tempfile.TemporaryDirectory();self.addCleanup(tmp.cleanup);old=os.getcwd();os.chdir(tmp.name);self.addCleanup(os.chdir,old)
+        os.makedirs('out/real/sub' if sub else 'out/real');os.symlink('real','out/link');return tmp.name
+    def test_planted_symlink_folder_inside_cwd_is_refused(self):
+        self.in_tmp()
+        with self.assertRaises(ValueError):write('out/link/report.json',{})
+        self.assertEqual([],os.listdir('out/real'))
+    def test_planted_symlink_deeper_in_path_is_refused(self):
+        self.in_tmp(True)
+        with self.assertRaises(ValueError):write('out/link/sub/report.json',{})
+        self.assertEqual([],os.listdir('out/real/sub'))
+    def test_alias_path_to_planted_symlink_is_refused(self):
+        name=self.in_tmp(True)
+        with self.assertRaises(ValueError):write(os.path.join(name,'out','link','sub','report.json'),{})
+        self.assertEqual([],os.listdir('out/real/sub'))
+    def test_dotdot_cannot_sidestep_guard(self):
+        self.in_tmp(True)
+        with self.assertRaises(ValueError):write('out/real/../link/sub/report.json',{})
+        self.assertEqual([],os.listdir('out/real/sub'))
+    def test_csv_safe_neutralizes_leading_tab_and_cr(self):
+        self.assertTrue(csv_safe('\tfoo').startswith("'"));self.assertTrue(csv_safe('\r=1+1').startswith("'"))
 
 if __name__=='__main__':unittest.main()
