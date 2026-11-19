@@ -1,9 +1,9 @@
 ---
 status: active
 phase: v1.1 · Designed PDF report, tracker exports, public-release prep
-next: Write the v1.1 plan (code SG)
+next: SG-1 · Narrow the output symlink guard (after plan review)
 tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 03:15 +0400
+updated: 2026-11-20 03:20 +0400
 ---
 
 # SOC 2 Engineering Guardian: handoff
@@ -81,8 +81,20 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 
 | ID | Task | Status | Started | Finished |
 |---|---|---|---|---|
+| SG-1 | Narrow output symlink guard; CSV tab/CR guard (security-critical) | todo | | |
+| SG-2 | Scanner: SOC 2 rules, 17 total | todo | | |
+| SG-3 | Priority hints, summary model, Markdown, per-item risk register | todo | | |
+| SG-4 | Designed PDF report | todo | | |
+| SG-5 | Import-ready task exports | todo | | |
+| SG-6 | Enriched synthetic example | todo | | |
+| SG-7 | Templates, references, SKILL.md | todo | | |
+| SG-8 | Public README, infographics, preview, manifests, CI | todo | | |
+| SG-9 | Final whole-branch review (security-critical) | todo | | |
 
 ## Next steps
 
-1. Write the plan in `docs/superpowers/plans/2026-11-20-soc2-guardian-v1-1.md` (code `SG`).
-2. Dispatch tasks per the plan.
+1. User reviews `docs/superpowers/plans/2026-11-20-soc2-guardian-v1-1.md`.
+2. Dispatch SG-1 (general-purpose, opus, high effort) in worktree
+   `~/Developer/soc2-guardian-wt/sg-1` on branch `sg-1-symlink-guard`; save its hand-back to
+   `<scratchpad>/sg-1/report.md`; review; merge to main.
+3. Then SG-2, SG-3, SG-7 in parallel; then SG-4 and SG-5; then SG-6; SG-8; SG-9.
