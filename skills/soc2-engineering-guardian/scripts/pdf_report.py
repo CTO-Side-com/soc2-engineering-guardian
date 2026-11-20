@@ -315,7 +315,7 @@ class Report:
             self.pdf.rect(x + 10, self.y + 11, 7, 7, fill=fill, radius=1.5)
             for j, line in enumerate(wrap(label, 7.8, width - 30)[:2]):
                 self.pdf.text(x + 21, self.y + 17.5 + j * 9.5, line, 7.8, False, INK_2)
-            self.pdf.text(x + 10, self.y + 43, str(counts.get(key, 0)), 20, True, INK)
+            self.pdf.text(x + 10, self.y + 46, str(counts.get(key, 0)), 20, True, INK)
         self.y += height + 10
 
     def not_assessed_panel(self, caption):
@@ -365,7 +365,7 @@ class Report:
             self.y += row_h
         self.pdf.line(x0 - 1, start - 2, x0 - 1, self.y - 4, AXIS, 0.75)
         self.pdf.text(M, self.y + 4, 'D = design, O = operation', 7, False, MUTED)
-        self.y += 8
+        self.y += 10
 
     def scope(self):
         self.new_page()
