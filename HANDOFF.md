@@ -3,7 +3,7 @@ status: active
 phase: v1.1 · Designed PDF report, tracker exports, public-release prep
 next: SG-2 · SG-3 · SG-7 in parallel
 tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 14:51 +0400
+updated: 2026-11-20 14:52 +0400
 ---
 
 # SOC 2 Engineering Guardian: handoff
@@ -87,7 +87,7 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 | SG-4 | Designed PDF report | todo | | |
 | SG-5 | Import-ready task exports | todo | | |
 | SG-6 | Enriched synthetic example | todo | | |
-| SG-7 | Templates, references, SKILL.md | review | 2026-11-20 14:46 | |
+| SG-7 | Templates, references, SKILL.md | done | 2026-11-20 14:46 | 2026-11-20 14:52 |
 | SG-8 | Public README, infographics, preview, manifests, CI | todo | | |
 | SG-9 | Final whole-branch review (security-critical) | todo | | |
 
@@ -101,6 +101,12 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
   `log.info`, `secret_key`, `password_hash` and camelCase names, and its `<prefix>_password` match is
   untested; `credential-in-url` alternation is thinly tested and `?token=` pagination hits; the CI
   rules have no comment or multi-line tests.
+- SG-7 (minor, carried into SG-8's contract): move SKILL.md `## Outputs` below the recheck and
+  closing safety paragraphs; vendor register says "unmodified opinion" and that a bridge letter is a
+  vendor assertion, not an auditor opinion, and does not extend the period; link test also scans
+  `assets/*.md`; test that check IDs cited in `ai-saas-threats.md` exist. Left for hardening:
+  Outputs file-name and forbidden-wording tests, rule-count test tied to the scanner list, unused
+  `sys.path.insert` in `test_skill_docs.py`, trailing space in `SYSTEM-DESCRIPTION.md`.
 
 ## Next steps
 

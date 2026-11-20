@@ -1,6 +1,10 @@
 ---
 name: soc2-engineering-guardian
-description: Assess SaaS engineering readiness for SOC 2 Security using code, infrastructure configuration, GitHub change records and reviewed operational evidence. Use for SOC 2 readiness assessments, evidence collection, Type 1 or Type 2 preparation, control-gap remediation, auditor handoff, and rechecks after engineering changes. Produce evidence matrices, period-gap analysis, PDF and Markdown reports, risk registers and tracker task exports without claiming certification or issuing an auditor opinion.
+description: Assess SaaS engineering readiness for SOC 2 Security using code, infrastructure configuration, GitHub change records and reviewed operational evidence, then produce a PDF readiness report, evidence index, risk register and import-ready task lists for Jira, Notion and Slack. Use for SOC 2 readiness assessments ("are we SOC 2 ready?"), Type 1 or Type 2 preparation, auditor evidence requests, access reviews, change management evidence, control-gap remediation, SOC 2 tickets, reports or PDFs, and rechecks after engineering changes, without claiming certification or issuing an auditor opinion.
+license: MIT
+metadata:
+  author: CTOside (https://ctoside.com)
+  version: "1.1.0"
 ---
 
 # SOC 2 Engineering Guardian
@@ -12,7 +16,7 @@ Perform an evidence-first engineering readiness assessment. Treat repository cod
 1. Identify the product, legal entity, production environment, systems, vendors, service commitments, system requirements and responsible owners. Record unknowns explicitly.
 2. Select `type1-readiness` for design/implementation preparation or `type2-readiness` for period-based operational preparation. Record an actual, non-future period. For Type 1, use the assessment date for both dates where appropriate; leave operation unassessed.
 3. Assess the Security pack only. Explain that this engineering pack does not establish complete coverage of the Trust Services Criteria or organizational controls. Track organizational dependencies as evidence requests, not automatic failures or exclusions.
-4. Read [sources.md](references/sources.md), [methodology.md](references/methodology.md), and the original checks in [controls.json](references/controls.json). Keep proposed criteria changes separate from the baseline. Recheck authoritative sources before representing the mappings as current.
+4. Read [sources.md](references/sources.md), [methodology.md](references/methodology.md), and the original checks in [controls.json](references/controls.json). Read [ai-saas-threats.md](references/ai-saas-threats.md) when the product has AI features, agents or model-provider integrations. Keep proposed criteria changes separate from the baseline. Recheck authoritative sources before representing the mappings as current.
 
 ## Select a mode
 
@@ -24,8 +28,9 @@ Perform an evidence-first engineering readiness assessment. Treat repository cod
 | `plan` | Prioritize confirmed gaps and evidence requests with owners and done-when tests |
 | `fix <finding>` | Implement a scoped remediation when authorized; run safe regression tests |
 | `recheck` | Invalidate affected conclusions in a new assessment, then obtain fresh evidence |
-| `report` | Validate and render the existing assessment, optionally as PDF |
-| `tasks` | Export unresolved items for Jira, Notion and Slack without sending messages |
+| `report` | Validate and render the existing assessment as Markdown, CSV and JSON exports |
+| `report --pdf` | Also write the full PDF report to circulate, print or attach |
+| `tasks <format>` | Export unresolved items as import-ready files without sending anything. `<format>` is `jira`, `notion`, `slack`, `markdown` or `all`; add `--gaps-only` to drop evidence requests |
 
 ## Collect safe evidence
 
@@ -37,7 +42,7 @@ Run the scanner as lead generation, not a security verdict:
 python3 <skill-dir>/scripts/repo_scan.py --repo <repo> --out <output>/scanner-findings.json
 ```
 
-The 13 regex rules are intentionally narrow. They do not establish the absence of vulnerabilities or evaluate all 53 checks. Inspect the output's file limits, truncation and excluded paths. Source matches never belong in exported findings; retain only file and line metadata.
+The 17 regex rules are intentionally narrow. They do not establish the absence of vulnerabilities or evaluate all 53 checks. Inspect the output's file limits, truncation and excluded paths. Source matches never belong in exported findings; retain only file and line metadata.
 
 Initialize a new assessment without overwriting a baseline:
 
@@ -63,10 +68,32 @@ Use [assessment-example.json](assets/assessment-example.json) for the exact evid
 ```bash
 python3 <skill-dir>/scripts/validate_assessment.py --assessment <output>/assessment.json
 python3 <skill-dir>/scripts/render_report.py --assessment <output>/assessment.json --out <output>/handoff --pdf
-python3 <skill-dir>/scripts/export_tasks.py --assessment <output>/assessment.json --out <output>/tasks
+python3 <skill-dir>/scripts/export_tasks.py --assessment <output>/assessment.json --out <output>/tasks --format all
 ```
 
 Review the redacted exports before sharing. Redaction is a limited safety net and does not guarantee removal of confidential information. The PDF uses Western built-in fonts; use Markdown for Unicode names or non-Latin prose. Reports and task exports refuse structurally invalid assessments. Keep real assessments outside public version control.
+
+## Outputs
+
+Write under a user-approved private folder, normally `soc2-output/`, and keep it out of public version control. Label every artifact an internal readiness assessment, not an audit finding or opinion.
+
+- `assessment.json`: statuses, reviewers, evidence references and populations for every check.
+- `scanner-findings.json`: leads with file and line metadata only.
+- `SOC2-READINESS.md`: status counts by area and dimension, open items by urgency, period coverage (Type 2), confirmed gaps and evidence requests.
+- `SOC2-READINESS.pdf` (with `--pdf`): the full report with the not-an-audit-opinion notice on every page.
+- `evidence-index.csv`: evidence references per check.
+- `risk-register.csv`: one row per open item, with owner and priority.
+- `assessment-redacted.json` and `handoff-manifest.json`: the redacted copy for sharing and the manifest of handoff files.
+- `tasks-jira.csv`, `tasks-notion.csv`, `tasks-slack-list.csv`, `tasks-slack.txt`, `tasks.md`: open items as tasks. `--format slack` writes both Slack files. An evidence request stays an evidence request; it never becomes a "violation" ticket.
+
+Tell the user how to import task files. Nothing is sent anywhere automatically.
+
+- Jira: *Filters > Search work items > ••• > Import work items from CSV* with `tasks-jira.csv`. Map the repeated `Labels` columns to Labels and set the date format to `yyyy-MM-dd`.
+- Notion: *Settings > Import > CSV* with `tasks-notion.csv`.
+- Slack Lists: *New > Import a CSV* with `tasks-slack-list.csv`.
+- Slack message: paste `tasks-slack.txt` into a channel or canvas.
+
+Templates for the two narrative inputs an auditor will ask for: [SYSTEM-DESCRIPTION.md](assets/SYSTEM-DESCRIPTION.md) and [SUBSERVICE-VENDOR-REGISTER.md](assets/SUBSERVICE-VENDOR-REGISTER.md). Fill them only from evidence; they are not the management description of the system. Install instructions: [installation.md](references/installation.md).
 
 For change-aware rechecks, create a newline-separated list of repository-relative changed files using an approved Git diff, then run:
 

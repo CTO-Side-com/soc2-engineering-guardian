@@ -275,6 +275,8 @@ if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.pare
 
 - [ ] **Step 5: Commit** `docs(skill): add templates, ai threat model, install guide and outputs` with `Task: SG-7`.
 
+**As built (2026-11-20):** merged `75abf19`; approved first review, no fix round. Install guide has no public install line yet; that line and four doc minors from the review (Outputs placement in SKILL.md, "unmodified opinion" and bridge-letter caveat in the vendor register, link test over `assets/`, cited-ID test) move to SG-8. Suite 91/91.
+
 ### Task SG-8: Public README, infographics, preview, manifests, CI
 
 **Files:**
