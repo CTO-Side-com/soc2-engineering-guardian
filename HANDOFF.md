@@ -1,9 +1,9 @@
 ---
 status: active
 phase: v1.1 · Designed PDF report, tracker exports, public-release prep
-next: SG-2 · SG-3 · SG-7 in parallel
+next: SG-4 · SG-5 in parallel
 tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 14:53 +0400
+updated: 2026-11-20 15:00 +0400
 ---
 
 # SOC 2 Engineering Guardian: handoff
@@ -84,8 +84,8 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 | SG-1 | Narrow output symlink guard; CSV tab/CR guard (security-critical) | done | 2026-11-20 03:27 | 2026-11-20 14:45 |
 | SG-2 | Scanner: SOC 2 rules, 17 total | done | 2026-11-20 14:46 | 2026-11-20 14:51 |
 | SG-3 | Priority hints, summary model, Markdown, per-item risk register | done | 2026-11-20 14:46 | 2026-11-20 14:53 |
-| SG-4 | Designed PDF report | todo | | |
-| SG-5 | Import-ready task exports | todo | | |
+| SG-4 | Designed PDF report | review | 2026-11-20 14:53 | |
+| SG-5 | Import-ready task exports | done | 2026-11-20 14:53 | 2026-11-20 15:00 |
 | SG-6 | Enriched synthetic example | todo | | |
 | SG-7 | Templates, references, SKILL.md | done | 2026-11-20 14:46 | 2026-11-20 14:52 |
 | SG-8 | Public README, infographics, preview, manifests, CI | todo | | |
@@ -111,21 +111,24 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
   only; no test for `csv_safe` on risk-register cells, for `code` evidence being excluded from period
   coverage, or for a reviewer `severity` overriding the hint on an evidence request. Pre-existing:
   `clean()` does not redact `sk_live_...` keys.
+- SG-5 (minor; SG-9 review focus): no test pins the per-line `csv_safe()` inside the Jira
+  Description (a planted skip survived); user newlines are not flattened in `tasks-slack.txt` and
+  `tasks.md` (a recommendation can forge a bullet) and backtick fences survive in the Slack text.
 
 ## Next steps
 
-1. Dispatch SG-2, SG-3, SG-7 in parallel (implementer, sonnet, high effort), one worktree each
-   under `~/Developer/soc2-guardian-wt/sg-N`, branched from main after the SG-1 merge.
-2. Review each (reviewer agent), merge, quick gate after each merge.
-3. Then SG-4 and SG-5 in parallel; then SG-6; SG-8; SG-9 final review.
+1. Review SG-4 and SG-5 (reviewer agent) as each reports; merge; gate after each merge.
+2. SG-6 (enriched example, commits regenerated docs/example) after both merge.
+3. SG-8 (README, infographics, preview, manifests, CI; also the SG-7 doc minors and the
+   install line), then SG-9 final whole-branch review (general-purpose, opus).
 
 ## In flight
 
-- 2026-11-20 14:46 · base `afe94b7`, implementer agents (sonnet, high effort), hand-backs saved to
+- 2026-11-20 14:53 · base `3ecec96`, implementer agents (sonnet, high effort), hand-backs saved to
   `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/sg-N/report.md`:
-  - SG-2 implement: branch `sg-2-scanner-rules`, worktree `~/Developer/soc2-guardian-wt/sg-2`
-  - SG-3 implement: branch `sg-3-summary-model`, worktree `~/Developer/soc2-guardian-wt/sg-3`
-  - SG-7 implement: branch `sg-7-skill-docs`, worktree `~/Developer/soc2-guardian-wt/sg-7`
+  - SG-4 implement: branch `sg-4-pdf-report`, worktree `~/Developer/soc2-guardian-wt/sg-4`
+  - SG-5 implement: branch `sg-5-task-exports`, worktree `~/Developer/soc2-guardian-wt/sg-5`
+- Merged so far: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3 `3ecec96`, SG-5 (suite 122/122).
 - SDD ledger and per-task scratch: `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/` (git-ignored);
   each task's hand-back is saved to `sg-N/report.md`, reviews to `sg-N/review-*.md`.
 - Uncommitted on main: `soc2-corrections-prompts.md` (user asked for it as a suggestion; kept out of the repo for now).

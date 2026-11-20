@@ -234,6 +234,8 @@ if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.pare
 
 - [ ] **Step 5: Commit** `feat(tasks): export import-ready jira, notion, slack and markdown tasks` with `Task: SG-5`.
 
+**As built (2026-11-20):** merged `aeed740`; approved first review, no fix round. Formats are checked first, then `require_valid`, then everything is built in memory and every path resolved with `target()` before any write. The multi-line Jira Description guards each line with `csv_safe()` and joins them under a `Safe` marker; each line starts with a fixed label. `--format` is case-insensitive and de-duplicated. Example: 105 tasks. Suite 122/122.
+
 ### Task SG-6: Enriched synthetic example
 
 **Files:**
