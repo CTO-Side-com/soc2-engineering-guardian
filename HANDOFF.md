@@ -3,7 +3,7 @@ status: active
 phase: v1.1 · Designed PDF report, tracker exports, public-release prep
 next: SG-2 · SG-3 · SG-7 in parallel
 tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 14:52 +0400
+updated: 2026-11-20 14:53 +0400
 ---
 
 # SOC 2 Engineering Guardian: handoff
@@ -83,7 +83,7 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 |---|---|---|---|---|
 | SG-1 | Narrow output symlink guard; CSV tab/CR guard (security-critical) | done | 2026-11-20 03:27 | 2026-11-20 14:45 |
 | SG-2 | Scanner: SOC 2 rules, 17 total | done | 2026-11-20 14:46 | 2026-11-20 14:51 |
-| SG-3 | Priority hints, summary model, Markdown, per-item risk register | review | 2026-11-20 14:46 | |
+| SG-3 | Priority hints, summary model, Markdown, per-item risk register | done | 2026-11-20 14:46 | 2026-11-20 14:53 |
 | SG-4 | Designed PDF report | todo | | |
 | SG-5 | Import-ready task exports | todo | | |
 | SG-6 | Enriched synthetic example | todo | | |
@@ -107,6 +107,10 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
   `assets/*.md`; test that check IDs cited in `ai-saas-threats.md` exist. Left for hardening:
   Outputs file-name and forbidden-wording tests, rule-count test tied to the scanner list, unused
   `sys.path.insert` in `test_skill_docs.py`, trailing space in `SYSTEM-DESCRIPTION.md`.
+- SG-3 (minor, test depth; SG-9 review focus): `test_item_text_is_redacted` checks `observation`
+  only; no test for `csv_safe` on risk-register cells, for `code` evidence being excluded from period
+  coverage, or for a reviewer `severity` overriding the hint on an evidence request. Pre-existing:
+  `clean()` does not redact `sk_live_...` keys.
 
 ## Next steps
 

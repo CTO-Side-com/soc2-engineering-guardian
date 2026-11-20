@@ -19,7 +19,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Trace each critical system to an accountable owner.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-002",
@@ -36,7 +37,8 @@
       "suggested_evidence_type": "policy",
       "verification_test": "Review acknowledgments against the staff population.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-003",
@@ -52,7 +54,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Sample hires without reading sensitive personnel records.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-004",
@@ -69,7 +72,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Reconcile completed training with in-scope personnel.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-005",
@@ -86,7 +90,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Trace material risks to owners and decisions.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-006",
@@ -103,7 +108,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Sample deficiencies through resolution or accepted risk.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-007",
@@ -120,7 +126,8 @@
       "suggested_evidence_type": "policy",
       "verification_test": "Compare customer commitments with implemented controls.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-008",
@@ -137,7 +144,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Reconcile inventory with deployed systems and vendors.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "IAM-001",
@@ -153,7 +161,8 @@
       "suggested_evidence_type": "test",
       "verification_test": "Attempt protected operations without a valid identity.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "IAM-002",
@@ -169,7 +178,8 @@
       "suggested_evidence_type": "configuration",
       "verification_test": "Verify enforcement for all identified administrative entry points.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "critical"
     },
     {
       "id": "IAM-003",
@@ -185,7 +195,8 @@
       "suggested_evidence_type": "test",
       "verification_test": "Attempt cross-role and cross-object actions with synthetic users.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "critical"
     },
     {
       "id": "IAM-004",
@@ -202,7 +213,8 @@
       "suggested_evidence_type": "test",
       "verification_test": "Attempt cross-tenant access using synthetic records.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "critical"
     },
     {
       "id": "IAM-005",
@@ -218,7 +230,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Reconcile personnel changes with granted and revoked access.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "IAM-006",
@@ -235,7 +248,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Reconcile all privileged identities with reviewed entries.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "IAM-007",
@@ -252,7 +266,8 @@
       "suggested_evidence_type": "configuration",
       "verification_test": "Inspect credential metadata without exposing values.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "IAM-008",
@@ -268,7 +283,8 @@
       "suggested_evidence_type": "test",
       "verification_test": "Replay an expired or revoked session.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "CHG-001",
@@ -284,7 +300,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Check approval timing, reviewer identity and approved commit.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "CHG-002",
@@ -300,7 +317,8 @@
       "suggested_evidence_type": "configuration",
       "verification_test": "Assess direct pushes, administrator bypass and stale approvals.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "CHG-003",
@@ -316,7 +334,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Reconcile deployed commits with successful required checks.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "CHG-004",
@@ -333,7 +352,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Trace releases to authorized actors and immutable commits.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "CHG-005",
@@ -349,7 +369,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Reconcile exceptions with production release history.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "CHG-006",
@@ -365,7 +386,8 @@
       "suggested_evidence_type": "test",
       "verification_test": "Apply representative migrations to an isolated synthetic database.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "CHG-007",
@@ -382,7 +404,8 @@
       "suggested_evidence_type": "configuration",
       "verification_test": "Trace a deployed artifact to reviewed source and dependencies.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "CHG-008",
@@ -399,7 +422,8 @@
       "suggested_evidence_type": "configuration",
       "verification_test": "Check development identities cannot access production secrets.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "DAT-001",
@@ -415,7 +439,8 @@
       "suggested_evidence_type": "configuration",
       "verification_test": "Test external and internal sensitive-data transport paths.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "DAT-002",
@@ -432,7 +457,8 @@
       "suggested_evidence_type": "configuration",
       "verification_test": "Reconcile sensitive stores with encryption and key controls.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "DAT-003",
@@ -448,7 +474,8 @@
       "suggested_evidence_type": "test",
       "verification_test": "Run an approved scanner without copying detected secrets.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "critical"
     },
     {
       "id": "DAT-004",
@@ -464,7 +491,8 @@
       "suggested_evidence_type": "configuration",
       "verification_test": "Review exposure against approved service requirements.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "DAT-005",
@@ -480,7 +508,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Trace a synthetic deletion across stores and backup policy.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "DAT-006",
@@ -496,7 +525,8 @@
       "suggested_evidence_type": "test",
       "verification_test": "Send synthetic sensitive fields and inspect redacted results.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "MON-001",
@@ -512,7 +542,8 @@
       "suggested_evidence_type": "test",
       "verification_test": "Verify actor, target, outcome and timestamp on critical events.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "MON-002",
@@ -529,7 +560,8 @@
       "suggested_evidence_type": "configuration",
       "verification_test": "Attempt unauthorized modification in a safe test environment.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "MON-003",
@@ -546,7 +578,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Trigger a synthetic alert and confirm assigned response.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "MON-004",
@@ -562,7 +595,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Reconcile assets with dated monitoring and scan records.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "MON-005",
@@ -579,7 +613,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Sample findings through closure or approved exception.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "MON-006",
@@ -596,7 +631,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Trace a simulated event through classification and response.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "MON-007",
@@ -612,7 +648,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Verify recovery evidence and tracked improvements.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "REC-001",
@@ -628,7 +665,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Reconcile critical stores with backup coverage and failures.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "REC-002",
@@ -644,7 +682,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Restore synthetic data and verify application usability.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "high"
     },
     {
       "id": "REC-003",
@@ -660,7 +699,8 @@
       "suggested_evidence_type": "policy",
       "verification_test": "Walk through loss of a critical provider or operator.",
       "organizational_dependency": false,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "VEN-001",
@@ -676,7 +716,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Reconcile deployed integrations with reviewed vendors.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "VEN-002",
@@ -692,7 +733,8 @@
       "suggested_evidence_type": "contract",
       "verification_test": "Identify responsibilities that remain with the SaaS operator.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "VEN-003",
@@ -709,7 +751,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Trace a vendor change to a documented risk decision.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "AI-001",
@@ -726,7 +769,8 @@
       "suggested_evidence_type": "test",
       "verification_test": "Inject synthetic instructions requesting an unauthorized action.",
       "organizational_dependency": false,
-      "engineering_extension": true
+      "engineering_extension": true,
+      "priority_hint": "critical"
     },
     {
       "id": "AI-002",
@@ -743,7 +787,8 @@
       "suggested_evidence_type": "test",
       "verification_test": "Attempt synthetic exfiltration and cross-user retrieval.",
       "organizational_dependency": false,
-      "engineering_extension": true
+      "engineering_extension": true,
+      "priority_hint": "high"
     },
     {
       "id": "AI-003",
@@ -760,7 +805,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Trace a released AI configuration to review and evaluations.",
       "organizational_dependency": false,
-      "engineering_extension": true
+      "engineering_extension": true,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-009",
@@ -776,7 +822,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-010",
@@ -792,7 +839,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-011",
@@ -808,7 +856,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-012",
@@ -824,7 +873,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-013",
@@ -840,7 +890,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-014",
@@ -856,7 +907,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     },
     {
       "id": "GOV-015",
@@ -872,7 +924,8 @@
       "suggested_evidence_type": "operational",
       "verification_test": "Review scoped records with the responsible human owner; repository contents alone are insufficient.",
       "organizational_dependency": true,
-      "engineering_extension": false
+      "engineering_extension": false,
+      "priority_hint": "medium"
     }
   ]
 }

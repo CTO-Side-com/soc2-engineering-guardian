@@ -176,6 +176,8 @@ if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.pare
 
 - [ ] **Step 9: Commit** `feat(report): add shared summary model, urgency hints and per-item risk register` with `Task: SG-3`.
 
+**As built (2026-11-20):** merged `0237e76`; approved first review, no fix round. `DEFAULTS` is `{'design': {'recommendation'}, 'operation': {'recommendation', 'done_when'}}` (design requests take the library `verification_test` as done-when). Item `summary` is `Fix: [Design] <title>` / `Collect evidence: [Operation] <title>`. `summarize()` does not validate: callers run `require_valid` first. Hints: critical 5, high 25, medium 23, low 0. Suite 103/103.
+
 ### Task SG-4: Designed PDF report
 
 **Files:**
