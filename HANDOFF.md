@@ -1,9 +1,9 @@
 ---
 status: active
-phase: v1.1 · Built and reviewed on main, not published
-next: Publish · create repo, push, check CI
-tests: unit 159/159 · repo 9/9 (2026-11-20, macOS, Python 3.13); CI not run yet (unpublished)
-updated: 2026-11-20 17:05 +0400
+phase: v1.1 · Published
+next: v1.1.1 · Symlink guard informs and asks
+tests: unit 159/159 · repo 9/9; CI green on Python 3.9/3.11/3.13, 1 skip on Linux (case-variant symlink test) (2026-11-20)
+updated: 2026-11-20 17:07 +0400
 ---
 # SOC 2 Engineering Guardian: handoff
 
@@ -11,8 +11,9 @@ updated: 2026-11-20 17:05 +0400
 
 - v1.1.0 is built on `main` (sprint commits `afe94b7`..this one); v1.0.0 is the initial commit
   `c4abed9` from `~/Downloads/SOC2_Engineering_Guardian.bundle`.
-- Not published. `origin` points at the local bundle; `CTO-Side-com/soc2-engineering-guardian`
-  does not exist on GitHub yet. Nothing has been pushed.
+- Published 2026-11-20 17:07: public https://github.com/CTO-Side-com/soc2-engineering-guardian (`origin`),
+  homepage ctoside.com, topics as hipaa-guardian's; first push `5ff31b3`, CI run 44741421121 green.
+  The old local bundle stays as remote `bundle`.
 - Sibling and model: `~/Projects/Skills/hipaa-guardian` (public, same CTOside family).
 
 ## What's working
@@ -206,16 +207,14 @@ canvas.save(out, optimize=True)
 
 ## Next steps
 
-1. Your call (Needs you): create public `CTO-Side-com/soc2-engineering-guardian` and push; then
-   check CI on Linux for 3.9/3.11/3.13 and that the README badge and images resolve on GitHub.
-2. v1.1.1: the symlink guard's inform-and-ask behaviour (Decisions); then a hardening pass over `## Follow-ups`
+1. v1.1.1: the symlink guard's inform-and-ask behaviour (Decisions); then a hardening pass over `## Follow-ups`
    (redaction gaps listed under SG-9, newline flattening in `tasks.md` and Slack text, PDF header
    width, test-depth items).
-3. Correction prompts 2 and 5 if you want them.
+2. Correction prompts 2 and 5 if you want them.
 
 ## In flight
 
-- Nothing running. All v1.1 tasks merged: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3
+- Nothing running. v1.1 published. All v1.1 tasks merged: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3
   `3ecec96`, SG-5 `f67a64a`, SG-4 `1d72225`, SG-6 `7ab9c2d`, SG-10 `85cf220`, SG-8 `a1cb2a5`, SG-9
   `ed443fd`. Each merge commit body carries its task report, review and cost.
 - Uncommitted on main: `soc2-corrections-prompts.md` (you asked for it as a suggestion; kept out of
