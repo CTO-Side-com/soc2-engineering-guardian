@@ -3,7 +3,7 @@ status: active
 phase: v1.1 · Designed PDF report, tracker exports, public-release prep
 next: SG-2 · SG-3 · SG-7 in parallel
 tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 14:45 +0400
+updated: 2026-11-20 14:51 +0400
 ---
 
 # SOC 2 Engineering Guardian: handoff
@@ -82,12 +82,12 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 | ID | Task | Status | Started | Finished |
 |---|---|---|---|---|
 | SG-1 | Narrow output symlink guard; CSV tab/CR guard (security-critical) | done | 2026-11-20 03:27 | 2026-11-20 14:45 |
-| SG-2 | Scanner: SOC 2 rules, 17 total | todo | | |
-| SG-3 | Priority hints, summary model, Markdown, per-item risk register | todo | | |
+| SG-2 | Scanner: SOC 2 rules, 17 total | done | 2026-11-20 14:46 | 2026-11-20 14:51 |
+| SG-3 | Priority hints, summary model, Markdown, per-item risk register | review | 2026-11-20 14:46 | |
 | SG-4 | Designed PDF report | todo | | |
 | SG-5 | Import-ready task exports | todo | | |
 | SG-6 | Enriched synthetic example | todo | | |
-| SG-7 | Templates, references, SKILL.md | todo | | |
+| SG-7 | Templates, references, SKILL.md | review | 2026-11-20 14:46 | |
 | SG-8 | Public README, infographics, preview, manifests, CI | todo | | |
 | SG-9 | Final whole-branch review (security-critical) | todo | | |
 
@@ -97,6 +97,10 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
   because the parent folder is the `/tmp` alias; a symlink deeper than the parent in a path
   outside the working directory is not checked; a no-permission folder raises `PermissionError`
   rather than `ValueError`; the check-then-open window is unchanged from v1.0.
+- SG-2 (minor, scanner recall): `sensitive-log-candidate` misses `console.warn`, `logger.warn`,
+  `log.info`, `secret_key`, `password_hash` and camelCase names, and its `<prefix>_password` match is
+  untested; `credential-in-url` alternation is thinly tested and `?token=` pagination hits; the CI
+  rules have no comment or multi-line tests.
 
 ## Next steps
 
@@ -107,6 +111,11 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 
 ## In flight
 
+- 2026-11-20 14:46 · base `afe94b7`, implementer agents (sonnet, high effort), hand-backs saved to
+  `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/sg-N/report.md`:
+  - SG-2 implement: branch `sg-2-scanner-rules`, worktree `~/Developer/soc2-guardian-wt/sg-2`
+  - SG-3 implement: branch `sg-3-summary-model`, worktree `~/Developer/soc2-guardian-wt/sg-3`
+  - SG-7 implement: branch `sg-7-skill-docs`, worktree `~/Developer/soc2-guardian-wt/sg-7`
 - SDD ledger and per-task scratch: `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/` (git-ignored);
   each task's hand-back is saved to `sg-N/report.md`, reviews to `sg-N/review-*.md`.
 - Uncommitted on main: `soc2-corrections-prompts.md` (user asked for it as a suggestion; kept out of the repo for now).

@@ -37,8 +37,9 @@ PATTERNS = [
      'medium', 'DAT-004', 'Potential wildcard CORS; verify credentials and data exposure'),
     ('possible-credential-literal', r'(?i)\b(api[_-]?key|client[_-]?secret|authorization[_-]?token|password)\s*[:=]\s*[\x27\x22][A-Za-z0-9_+/=.!@#$%^&*:-]{12,}[\x27\x22]',
      'high', 'DAT-003', 'Possible hardcoded credential; inspect locally without copying the value'),
-    ('phi-log-candidate', r'(?i)(console\.(log|debug|info|error)|logger\.(info|debug|warning|error)|logging\.(info|debug|warning|error)|print\()\s*\(?[^\n]{0,180}\b(patient|insurance|medical|dob|diagnosis|ssn|transcript|appointment|health_record)\b',
-     'high', 'DAT-006', 'Potential patient-related variable in a log statement; may be harmless'),
+    # An optional prefix (user_password, client_secret) is covered; \b alone would miss it since _ is a word character.
+    ('sensitive-log-candidate', r'(?i)(console\.(log|debug|info|error)|logger\.(info|debug|warning|error)|logging\.(info|debug|warning|error)|print\()\s*\(?[^\n]{0,180}\b(?:\w*_)?(password|passwd|secret|api_?key|access_token|refresh_token|authorization|card_number|credit_card|cvv|ssn)\b',
+     'high', 'DAT-006', 'Potential credential or sensitive identifier in a log statement; may be harmless'),
     ('insecure-ssl-context', r'(?i)(CERT_NONE\b|check_hostname\s*=\s*False\b|NODE_TLS_REJECT_UNAUTHORIZED\s*=\s*[\x27\x22]?0\b)',
      'high', 'DAT-001', 'Potential TLS/SSL insecure configuration'),
     ('verbose-sql-echo', r'(?i)\b(create_engine\([^\n]{0,180}echo\s*=\s*True\b|logging\.getLogger\([\x27\x22]sqlalchemy\.engine)',
@@ -54,9 +55,19 @@ PATTERNS = [
      'medium', 'DAT-006', 'Debug mode may expose stack traces and request data containing sensitive data'),
     # XML namespace URIs and reserved documentation hosts are identifiers, not endpoints.
     ('plaintext-http-endpoint', r'(?i)[\x27\x22\x60]http://(?!localhost\b|127\.0\.0\.1|0\.0\.0\.0|\[::1\]|www\.w3\.org/|schemas\.|json-schema\.org|maven\.apache\.org/|www\.springframework\.org/|java\.sun\.com/|xmlns\.|purl\.org/|example\.(com|org|net)\b|(?:[\w-]+\.)*(?:example|local|localhost)(?=[:/\x27\x22\x60]|$))[\w.-]+',
-     'medium', 'DAT-001', 'Plaintext HTTP URL; confirm no esensitive data or credentials travel over it'),
-    ('patient-identifier-in-url', r'(?i)[?&](patient_?id|mrn|dob|date_of_birth|ssn|insurance_?id|member_?id|diagnosis)=',
-     'medium', 'DAT-004', 'Possible patient identifier in a URL query string; leaks into logs, referrers and analytics'),
+     'medium', 'DAT-001', 'Plaintext HTTP URL; confirm no sensitive data or credentials travel over it'),
+    ('credential-in-url', r'(?i)[?&](access_token|api_key|apikey|token|password|secret|client_secret|session_id|sessionid)=',
+     'medium', 'DAT-006', 'Possible credential in a URL query string; leaks into logs, referrers and analytics'),
+    # Workflow files under .github/ are scanned like any other YAML. A branch-like ref is mutable; a tag or SHA is not.
+    ('unpinned-action-ref', r'(?i)\buses\s*:\s*[\x27\x22]?[\w.-]+/[\w./-]+@(main|master|latest|head|dev|develop|trunk)(?![\w.-])',
+     'medium', 'CHG-007', 'Workflow action pinned to a mutable branch ref; pin to a release tag or commit SHA'),
+    # Anchored to a YAML key, list item or `on:` line so a comment or string mentioning the trigger does not match.
+    ('pull-request-target-trigger', r'(?i)(^\s*[\x27\x22]?pull_request_target[\x27\x22]?\s*:|^\s*-\s*[\x27\x22]?pull_request_target\b|^\s*[\x27\x22]?on[\x27\x22]?\s*:[^#\n]*\bpull_request_target\b)',
+     'medium', 'CHG-007', 'Workflow runs on pull_request_target with repository secrets; verify it never checks out untrusted code'),
+    ('postgres-ssl-disabled', r'(?i)\bsslmode[\x27\x22]?\s*[:=]\s*[\x27\x22]?(disable|allow)\b',
+     'high', 'DAT-001', 'Database connection may not require TLS (sslmode disable or allow)'),
+    ('sentry-default-pii', r'(?i)(\bsend_default_pii[\x27\x22]?\s*[:=]\s*True\b|\bsendDefaultPii[\x27\x22]?\s*[:=]\s*true\b)',
+     'medium', 'DAT-006', 'Sentry may send default PII such as IP addresses and request data'),
 ]
 COMPILED = [(rid, re.compile(exp), sev, ctrl, summary) for rid, exp, sev, ctrl, summary in PATTERNS]
 
@@ -121,7 +132,7 @@ def scan(repo, max_files=12000, max_bytes=524288, max_findings=1000):
     return {
         'schema_version': '1.0', 'scanned_on': today(),
         'repo_label': repo.name, 'scanner_type': 'offline_heuristic',
-        'scope_notice': 'Metadata-only static lead generation. Not exhaustive; excludes common patient-data and fixture directories; no negative compliance inference.',
+        'scope_notice': 'Metadata-only static lead generation. Not exhaustive; excludes common data, upload and fixture directories; no negative compliance inference.',
         'files_scanned': scanned, 'files_skipped_due_to_size': skipped_size,
         'max_file_count_limit': max_files, 'may_have_reached_file_limit': scanned + skipped_size >= max_files,
         'truncated_findings': truncated,

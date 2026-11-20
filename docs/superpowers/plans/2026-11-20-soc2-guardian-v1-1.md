@@ -129,6 +129,8 @@ if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.pare
 
 - [ ] **Step 5: Commit** `fix(scan): replace hipaa rules with soc 2 rules and add ci/cd checks` with `Task: SG-2`. (README/SKILL.md rule counts are updated by SG-7 and SG-8.)
 
+**As built (2026-11-20):** merged `a7bb94c`; approved first review, no fix round. `sensitive-log-candidate` also matches `<prefix>_password`-style names (`(?:\w*_)?`), beyond the spec list. Suite 86/86.
+
 ### Task SG-3: Priority hints, shared summary model, Markdown and risk register
 
 **Files:**
