@@ -61,7 +61,7 @@ ORDINARY = ['2026-08-01', 'Period 2026-08-01 to 2026-10-31', 'Population 92/92/0
             'Period gaps: [["2026-08-01", "2026-10-31"]]', 'Done when: reviewer signs off',
             'Rollback +3 2026-09-14 release']
 # Each of these takes seconds when a rule backtracks quadratically.
-LINEAR = [('a_' * 50000), ('ghp_' * 25000), ('a.' * 50000)]
+LINEAR = [('a_' * 50000), ('ghp_' * 25000), ('a.' * 50000), ('eyJ-' * 25000)]
 
 
 def evidence(kind='code', eid='E1'):

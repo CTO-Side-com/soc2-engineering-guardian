@@ -59,7 +59,8 @@ def clean(value, limit=3000):
     # \b cannot precede the keyword in DB_PASSWORD or access_token, since _ is a word character; the lookbehind
     # admits _ without a \w* prefix, which would rescan every _ from each start.
     text = re.sub(r'''(?i)\bbearer\s+\S+|(?<![A-Za-z0-9])(?:token|passw(?:or)?d|pwd|secret|api[_-]?key|access_?key|private_?key)["']?\s*(?:=>|[:=])\s*(?:"[^"\n]*"?|'[^'\n]*'?|\S+)''', '[REDACTED_SECRET]', text)
-    text = re.sub(r'\b(?:gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+|sk-[A-Za-z0-9_-]{16,}|[sr]k_(?:live|test)_[A-Za-z0-9_]{16,}|AKIA[0-9A-Z]{16}|(?:xox[abeprs]|xapp)-[A-Za-z0-9-]+|eyJ[\w-]+\.eyJ[\w-]+\.[\w-]+)\b', '[REDACTED_SECRET]', text)
+    # (?<!-) before eyJ: otherwise every -eyJ in a long hyphen run restarts a scan to the end of the run.
+    text = re.sub(r'\b(?:gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+|sk-[A-Za-z0-9_-]{16,}|[sr]k_(?:live|test)_[A-Za-z0-9_]{16,}|AKIA[0-9A-Z]{16}|(?:xox[abeprs]|xapp)-[A-Za-z0-9-]+|(?<!-)eyJ[\w-]+\.eyJ[\w-]+\.[\w-]+)\b', '[REDACTED_SECRET]', text)
     return text[:limit]
 
 def csv_safe(value):
