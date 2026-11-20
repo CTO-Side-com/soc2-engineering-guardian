@@ -30,10 +30,10 @@ def target(path):
     # System aliases above the working directory (macOS /var -> /private/var) are trusted;
     # a symlink planted inside it, or as the file or its folder, is not.
     p = Path(os.path.abspath(path))  # lexical: '..' collapsed before checking
-    root = os.path.realpath(os.getcwd())
-    def inside(a):  # a lies strictly below the working directory
-        r = os.path.realpath(a.parent)
-        return r == root or r.startswith(root + os.sep)
+    root = os.stat(os.getcwd())
+    def inside(a):  # a lies strictly below the working directory; by file identity, as names can differ in case
+        r = Path(os.path.realpath(a.parent))
+        return any(os.path.exists(x) and os.path.samestat(os.stat(x), root) for x in (r, *r.parents))
     if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.parents if inside(a)):
         raise ValueError('Refusing symlink output path')
     p.parent.mkdir(parents=True, exist_ok=True)

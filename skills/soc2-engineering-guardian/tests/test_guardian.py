@@ -184,5 +184,22 @@ class GuardianTests(unittest.TestCase):
         self.assertEqual([],os.listdir('out/real/sub'))
     def test_csv_safe_neutralizes_leading_tab_and_cr(self):
         self.assertTrue(csv_safe('\tfoo').startswith("'"));self.assertTrue(csv_safe('\r=1+1').startswith("'"))
+    def test_case_variant_path_to_planted_symlink_is_refused(self):
+        self.in_tmp(True);cwd=os.getcwd();up=cwd.upper()
+        if up==cwd or not os.path.isdir(up):self.skipTest('case-sensitive filesystem: no case-variant alias of the working directory')
+        with self.assertRaises(ValueError):write(up+'/out/link/sub/report.json',{})
+        self.assertEqual([],os.listdir('out/real/sub'))
+    def test_symlinked_parent_outside_cwd_is_refused(self):
+        tmp=tempfile.TemporaryDirectory();self.addCleanup(tmp.cleanup);old=os.getcwd();self.addCleanup(os.chdir,old)
+        for d in ('work','real'):os.makedirs(os.path.join(tmp.name,d))
+        os.symlink('real',os.path.join(tmp.name,'link'));os.chdir(os.path.join(tmp.name,'work'))
+        with self.assertRaises(ValueError):write('../link/report.json',{})
+        self.assertEqual([],os.listdir('../real'))
+    def test_dotdot_is_normalised_before_checking(self):
+        tmp=tempfile.TemporaryDirectory();self.addCleanup(tmp.cleanup);old=os.getcwd();os.chdir(tmp.name);self.addCleanup(os.chdir,old)
+        os.makedirs('out');os.makedirs('elsewhere');os.symlink('../elsewhere','out/link')
+        try:write('out/link/../x.json',{})
+        except ValueError:self.fail("'..' was not collapsed before the symlink check")
+        self.assertTrue(os.path.isfile('out/x.json'));self.assertFalse(os.path.exists('x.json'));self.assertFalse(os.path.exists('elsewhere/x.json'))
 
 if __name__=='__main__':unittest.main()
