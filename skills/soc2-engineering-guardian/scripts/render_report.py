@@ -66,7 +66,7 @@ def summarize(data):
         'by_area':by_area,'items':items,'period':period}
 
 def lines(data):
-    s=summarize(data);defs=s['definitions']
+    s=summarize(data);defs=s['definitions'];na='Not assessed (Type 1 readiness)'
     out=['# SOC 2 Engineering Guardian',NOTICE,'',
          'Product: '+data['product'],'Environment: '+data['environment'],
          'Period: '+data['period']['start']+' to '+data['period']['end'],
@@ -75,7 +75,7 @@ def lines(data):
          'Assessor: '+(data['assessor'] or 'Unassigned'),
          'Systems: '+', '.join(data.get('in_scope_systems',[])),
          'Exclusions: '+', '.join(data.get('excluded_systems',[])),
-         *(['Operation: Not assessed (Type 1 readiness)'] if s['type1'] else []),
+         *(['Operation: '+na] if s['type1'] else []),
          'Service commitments: '+(', '.join(data['service_commitments']) or 'Unknown; obtain management input.'),
          'System requirements: '+(', '.join(data['system_requirements']) or 'Unknown; obtain management input.'),
          'Scope unknowns: '+(', '.join(data.get('scope_unknowns',[])) or 'None recorded; this does not prove scope completeness.'),
@@ -84,9 +84,11 @@ def lines(data):
          'Recovery checks support risk mitigation; this pack does not assess the Availability category.',
          'PDF text uses built-in Western fonts; use Markdown for full Unicode content.','',
          '## Evidence status counts']
-    for dimension in ('design','operation'):
+    for dimension in ('design',) if s['type1'] else ('design','operation'):
         counts=Counter(c[dimension+'_status'] for c in data['controls'])
         out.append(dimension.title()+': '+', '.join(k+'='+str(v) for k,v in sorted(counts.items())))
+    # Type 1 draws no operating conclusion, whatever operation status the assessment records.
+    if s['type1']:out.append('Operation: '+na)
     out.extend(['','## Status by area','Legend: V verified, P partially verified, F failed, NA not applicable, E insufficient evidence.',
         '| Area | Checks | Design V/P/F/NA/E | Operation V/P/F/NA/E |','| --- | --- | --- | --- |'])
     def cells(n):return '/'.join(str(n[k]) for k in ('verified','partially_verified','failed','not_applicable','insufficient_evidence'))
@@ -112,15 +114,15 @@ def lines(data):
         d=defs[c['id']]
         out.extend(['', '### '+c['id']+' | '+d['title'],
             'Supporting criteria: '+', '.join(d['criteria'])+' (interpretive mapping)',
-            'Design: '+c['design_status']+'; Operation: '+c['operation_status'],
+            'Design: '+c['design_status']+'; Operation: '+(na if s['type1'] else c['operation_status']),
             'Rationale: '+(c['rationale'] or 'No reviewer conclusion recorded.'),
             'Evidence: '+(', '.join(c['design_evidence']+c['operation_evidence']) or 'None'),
             'Reviewer: '+(c['reviewer'] or 'Unassigned')+'; Owner: '+(c['owner'] or 'Unassigned'),
-            'Period gaps: '+json.dumps(gaps_for(c,data)),
+            *([] if s['type1'] else ['Period gaps: '+json.dumps(gaps_for(c,data))]),
             'Next action: '+(c['recommendation'] or 'Collect and review scoped evidence.'),
             'Verification: '+(c['verification_test'] or d['verification_test'])])
         p=c.get('population',{})
-        out.append('Population: total='+str(p.get('total'))+'; reviewed='+str(p.get('reviewed'))+
+        if not s['type1']:out.append('Population: total='+str(p.get('total'))+'; reviewed='+str(p.get('reviewed'))+
                    '; exceptions='+str(p.get('exceptions'))+'; method='+str(p.get('selection_method','')))
     out.extend(['','## Evidence index'])
     for e in data['evidence']:

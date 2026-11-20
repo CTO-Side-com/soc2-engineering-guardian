@@ -113,5 +113,12 @@ class SummaryTests(unittest.TestCase):
         self.a=create('Synthetic SaaS','production','2026-08-01','2026-10-31','type1-readiness');md=self.render_md()
         for h in ('## Status by area','## Open items by urgency'):self.assertIn(h,md)
         self.assertNotIn('## Period coverage',md);self.assertIn('Not assessed (Type 1 readiness)',md)
+    def test_type1_markdown_has_no_operation_conclusions(self):
+        self.a=create('Synthetic SaaS','production','2026-08-01','2026-10-31','type1-readiness')
+        self.a['evidence']=[self.evidence('operational')];self.gap('CHG-001','operation','failed','high')
+        self.assertEqual([],validate(self.a));md=self.render_md()
+        for leak in ('Period gaps: [[','Operation: failed','Operation: insufficient_evidence','Population: total='):self.assertNotIn(leak,md)
+        self.assertIn('Not assessed (Type 1 readiness)',md)
+        self.assertIn('Design: insufficient_evidence; Operation: Not assessed (Type 1 readiness)',md)
 
 if __name__=='__main__':unittest.main()
