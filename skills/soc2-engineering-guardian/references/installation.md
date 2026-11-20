@@ -1,5 +1,83 @@
 # Install SOC 2 Engineering Guardian
 
+## Install from the public repository
+
+Pick your agent; every command is copy-paste ready.
+
+### Claude Code
+
+**Plugin (recommended, updates with `/plugin`).** Run inside Claude Code:
+
+```text
+/plugin marketplace add CTO-Side-com/soc2-engineering-guardian
+```
+
+```text
+/plugin install soc2-engineering-guardian@ctoside-soc2
+```
+
+**GitHub CLI** (gh 2.90 or later), for you or for one repository:
+
+```bash
+gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent claude-code --scope user
+```
+
+```bash
+gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent claude-code --scope project
+```
+
+**Git only**, into `~/.claude/skills` (use `.claude/skills` instead for a single project):
+
+```bash
+tmp=$(mktemp -d) && git clone --depth 1 https://github.com/CTO-Side-com/soc2-engineering-guardian.git "$tmp" && mkdir -p ~/.claude/skills && cp -R "$tmp/skills/soc2-engineering-guardian" ~/.claude/skills/ && rm -rf "$tmp"
+```
+
+> If you set `CLAUDE_CONFIG_DIR`, user-scope skills live in `$CLAUDE_CONFIG_DIR/skills` and `gh skill` installs there.
+
+### GitHub Copilot
+
+For you (`~/.copilot/skills`):
+
+```bash
+gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent github-copilot --scope user
+```
+
+For one repository:
+
+```bash
+gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent github-copilot --scope project
+```
+
+Git only, into the repository's `.github/skills`:
+
+```bash
+tmp=$(mktemp -d) && git clone --depth 1 https://github.com/CTO-Side-com/soc2-engineering-guardian.git "$tmp" && mkdir -p .github/skills && cp -R "$tmp/skills/soc2-engineering-guardian" .github/skills/ && rm -rf "$tmp"
+```
+
+### Cursor
+
+For you (`~/.cursor/skills`):
+
+```bash
+gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent cursor --scope user
+```
+
+For one repository:
+
+```bash
+gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent cursor --scope project
+```
+
+Git only, into the repository's `.cursor/skills`:
+
+```bash
+tmp=$(mktemp -d) && git clone --depth 1 https://github.com/CTO-Side-com/soc2-engineering-guardian.git "$tmp" && mkdir -p .cursor/skills && cp -R "$tmp/skills/soc2-engineering-guardian" .cursor/skills/ && rm -rf "$tmp"
+```
+
+`gh skill install` also supports other agents: replace the `--agent` value (`gh skill install --help` lists them all).
+
+## Copy the folder by hand
+
 The skill is the folder `skills/soc2-engineering-guardian` in this repository. Copy that folder into the location your agent reads skills from.
 
 | Agent | Project scope | User scope |
