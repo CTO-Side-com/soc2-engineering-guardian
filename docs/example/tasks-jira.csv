@@ -1,106 +1,728 @@
-Summary,Description,Priority,Owner,Due Date,Labels
-Collect evidence: [Design] Assign accountable security and control owners,Control GOV-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace each critical system to an accountable owner.,Medium,,,GOV-001-design
-Collect evidence: [Operation] Assign accountable security and control owners,"Control GOV-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-001-operation
-Collect evidence: [Design] Maintain security policies and staff acknowledgment,Control GOV-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review acknowledgments against the staff population.,Medium,,,GOV-002-design
-Collect evidence: [Operation] Maintain security policies and staff acknowledgment,"Control GOV-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-002-operation
-Collect evidence: [Design] Review personnel screening and onboarding evidence,Control GOV-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Sample hires without reading sensitive personnel records.,Medium,,,GOV-003-design
-Collect evidence: [Operation] Review personnel screening and onboarding evidence,"Control GOV-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-003-operation
-Collect evidence: [Design] Train personnel for their security responsibilities,Control GOV-004; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile completed training with in-scope personnel.,Medium,,,GOV-004-design
-Collect evidence: [Operation] Train personnel for their security responsibilities,"Control GOV-004; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-004-operation
-Collect evidence: [Design] Review risk assessments and treatment decisions,Control GOV-005; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace material risks to owners and decisions.,Medium,,,GOV-005-design
-Collect evidence: [Operation] Review risk assessments and treatment decisions,"Control GOV-005; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-005-operation
-Collect evidence: [Design] Evaluate control performance and unresolved deficiencies,Control GOV-006; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Sample deficiencies through resolution or accepted risk.,Medium,,,GOV-006-design
-Collect evidence: [Operation] Evaluate control performance and unresolved deficiencies,"Control GOV-006; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-006-operation
-Collect evidence: [Design] Communicate security commitments and reporting channels,Control GOV-007; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Compare customer commitments with implemented controls.,Medium,,,GOV-007-design
-Collect evidence: [Operation] Communicate security commitments and reporting channels,"Control GOV-007; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-007-operation
-Collect evidence: [Design] Maintain scoped inventories and system description inputs,Control GOV-008; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile inventory with deployed systems and vendors.,Medium,,,GOV-008-design
-Collect evidence: [Operation] Maintain scoped inventories and system description inputs,"Control GOV-008; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-008-operation
-Collect evidence: [Operation] Authenticate application and administrative users,"Control IAM-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,IAM-001-operation
-Collect evidence: [Design] Protect privileged access with strong authentication,Control IAM-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Verify enforcement for all identified administrative entry points.,Medium,,,IAM-002-design
-Collect evidence: [Operation] Protect privileged access with strong authentication,"Control IAM-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,IAM-002-operation
-Collect evidence: [Design] Enforce server-side roles and object permissions,Control IAM-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Attempt cross-role and cross-object actions with synthetic users.,Medium,,,IAM-003-design
-Collect evidence: [Operation] Enforce server-side roles and object permissions,"Control IAM-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,IAM-003-operation
-Collect evidence: [Design] Isolate tenant data across services and retrieval,Control IAM-004; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Attempt cross-tenant access using synthetic records.,Medium,,,IAM-004-design
-Collect evidence: [Operation] Isolate tenant data across services and retrieval,"Control IAM-004; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,IAM-004-operation
-Collect evidence: [Design] Approve provisioning and remove departed users,Control IAM-005; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile personnel changes with granted and revoked access.,Medium,,,IAM-005-design
-Collect evidence: [Operation] Approve provisioning and remove departed users,"Control IAM-005; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,IAM-005-operation
-Collect evidence: [Design] Review access rights and service identities periodically,Control IAM-006; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile all privileged identities with reviewed entries.,Medium,,,IAM-006-design
-Collect evidence: [Operation] Review access rights and service identities periodically,"Control IAM-006; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,IAM-006-operation
-Collect evidence: [Design] Limit and rotate service credentials,Control IAM-007; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Inspect credential metadata without exposing values.,Medium,,,IAM-007-design
-Collect evidence: [Operation] Limit and rotate service credentials,"Control IAM-007; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,IAM-007-operation
-Collect evidence: [Design] Constrain sessions and invalidate revoked access,Control IAM-008; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Replay an expired or revoked session.,Medium,,,IAM-008-design
-Collect evidence: [Operation] Constrain sessions and invalidate revoked access,"Control IAM-008; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,IAM-008-operation
-Collect evidence: [Design] Require independent review of production code changes,"Control CHG-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Check approval timing, reviewer identity and approved commit.",Medium,Synthetic Release Owner,2026-11-30,CHG-001-design
-Fix: [Operation] Require independent review of production code changes,Control CHG-001; dimension operation. Collect August release records and resolve the two approval exceptions. Done when: Reconcile all production release paths with reviews of the deployed commits.,Medium,Synthetic Release Owner,2026-11-30,CHG-001-operation
-Collect evidence: [Design] Protect release branches and review bypass permissions,"Control CHG-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Assess direct pushes, administrator bypass and stale approvals.",Medium,,,CHG-002-design
-Collect evidence: [Operation] Protect release branches and review bypass permissions,"Control CHG-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,CHG-002-operation
-Collect evidence: [Design] Run required checks before production deployment,Control CHG-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile deployed commits with successful required checks.,Medium,,,CHG-003-design
-Collect evidence: [Operation] Run required checks before production deployment,"Control CHG-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,CHG-003-operation
-Collect evidence: [Design] Restrict and trace production deployments,Control CHG-004; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace releases to authorized actors and immutable commits.,Medium,,,CHG-004-design
-Collect evidence: [Operation] Restrict and trace production deployments,"Control CHG-004; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,CHG-004-operation
-Collect evidence: [Design] Control emergency changes and retrospective review,Control CHG-005; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile exceptions with production release history.,Medium,,,CHG-005-design
-Collect evidence: [Operation] Control emergency changes and retrospective review,"Control CHG-005; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,CHG-005-operation
-Collect evidence: [Design] Test database migrations and recovery paths,Control CHG-006; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Apply representative migrations to an isolated synthetic database.,Medium,,,CHG-006-design
-Collect evidence: [Operation] Test database migrations and recovery paths,"Control CHG-006; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,CHG-006-operation
-Collect evidence: [Design] Pin and protect build inputs and dependencies,Control CHG-007; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace a deployed artifact to reviewed source and dependencies.,Medium,,,CHG-007-design
-Collect evidence: [Operation] Pin and protect build inputs and dependencies,"Control CHG-007; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,CHG-007-operation
-Collect evidence: [Design] Separate production credentials and development access,Control CHG-008; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Check development identities cannot access production secrets.,Medium,,,CHG-008-design
-Collect evidence: [Operation] Separate production credentials and development access,"Control CHG-008; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,CHG-008-operation
-Fix: [Design] Protect sensitive traffic with authenticated encryption,Control DAT-001; dimension design. Enable certificate verification and test certificate rejection. Done when: A request using an untrusted certificate fails in an isolated test.,High,Synthetic Engineering Owner,2026-11-30,DAT-001-design
-Collect evidence: [Operation] Protect sensitive traffic with authenticated encryption,"Control DAT-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",High,Synthetic Engineering Owner,2026-11-30,DAT-001-operation
-Collect evidence: [Design] Protect stored information and encryption keys,Control DAT-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile sensitive stores with encryption and key controls.,Medium,,,DAT-002-design
-Collect evidence: [Operation] Protect stored information and encryption keys,"Control DAT-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,DAT-002-operation
-Collect evidence: [Design] Prevent secrets from entering source and build output,Control DAT-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Run an approved scanner without copying detected secrets.,Medium,,,DAT-003-design
-Collect evidence: [Operation] Prevent secrets from entering source and build output,"Control DAT-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,DAT-003-operation
-Collect evidence: [Design] Restrict public storage and network exposure,Control DAT-004; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review exposure against approved service requirements.,Medium,,,DAT-004-design
-Collect evidence: [Operation] Restrict public storage and network exposure,"Control DAT-004; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,DAT-004-operation
-"Collect evidence: [Design] Control retention, disposal and backup deletion",Control DAT-005; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace a synthetic deletion across stores and backup policy.,Medium,,,DAT-005-design
-"Collect evidence: [Operation] Control retention, disposal and backup deletion","Control DAT-005; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,DAT-005-operation
-Collect evidence: [Design] Limit sensitive information in logs and telemetry,Control DAT-006; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Send synthetic sensitive fields and inspect redacted results.,Medium,,,DAT-006-design
-Collect evidence: [Operation] Limit sensitive information in logs and telemetry,"Control DAT-006; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,DAT-006-operation
-Collect evidence: [Design] Record security events with usable identity and context,"Control MON-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Verify actor, target, outcome and timestamp on critical events.",Medium,,,MON-001-design
-Collect evidence: [Operation] Record security events with usable identity and context,"Control MON-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,MON-001-operation
-Collect evidence: [Design] Protect audit logs from unauthorized alteration,Control MON-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Attempt unauthorized modification in a safe test environment.,Medium,,,MON-002-design
-Collect evidence: [Operation] Protect audit logs from unauthorized alteration,"Control MON-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,MON-002-operation
-Collect evidence: [Design] Test security alerts and escalation delivery,Control MON-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trigger a synthetic alert and confirm assigned response.,Medium,,,MON-003-design
-Collect evidence: [Operation] Test security alerts and escalation delivery,"Control MON-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,MON-003-operation
-Collect evidence: [Design] Review vulnerabilities and configuration changes,Control MON-004; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile assets with dated monitoring and scan records.,Medium,,,MON-004-design
-Collect evidence: [Operation] Review vulnerabilities and configuration changes,"Control MON-004; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,MON-004-operation
-Collect evidence: [Design] Track vulnerability remediation and accepted exceptions,Control MON-005; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Sample findings through closure or approved exception.,Medium,,,MON-005-design
-Collect evidence: [Operation] Track vulnerability remediation and accepted exceptions,"Control MON-005; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,MON-005-operation
-Collect evidence: [Design] Evaluate incidents and exercise response procedures,Control MON-006; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace a simulated event through classification and response.,Medium,,,MON-006-design
-Collect evidence: [Operation] Evaluate incidents and exercise response procedures,"Control MON-006; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,MON-006-operation
-Collect evidence: [Design] Document recovery and lessons after incidents,Control MON-007; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Verify recovery evidence and tracked improvements.,Medium,,,MON-007-design
-Collect evidence: [Operation] Document recovery and lessons after incidents,"Control MON-007; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,MON-007-operation
-Collect evidence: [Design] Back up critical data and monitor backup failures,Control REC-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile critical stores with backup coverage and failures.,Medium,,,REC-001-design
-Collect evidence: [Operation] Back up critical data and monitor backup failures,"Control REC-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,REC-001-operation
-Collect evidence: [Design] Exercise restores in an isolated environment,Control REC-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Restore synthetic data and verify application usability.,Medium,,,REC-002-design
-Collect evidence: [Operation] Exercise restores in an isolated environment,"Control REC-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,REC-002-operation
-Collect evidence: [Design] Define recovery dependencies and continuity responsibilities,Control REC-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Walk through loss of a critical provider or operator.,Medium,,,REC-003-design
-Collect evidence: [Operation] Define recovery dependencies and continuity responsibilities,"Control REC-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,REC-003-operation
-Collect evidence: [Design] Inventory critical vendors and assess relevant risks,Control VEN-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile deployed integrations with reviewed vendors.,Medium,,,VEN-001-design
-Collect evidence: [Operation] Inventory critical vendors and assess relevant risks,"Control VEN-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,VEN-001-operation
-Collect evidence: [Design] Review vendor commitments and shared responsibilities,Control VEN-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Identify responsibilities that remain with the SaaS operator.,Medium,,,VEN-002-design
-Collect evidence: [Operation] Review vendor commitments and shared responsibilities,"Control VEN-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,VEN-002-operation
-Collect evidence: [Design] Reassess vendor changes and termination procedures,Control VEN-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace a vendor change to a documented risk decision.,Medium,,,VEN-003-design
-Collect evidence: [Operation] Reassess vendor changes and termination procedures,"Control VEN-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,VEN-003-operation
-Collect evidence: [Design] Enforce authorization independently of model output,Control AI-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Inject synthetic instructions requesting an unauthorized action.,Medium,,,AI-001-design
-Collect evidence: [Operation] Enforce authorization independently of model output,"Control AI-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,AI-001-operation
-Collect evidence: [Design] Limit model data egress and cross-user memory,Control AI-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Attempt synthetic exfiltration and cross-user retrieval.,Medium,,,AI-002-design
-Collect evidence: [Operation] Limit model data egress and cross-user memory,"Control AI-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,AI-002-operation
-Collect evidence: [Design] Review AI behavior changes and action auditability,Control AI-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace a released AI configuration to review and evaluations.,Medium,,,AI-003-design
-Collect evidence: [Operation] Review AI behavior changes and action auditability,"Control AI-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,AI-003-operation
-Collect evidence: [Design] Review independent oversight of security decisions,Control GOV-009; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.,Medium,,,GOV-009-design
-Collect evidence: [Operation] Review independent oversight of security decisions,"Control GOV-009; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-009-operation
-Collect evidence: [Design] Evaluate accountability for assigned control responsibilities,Control GOV-010; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.,Medium,,,GOV-010-design
-Collect evidence: [Operation] Evaluate accountability for assigned control responsibilities,"Control GOV-010; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-010-operation
-Collect evidence: [Design] Assess fraud and deliberate control circumvention risks,Control GOV-011; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.,Medium,,,GOV-011-design
-Collect evidence: [Operation] Assess fraud and deliberate control circumvention risks,"Control GOV-011; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-011-operation
-Collect evidence: [Design] Select controls in response to assessed risks,Control GOV-012; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.,Medium,,,GOV-012-design
-Collect evidence: [Operation] Select controls in response to assessed risks,"Control GOV-012; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-012-operation
-Collect evidence: [Design] Review technology control responsibilities and dependencies,Control GOV-013; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.,Medium,,,GOV-013-design
-Collect evidence: [Operation] Review technology control responsibilities and dependencies,"Control GOV-013; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-013-operation
-Collect evidence: [Design] Implement approved control procedures and review execution,Control GOV-014; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.,Medium,,,GOV-014-design
-Collect evidence: [Operation] Implement approved control procedures and review execution,"Control GOV-014; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-014-operation
-Collect evidence: [Design] Review physical access responsibilities and provider evidence,Control GOV-015; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.,Medium,,,GOV-015-design
-Collect evidence: [Operation] Review physical access responsibilities and provider evidence,"Control GOV-015; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.",Medium,,,GOV-015-operation
+Summary,Issue Type,Priority,Labels,Labels,Labels,Labels,Due Date,Description
+IAM-002-design Fix: [Design] Protect privileged access with strong authentication,Task,Highest,soc2,soc2-access,confirmed-gap,iam-002,2026-11-27,"SOC 2 Guardian IAM-002-design: Failed, critical urgency
+Control: IAM-002 (Design), criteria CC6.1 (interpretive mapping)
+Observation: Synthetic example: the administrator console accepts a password alone, with no second factor for privileged accounts.
+Recommendation: Require multi-factor authentication for every administrator and privileged service account.
+Done when: An administrator sign-in without a second factor is rejected in an isolated test.
+Owner: Synthetic Platform Lead
+Internal readiness item, not an audit finding or opinion."
+DAT-001-design Fix: [Design] Protect sensitive traffic with authenticated encryption,Task,High,soc2,soc2-data,confirmed-gap,dat-001,2026-11-30,"SOC 2 Guardian DAT-001-design: Failed, high urgency
+Control: DAT-001 (Design), criteria CC6.7 (interpretive mapping)
+Observation: Synthetic example: an API client disables certificate verification.
+Recommendation: Enable certificate verification and test certificate rejection.
+Done when: A request using an untrusted certificate fails in an isolated test.
+Owner: Synthetic Engineering Owner
+Internal readiness item, not an audit finding or opinion."
+MON-004-operation Fix: [Operation] Review vulnerabilities and configuration changes,Task,High,soc2,soc2-monitoring,confirmed-gap,mon-004,2026-11-30,"SOC 2 Guardian MON-004-operation: Partially verified, high urgency
+Control: MON-004 (Operation), criteria CC7.1 (interpretive mapping)
+Observation: Synthetic weekly vulnerability reviews cover August and September; October is missing and one review has no triage record.
+Recommendation: Collect the October review records and add the missing triage record.
+Period gaps: 2026-10-01 to 2026-10-31
+Done when: Reconcile every weekly review in the period against its triage record.
+Owner: Synthetic Security Lead
+Internal readiness item, not an audit finding or opinion."
+CHG-001-operation Fix: [Operation] Require independent review of production code changes,Task,Medium,soc2,soc2-changes,confirmed-gap,chg-001,2026-11-30,"SOC 2 Guardian CHG-001-operation: Partially verified, medium urgency
+Control: CHG-001 (Operation), criteria CC8.1 (interpretive mapping)
+Observation: Synthetic review covers September and October; August is missing and two releases lack sufficient approval evidence.
+Recommendation: Collect August release records and resolve the two approval exceptions.
+Period gaps: 2026-08-01 to 2026-08-31
+Done when: Reconcile all production release paths with reviews of the deployed commits.
+Owner: Synthetic Release Owner
+Internal readiness item, not an audit finding or opinion."
+CHG-002-design Fix: [Design] Protect release branches and review bypass permissions,Task,Medium,soc2,soc2-changes,confirmed-gap,chg-002,2026-12-04,"SOC 2 Guardian CHG-002-design: Partially verified, medium urgency
+Control: CHG-002 (Design), criteria CC8.1 (interpretive mapping)
+Observation: Synthetic example: the main branch is protected, but one release branch lets administrators bypass required review.
+Recommendation: Remove the bypass permission from the release branch and record any exception.
+Done when: A direct push to the release branch by an administrator is rejected in an isolated test.
+Owner: Synthetic Release Owner
+Internal readiness item, not an audit finding or opinion."
+DAT-006-design Fix: [Design] Limit sensitive information in logs and telemetry,Task,Low,soc2,soc2-data,confirmed-gap,dat-006,2026-12-18,"SOC 2 Guardian DAT-006-design: Partially verified, low urgency
+Control: DAT-006 (Design), criteria CC6.7 (interpretive mapping)
+Observation: Synthetic example: most routes redact personal fields, but one request logger records full payloads.
+Recommendation: Redact payload fields on the remaining route and add a logging test.
+Done when: A logged request on that route shows no personal field values in an isolated test.
+Owner: Synthetic Engineering Owner
+Internal readiness item, not an audit finding or opinion."
+DAT-003-design Collect evidence: [Design] Prevent secrets from entering source and build output,Task,Highest,soc2,soc2-data,evidence-request,dat-003,,"SOC 2 Guardian DAT-003-design: Evidence missing, critical urgency
+Control: DAT-003 (Design), criteria CC6.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Sanitized secret-scan reports and remediation records (suggested type: test)
+Done when: Run an approved scanner without copying detected secrets.
+Internal readiness item, not an audit finding or opinion."
+DAT-003-operation Collect evidence: [Operation] Prevent secrets from entering source and build output,Task,Highest,soc2,soc2-data,evidence-request,dat-003,,"SOC 2 Guardian DAT-003-operation: Evidence missing, critical urgency
+Control: DAT-003 (Operation), criteria CC6.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Sanitized secret-scan reports and remediation records (suggested type: test)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+IAM-002-operation Collect evidence: [Operation] Protect privileged access with strong authentication,Task,Highest,soc2,soc2-access,evidence-request,iam-002,,"SOC 2 Guardian IAM-002-operation: Evidence missing, critical urgency
+Control: IAM-002 (Operation), criteria CC6.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Identity-provider configuration and privileged-user inventory (suggested type: configuration)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Owner: Synthetic Platform Lead
+Internal readiness item, not an audit finding or opinion."
+IAM-003-design Collect evidence: [Design] Enforce server-side roles and object permissions,Task,Highest,soc2,soc2-access,evidence-request,iam-003,,"SOC 2 Guardian IAM-003-design: Evidence missing, critical urgency
+Control: IAM-003 (Design), criteria CC6.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Role matrix and negative authorization tests (suggested type: test)
+Done when: Attempt cross-role and cross-object actions with synthetic users.
+Internal readiness item, not an audit finding or opinion."
+IAM-003-operation Collect evidence: [Operation] Enforce server-side roles and object permissions,Task,Highest,soc2,soc2-access,evidence-request,iam-003,,"SOC 2 Guardian IAM-003-operation: Evidence missing, critical urgency
+Control: IAM-003 (Operation), criteria CC6.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Role matrix and negative authorization tests (suggested type: test)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+IAM-004-design Collect evidence: [Design] Isolate tenant data across services and retrieval,Task,Highest,soc2,soc2-access,evidence-request,iam-004,,"SOC 2 Guardian IAM-004-design: Evidence missing, critical urgency
+Control: IAM-004 (Design), criteria CC6.1, CC6.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Tenant-boundary tests for APIs, jobs, cache and vectors (suggested type: test)
+Done when: Attempt cross-tenant access using synthetic records.
+Internal readiness item, not an audit finding or opinion."
+IAM-004-operation Collect evidence: [Operation] Isolate tenant data across services and retrieval,Task,Highest,soc2,soc2-access,evidence-request,iam-004,,"SOC 2 Guardian IAM-004-operation: Evidence missing, critical urgency
+Control: IAM-004 (Operation), criteria CC6.1, CC6.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Tenant-boundary tests for APIs, jobs, cache and vectors (suggested type: test)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+CHG-003-operation Collect evidence: [Operation] Run required checks before production deployment,Task,High,soc2,soc2-changes,evidence-request,chg-003,,"SOC 2 Guardian CHG-003-operation: Evidence missing, high urgency
+Control: CHG-003 (Operation), criteria CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Check runs and deployment records tied to commits (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+CHG-004-design Collect evidence: [Design] Restrict and trace production deployments,Task,High,soc2,soc2-changes,evidence-request,chg-004,,"SOC 2 Guardian CHG-004-design: Evidence missing, high urgency
+Control: CHG-004 (Design), criteria CC6.3, CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Deployment actor, commit, environment and approval records (suggested type: operational)
+Done when: Trace releases to authorized actors and immutable commits.
+Internal readiness item, not an audit finding or opinion."
+CHG-004-operation Collect evidence: [Operation] Restrict and trace production deployments,Task,High,soc2,soc2-changes,evidence-request,chg-004,,"SOC 2 Guardian CHG-004-operation: Evidence missing, high urgency
+Control: CHG-004 (Operation), criteria CC6.3, CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Deployment actor, commit, environment and approval records (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+CHG-005-design Collect evidence: [Design] Control emergency changes and retrospective review,Task,High,soc2,soc2-changes,evidence-request,chg-005,,"SOC 2 Guardian CHG-005-design: Evidence missing, high urgency
+Control: CHG-005 (Design), criteria CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Emergency change register and retrospective decisions (suggested type: operational)
+Done when: Reconcile exceptions with production release history.
+Internal readiness item, not an audit finding or opinion."
+CHG-005-operation Collect evidence: [Operation] Control emergency changes and retrospective review,Task,High,soc2,soc2-changes,evidence-request,chg-005,,"SOC 2 Guardian CHG-005-operation: Evidence missing, high urgency
+Control: CHG-005 (Operation), criteria CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Emergency change register and retrospective decisions (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+CHG-006-design Collect evidence: [Design] Test database migrations and recovery paths,Task,High,soc2,soc2-changes,evidence-request,chg-006,,"SOC 2 Guardian CHG-006-design: Evidence missing, high urgency
+Control: CHG-006 (Design), criteria CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Migration tests and rollback or forward-recovery exercises (suggested type: test)
+Done when: Apply representative migrations to an isolated synthetic database.
+Internal readiness item, not an audit finding or opinion."
+CHG-006-operation Collect evidence: [Operation] Test database migrations and recovery paths,Task,High,soc2,soc2-changes,evidence-request,chg-006,,"SOC 2 Guardian CHG-006-operation: Evidence missing, high urgency
+Control: CHG-006 (Operation), criteria CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Migration tests and rollback or forward-recovery exercises (suggested type: test)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+CHG-007-design Collect evidence: [Design] Pin and protect build inputs and dependencies,Task,High,soc2,soc2-changes,evidence-request,chg-007,,"SOC 2 Guardian CHG-007-design: Evidence missing, high urgency
+Control: CHG-007 (Design), criteria CC8.1, CC6.8 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Lockfiles, build workflow and artifact provenance (suggested type: configuration)
+Done when: Trace a deployed artifact to reviewed source and dependencies.
+Internal readiness item, not an audit finding or opinion."
+CHG-007-operation Collect evidence: [Operation] Pin and protect build inputs and dependencies,Task,High,soc2,soc2-changes,evidence-request,chg-007,,"SOC 2 Guardian CHG-007-operation: Evidence missing, high urgency
+Control: CHG-007 (Operation), criteria CC8.1, CC6.8 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Lockfiles, build workflow and artifact provenance (suggested type: configuration)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+CHG-008-design Collect evidence: [Design] Separate production credentials and development access,Task,High,soc2,soc2-changes,evidence-request,chg-008,,"SOC 2 Guardian CHG-008-design: Evidence missing, high urgency
+Control: CHG-008 (Design), criteria CC6.1, CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Environment boundaries and deployment credential scopes (suggested type: configuration)
+Done when: Check development identities cannot access production secrets.
+Internal readiness item, not an audit finding or opinion."
+CHG-008-operation Collect evidence: [Operation] Separate production credentials and development access,Task,High,soc2,soc2-changes,evidence-request,chg-008,,"SOC 2 Guardian CHG-008-operation: Evidence missing, high urgency
+Control: CHG-008 (Operation), criteria CC6.1, CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Environment boundaries and deployment credential scopes (suggested type: configuration)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+DAT-001-operation Collect evidence: [Operation] Protect sensitive traffic with authenticated encryption,Task,High,soc2,soc2-data,evidence-request,dat-001,,"SOC 2 Guardian DAT-001-operation: Evidence missing, high urgency
+Control: DAT-001 (Operation), criteria CC6.7 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Transport settings and approved endpoint tests (suggested type: configuration)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Owner: Synthetic Engineering Owner
+Internal readiness item, not an audit finding or opinion."
+DAT-002-design Collect evidence: [Design] Protect stored information and encryption keys,Task,High,soc2,soc2-data,evidence-request,dat-002,,"SOC 2 Guardian DAT-002-design: Evidence missing, high urgency
+Control: DAT-002 (Design), criteria CC6.1, CC6.7 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Storage settings and key-access reviews (suggested type: configuration)
+Done when: Reconcile sensitive stores with encryption and key controls.
+Internal readiness item, not an audit finding or opinion."
+DAT-002-operation Collect evidence: [Operation] Protect stored information and encryption keys,Task,High,soc2,soc2-data,evidence-request,dat-002,,"SOC 2 Guardian DAT-002-operation: Evidence missing, high urgency
+Control: DAT-002 (Operation), criteria CC6.1, CC6.7 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Storage settings and key-access reviews (suggested type: configuration)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+DAT-004-design Collect evidence: [Design] Restrict public storage and network exposure,Task,High,soc2,soc2-data,evidence-request,dat-004,,"SOC 2 Guardian DAT-004-design: Evidence missing, high urgency
+Control: DAT-004 (Design), criteria CC6.6 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Firewall, bucket and database exposure configuration (suggested type: configuration)
+Done when: Review exposure against approved service requirements.
+Internal readiness item, not an audit finding or opinion."
+DAT-004-operation Collect evidence: [Operation] Restrict public storage and network exposure,Task,High,soc2,soc2-data,evidence-request,dat-004,,"SOC 2 Guardian DAT-004-operation: Evidence missing, high urgency
+Control: DAT-004 (Operation), criteria CC6.6 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Firewall, bucket and database exposure configuration (suggested type: configuration)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+IAM-001-operation Collect evidence: [Operation] Authenticate application and administrative users,Task,High,soc2,soc2-access,evidence-request,iam-001,,"SOC 2 Guardian IAM-001-operation: Evidence missing, high urgency
+Control: IAM-001 (Operation), criteria CC6.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Authentication tests and production configuration (suggested type: test)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+IAM-005-design Collect evidence: [Design] Approve provisioning and remove departed users,Task,High,soc2,soc2-access,evidence-request,iam-005,,"SOC 2 Guardian IAM-005-design: Evidence missing, high urgency
+Control: IAM-005 (Design), criteria CC6.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Access requests, approval records and offboarding evidence (suggested type: operational)
+Done when: Reconcile personnel changes with granted and revoked access.
+Internal readiness item, not an audit finding or opinion."
+IAM-005-operation Collect evidence: [Operation] Approve provisioning and remove departed users,Task,High,soc2,soc2-access,evidence-request,iam-005,,"SOC 2 Guardian IAM-005-operation: Evidence missing, high urgency
+Control: IAM-005 (Operation), criteria CC6.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Access requests, approval records and offboarding evidence (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+IAM-006-design Collect evidence: [Design] Review access rights and service identities periodically,Task,High,soc2,soc2-access,evidence-request,iam-006,,"SOC 2 Guardian IAM-006-design: Evidence missing, high urgency
+Control: IAM-006 (Design), criteria CC6.2, CC6.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Dated access reviews and remediation records (suggested type: operational)
+Done when: Reconcile all privileged identities with reviewed entries.
+Internal readiness item, not an audit finding or opinion."
+IAM-006-operation Collect evidence: [Operation] Review access rights and service identities periodically,Task,High,soc2,soc2-access,evidence-request,iam-006,,"SOC 2 Guardian IAM-006-operation: Evidence missing, high urgency
+Control: IAM-006 (Operation), criteria CC6.2, CC6.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Dated access reviews and remediation records (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+IAM-007-design Collect evidence: [Design] Limit and rotate service credentials,Task,High,soc2,soc2-access,evidence-request,iam-007,,"SOC 2 Guardian IAM-007-design: Evidence missing, high urgency
+Control: IAM-007 (Design), criteria CC6.1, CC6.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Service inventory, scopes and rotation metadata (suggested type: configuration)
+Done when: Inspect credential metadata without exposing values.
+Internal readiness item, not an audit finding or opinion."
+IAM-007-operation Collect evidence: [Operation] Limit and rotate service credentials,Task,High,soc2,soc2-access,evidence-request,iam-007,,"SOC 2 Guardian IAM-007-operation: Evidence missing, high urgency
+Control: IAM-007 (Operation), criteria CC6.1, CC6.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Service inventory, scopes and rotation metadata (suggested type: configuration)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+IAM-008-design Collect evidence: [Design] Constrain sessions and invalidate revoked access,Task,High,soc2,soc2-access,evidence-request,iam-008,,"SOC 2 Guardian IAM-008-design: Evidence missing, high urgency
+Control: IAM-008 (Design), criteria CC6.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Session expiry and revocation tests (suggested type: test)
+Done when: Replay an expired or revoked session.
+Internal readiness item, not an audit finding or opinion."
+IAM-008-operation Collect evidence: [Operation] Constrain sessions and invalidate revoked access,Task,High,soc2,soc2-access,evidence-request,iam-008,,"SOC 2 Guardian IAM-008-operation: Evidence missing, high urgency
+Control: IAM-008 (Operation), criteria CC6.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Session expiry and revocation tests (suggested type: test)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+MON-001-design Collect evidence: [Design] Record security events with usable identity and context,Task,High,soc2,soc2-monitoring,evidence-request,mon-001,,"SOC 2 Guardian MON-001-design: Evidence missing, high urgency
+Control: MON-001 (Design), criteria CC7.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Audit event tests and event schema (suggested type: test)
+Done when: Verify actor, target, outcome and timestamp on critical events.
+Internal readiness item, not an audit finding or opinion."
+MON-001-operation Collect evidence: [Operation] Record security events with usable identity and context,Task,High,soc2,soc2-monitoring,evidence-request,mon-001,,"SOC 2 Guardian MON-001-operation: Evidence missing, high urgency
+Control: MON-001 (Operation), criteria CC7.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Audit event tests and event schema (suggested type: test)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+MON-002-design Collect evidence: [Design] Protect audit logs from unauthorized alteration,Task,High,soc2,soc2-monitoring,evidence-request,mon-002,,"SOC 2 Guardian MON-002-design: Evidence missing, high urgency
+Control: MON-002 (Design), criteria CC6.1, CC7.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Log-store permissions and retention settings (suggested type: configuration)
+Done when: Attempt unauthorized modification in a safe test environment.
+Internal readiness item, not an audit finding or opinion."
+MON-002-operation Collect evidence: [Operation] Protect audit logs from unauthorized alteration,Task,High,soc2,soc2-monitoring,evidence-request,mon-002,,"SOC 2 Guardian MON-002-operation: Evidence missing, high urgency
+Control: MON-002 (Operation), criteria CC6.1, CC7.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Log-store permissions and retention settings (suggested type: configuration)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+MON-003-design Collect evidence: [Design] Test security alerts and escalation delivery,Task,High,soc2,soc2-monitoring,evidence-request,mon-003,,"SOC 2 Guardian MON-003-design: Evidence missing, high urgency
+Control: MON-003 (Design), criteria CC7.2, CC7.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Alert-test receipts and response records (suggested type: operational)
+Done when: Trigger a synthetic alert and confirm assigned response.
+Internal readiness item, not an audit finding or opinion."
+MON-003-operation Collect evidence: [Operation] Test security alerts and escalation delivery,Task,High,soc2,soc2-monitoring,evidence-request,mon-003,,"SOC 2 Guardian MON-003-operation: Evidence missing, high urgency
+Control: MON-003 (Operation), criteria CC7.2, CC7.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Alert-test receipts and response records (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+MON-004-design Collect evidence: [Design] Review vulnerabilities and configuration changes,Task,High,soc2,soc2-monitoring,evidence-request,mon-004,,"SOC 2 Guardian MON-004-design: Evidence missing, high urgency
+Control: MON-004 (Design), criteria CC7.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Scan history, configuration reviews and scope inventory (suggested type: operational)
+Done when: Reconcile assets with dated monitoring and scan records.
+Owner: Synthetic Security Lead
+Internal readiness item, not an audit finding or opinion."
+MON-005-design Collect evidence: [Design] Track vulnerability remediation and accepted exceptions,Task,High,soc2,soc2-monitoring,evidence-request,mon-005,,"SOC 2 Guardian MON-005-design: Evidence missing, high urgency
+Control: MON-005 (Design), criteria CC7.1, CC7.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Remediation tickets, retests and risk acceptance (suggested type: operational)
+Done when: Sample findings through closure or approved exception.
+Internal readiness item, not an audit finding or opinion."
+MON-005-operation Collect evidence: [Operation] Track vulnerability remediation and accepted exceptions,Task,High,soc2,soc2-monitoring,evidence-request,mon-005,,"SOC 2 Guardian MON-005-operation: Evidence missing, high urgency
+Control: MON-005 (Operation), criteria CC7.1, CC7.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Remediation tickets, retests and risk acceptance (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+REC-002-design Collect evidence: [Design] Exercise restores in an isolated environment,Task,High,soc2,soc2-recovery,evidence-request,rec-002,,"SOC 2 Guardian REC-002-design: Evidence missing, high urgency
+Control: REC-002 (Design), criteria CC9.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Restore receipts, integrity checks and measured recovery (suggested type: operational)
+Done when: Restore synthetic data and verify application usability.
+Internal readiness item, not an audit finding or opinion."
+REC-002-operation Collect evidence: [Operation] Exercise restores in an isolated environment,Task,High,soc2,soc2-recovery,evidence-request,rec-002,,"SOC 2 Guardian REC-002-operation: Evidence missing, high urgency
+Control: REC-002 (Operation), criteria CC9.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Restore receipts, integrity checks and measured recovery (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+CHG-001-design Collect evidence: [Design] Require independent review of production code changes,Task,Medium,soc2,soc2-changes,evidence-request,chg-001,,"SOC 2 Guardian CHG-001-design: Evidence missing, medium urgency
+Control: CHG-001 (Design), criteria CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approval events reconciled with deployed commits (suggested type: operational)
+Done when: Check approval timing, reviewer identity and approved commit.
+Owner: Synthetic Release Owner
+Internal readiness item, not an audit finding or opinion."
+CHG-002-operation Collect evidence: [Operation] Protect release branches and review bypass permissions,Task,Medium,soc2,soc2-changes,evidence-request,chg-002,,"SOC 2 Guardian CHG-002-operation: Evidence missing, medium urgency
+Control: CHG-002 (Operation), criteria CC8.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Ruleset snapshots and bypass-role reviews (suggested type: configuration)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Owner: Synthetic Release Owner
+Internal readiness item, not an audit finding or opinion."
+"DAT-005-design Collect evidence: [Design] Control retention, disposal and backup deletion",Task,Medium,soc2,soc2-data,evidence-request,dat-005,,"SOC 2 Guardian DAT-005-design: Evidence missing, medium urgency
+Control: DAT-005 (Design), criteria CC6.5 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Retention schedule and disposal exercise records (suggested type: operational)
+Done when: Trace a synthetic deletion across stores and backup policy.
+Internal readiness item, not an audit finding or opinion."
+"DAT-005-operation Collect evidence: [Operation] Control retention, disposal and backup deletion",Task,Medium,soc2,soc2-data,evidence-request,dat-005,,"SOC 2 Guardian DAT-005-operation: Evidence missing, medium urgency
+Control: DAT-005 (Operation), criteria CC6.5 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Retention schedule and disposal exercise records (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-001-design Collect evidence: [Design] Assign accountable security and control owners,Task,Medium,soc2,soc2-governance,evidence-request,gov-001,,"SOC 2 Guardian GOV-001-design: Evidence missing, medium urgency
+Control: GOV-001 (Design), criteria CC1.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved responsibilities and dated ownership reviews (suggested type: operational)
+Done when: Trace each critical system to an accountable owner.
+Internal readiness item, not an audit finding or opinion."
+GOV-001-operation Collect evidence: [Operation] Assign accountable security and control owners,Task,Medium,soc2,soc2-governance,evidence-request,gov-001,,"SOC 2 Guardian GOV-001-operation: Evidence missing, medium urgency
+Control: GOV-001 (Operation), criteria CC1.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved responsibilities and dated ownership reviews (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-002-design Collect evidence: [Design] Maintain security policies and staff acknowledgment,Task,Medium,soc2,soc2-governance,evidence-request,gov-002,,"SOC 2 Guardian GOV-002-design: Evidence missing, medium urgency
+Control: GOV-002 (Design), criteria CC1.1, CC2.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved policies and acknowledgment records (suggested type: policy)
+Done when: Review acknowledgments against the staff population.
+Internal readiness item, not an audit finding or opinion."
+GOV-002-operation Collect evidence: [Operation] Maintain security policies and staff acknowledgment,Task,Medium,soc2,soc2-governance,evidence-request,gov-002,,"SOC 2 Guardian GOV-002-operation: Evidence missing, medium urgency
+Control: GOV-002 (Operation), criteria CC1.1, CC2.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved policies and acknowledgment records (suggested type: policy)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-003-design Collect evidence: [Design] Review personnel screening and onboarding evidence,Task,Medium,soc2,soc2-governance,evidence-request,gov-003,,"SOC 2 Guardian GOV-003-design: Evidence missing, medium urgency
+Control: GOV-003 (Design), criteria CC1.4 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Screening confirmations and onboarding checklists (suggested type: operational)
+Done when: Sample hires without reading sensitive personnel records.
+Internal readiness item, not an audit finding or opinion."
+GOV-003-operation Collect evidence: [Operation] Review personnel screening and onboarding evidence,Task,Medium,soc2,soc2-governance,evidence-request,gov-003,,"SOC 2 Guardian GOV-003-operation: Evidence missing, medium urgency
+Control: GOV-003 (Operation), criteria CC1.4 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Screening confirmations and onboarding checklists (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-004-design Collect evidence: [Design] Train personnel for their security responsibilities,Task,Medium,soc2,soc2-governance,evidence-request,gov-004,,"SOC 2 Guardian GOV-004-design: Evidence missing, medium urgency
+Control: GOV-004 (Design), criteria CC1.4, CC2.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Training completion and role coverage records (suggested type: operational)
+Done when: Reconcile completed training with in-scope personnel.
+Internal readiness item, not an audit finding or opinion."
+GOV-004-operation Collect evidence: [Operation] Train personnel for their security responsibilities,Task,Medium,soc2,soc2-governance,evidence-request,gov-004,,"SOC 2 Guardian GOV-004-operation: Evidence missing, medium urgency
+Control: GOV-004 (Operation), criteria CC1.4, CC2.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Training completion and role coverage records (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-005-design Collect evidence: [Design] Review risk assessments and treatment decisions,Task,Medium,soc2,soc2-governance,evidence-request,gov-005,,"SOC 2 Guardian GOV-005-design: Evidence missing, medium urgency
+Control: GOV-005 (Design), criteria CC3.1, CC3.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved risk register and treatment reviews (suggested type: operational)
+Done when: Trace material risks to owners and decisions.
+Internal readiness item, not an audit finding or opinion."
+GOV-005-operation Collect evidence: [Operation] Review risk assessments and treatment decisions,Task,Medium,soc2,soc2-governance,evidence-request,gov-005,,"SOC 2 Guardian GOV-005-operation: Evidence missing, medium urgency
+Control: GOV-005 (Operation), criteria CC3.1, CC3.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved risk register and treatment reviews (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-006-design Collect evidence: [Design] Evaluate control performance and unresolved deficiencies,Task,Medium,soc2,soc2-governance,evidence-request,gov-006,,"SOC 2 Guardian GOV-006-design: Evidence missing, medium urgency
+Control: GOV-006 (Design), criteria CC4.1, CC4.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Control review records and tracked exceptions (suggested type: operational)
+Done when: Sample deficiencies through resolution or accepted risk.
+Internal readiness item, not an audit finding or opinion."
+GOV-006-operation Collect evidence: [Operation] Evaluate control performance and unresolved deficiencies,Task,Medium,soc2,soc2-governance,evidence-request,gov-006,,"SOC 2 Guardian GOV-006-operation: Evidence missing, medium urgency
+Control: GOV-006 (Operation), criteria CC4.1, CC4.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Control review records and tracked exceptions (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-007-design Collect evidence: [Design] Communicate security commitments and reporting channels,Task,Medium,soc2,soc2-governance,evidence-request,gov-007,,"SOC 2 Guardian GOV-007-design: Evidence missing, medium urgency
+Control: GOV-007 (Design), criteria CC2.1, CC2.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Published commitments and reporting instructions (suggested type: policy)
+Done when: Compare customer commitments with implemented controls.
+Internal readiness item, not an audit finding or opinion."
+GOV-007-operation Collect evidence: [Operation] Communicate security commitments and reporting channels,Task,Medium,soc2,soc2-governance,evidence-request,gov-007,,"SOC 2 Guardian GOV-007-operation: Evidence missing, medium urgency
+Control: GOV-007 (Operation), criteria CC2.1, CC2.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Published commitments and reporting instructions (suggested type: policy)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-008-design Collect evidence: [Design] Maintain scoped inventories and system description inputs,Task,Medium,soc2,soc2-governance,evidence-request,gov-008,,"SOC 2 Guardian GOV-008-design: Evidence missing, medium urgency
+Control: GOV-008 (Design), criteria CC2.1, CC3.4 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: System inventory, data flows, dependency owners (suggested type: operational)
+Done when: Reconcile inventory with deployed systems and vendors.
+Internal readiness item, not an audit finding or opinion."
+GOV-008-operation Collect evidence: [Operation] Maintain scoped inventories and system description inputs,Task,Medium,soc2,soc2-governance,evidence-request,gov-008,,"SOC 2 Guardian GOV-008-operation: Evidence missing, medium urgency
+Control: GOV-008 (Operation), criteria CC2.1, CC3.4 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: System inventory, data flows, dependency owners (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-009-design Collect evidence: [Design] Review independent oversight of security decisions,Task,Medium,soc2,soc2-governance,evidence-request,gov-009,,"SOC 2 Guardian GOV-009-design: Evidence missing, medium urgency
+Control: GOV-009 (Design), criteria CC1.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+Internal readiness item, not an audit finding or opinion."
+GOV-009-operation Collect evidence: [Operation] Review independent oversight of security decisions,Task,Medium,soc2,soc2-governance,evidence-request,gov-009,,"SOC 2 Guardian GOV-009-operation: Evidence missing, medium urgency
+Control: GOV-009 (Operation), criteria CC1.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-010-design Collect evidence: [Design] Evaluate accountability for assigned control responsibilities,Task,Medium,soc2,soc2-governance,evidence-request,gov-010,,"SOC 2 Guardian GOV-010-design: Evidence missing, medium urgency
+Control: GOV-010 (Design), criteria CC1.5 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+Internal readiness item, not an audit finding or opinion."
+GOV-010-operation Collect evidence: [Operation] Evaluate accountability for assigned control responsibilities,Task,Medium,soc2,soc2-governance,evidence-request,gov-010,,"SOC 2 Guardian GOV-010-operation: Evidence missing, medium urgency
+Control: GOV-010 (Operation), criteria CC1.5 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-011-design Collect evidence: [Design] Assess fraud and deliberate control circumvention risks,Task,Medium,soc2,soc2-governance,evidence-request,gov-011,,"SOC 2 Guardian GOV-011-design: Evidence missing, medium urgency
+Control: GOV-011 (Design), criteria CC3.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+Internal readiness item, not an audit finding or opinion."
+GOV-011-operation Collect evidence: [Operation] Assess fraud and deliberate control circumvention risks,Task,Medium,soc2,soc2-governance,evidence-request,gov-011,,"SOC 2 Guardian GOV-011-operation: Evidence missing, medium urgency
+Control: GOV-011 (Operation), criteria CC3.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-012-design Collect evidence: [Design] Select controls in response to assessed risks,Task,Medium,soc2,soc2-governance,evidence-request,gov-012,,"SOC 2 Guardian GOV-012-design: Evidence missing, medium urgency
+Control: GOV-012 (Design), criteria CC5.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+Internal readiness item, not an audit finding or opinion."
+GOV-012-operation Collect evidence: [Operation] Select controls in response to assessed risks,Task,Medium,soc2,soc2-governance,evidence-request,gov-012,,"SOC 2 Guardian GOV-012-operation: Evidence missing, medium urgency
+Control: GOV-012 (Operation), criteria CC5.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-013-design Collect evidence: [Design] Review technology control responsibilities and dependencies,Task,Medium,soc2,soc2-governance,evidence-request,gov-013,,"SOC 2 Guardian GOV-013-design: Evidence missing, medium urgency
+Control: GOV-013 (Design), criteria CC5.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+Internal readiness item, not an audit finding or opinion."
+GOV-013-operation Collect evidence: [Operation] Review technology control responsibilities and dependencies,Task,Medium,soc2,soc2-governance,evidence-request,gov-013,,"SOC 2 Guardian GOV-013-operation: Evidence missing, medium urgency
+Control: GOV-013 (Operation), criteria CC5.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-014-design Collect evidence: [Design] Implement approved control procedures and review execution,Task,Medium,soc2,soc2-governance,evidence-request,gov-014,,"SOC 2 Guardian GOV-014-design: Evidence missing, medium urgency
+Control: GOV-014 (Design), criteria CC5.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+Internal readiness item, not an audit finding or opinion."
+GOV-014-operation Collect evidence: [Operation] Implement approved control procedures and review execution,Task,Medium,soc2,soc2-governance,evidence-request,gov-014,,"SOC 2 Guardian GOV-014-operation: Evidence missing, medium urgency
+Control: GOV-014 (Operation), criteria CC5.3 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+GOV-015-design Collect evidence: [Design] Review physical access responsibilities and provider evidence,Task,Medium,soc2,soc2-governance,evidence-request,gov-015,,"SOC 2 Guardian GOV-015-design: Evidence missing, medium urgency
+Control: GOV-015 (Design), criteria CC6.4 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+Internal readiness item, not an audit finding or opinion."
+GOV-015-operation Collect evidence: [Operation] Review physical access responsibilities and provider evidence,Task,Medium,soc2,soc2-governance,evidence-request,gov-015,,"SOC 2 Guardian GOV-015-operation: Evidence missing, medium urgency
+Control: GOV-015 (Operation), criteria CC6.4 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+MON-006-design Collect evidence: [Design] Evaluate incidents and exercise response procedures,Task,Medium,soc2,soc2-monitoring,evidence-request,mon-006,,"SOC 2 Guardian MON-006-design: Evidence missing, medium urgency
+Control: MON-006 (Design), criteria CC7.3, CC7.4 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Incident register and tabletop exercise records (suggested type: operational)
+Done when: Trace a simulated event through classification and response.
+Internal readiness item, not an audit finding or opinion."
+MON-006-operation Collect evidence: [Operation] Evaluate incidents and exercise response procedures,Task,Medium,soc2,soc2-monitoring,evidence-request,mon-006,,"SOC 2 Guardian MON-006-operation: Evidence missing, medium urgency
+Control: MON-006 (Operation), criteria CC7.3, CC7.4 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Incident register and tabletop exercise records (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+MON-007-design Collect evidence: [Design] Document recovery and lessons after incidents,Task,Medium,soc2,soc2-monitoring,evidence-request,mon-007,,"SOC 2 Guardian MON-007-design: Evidence missing, medium urgency
+Control: MON-007 (Design), criteria CC7.5 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Recovery validation and post-incident actions (suggested type: operational)
+Done when: Verify recovery evidence and tracked improvements.
+Internal readiness item, not an audit finding or opinion."
+MON-007-operation Collect evidence: [Operation] Document recovery and lessons after incidents,Task,Medium,soc2,soc2-monitoring,evidence-request,mon-007,,"SOC 2 Guardian MON-007-operation: Evidence missing, medium urgency
+Control: MON-007 (Operation), criteria CC7.5 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Recovery validation and post-incident actions (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+REC-003-design Collect evidence: [Design] Define recovery dependencies and continuity responsibilities,Task,Medium,soc2,soc2-recovery,evidence-request,rec-003,,"SOC 2 Guardian REC-003-design: Evidence missing, medium urgency
+Control: REC-003 (Design), criteria CC9.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Recovery objectives, runbooks and dependency inventory (suggested type: policy)
+Done when: Walk through loss of a critical provider or operator.
+Internal readiness item, not an audit finding or opinion."
+REC-003-operation Collect evidence: [Operation] Define recovery dependencies and continuity responsibilities,Task,Medium,soc2,soc2-recovery,evidence-request,rec-003,,"SOC 2 Guardian REC-003-operation: Evidence missing, medium urgency
+Control: REC-003 (Operation), criteria CC9.1 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Recovery objectives, runbooks and dependency inventory (suggested type: policy)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+VEN-001-design Collect evidence: [Design] Inventory critical vendors and assess relevant risks,Task,Medium,soc2,soc2-vendors,evidence-request,ven-001,,"SOC 2 Guardian VEN-001-design: Evidence missing, medium urgency
+Control: VEN-001 (Design), criteria CC9.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Vendor register, review dates and risk decisions (suggested type: operational)
+Done when: Reconcile deployed integrations with reviewed vendors.
+Internal readiness item, not an audit finding or opinion."
+VEN-001-operation Collect evidence: [Operation] Inventory critical vendors and assess relevant risks,Task,Medium,soc2,soc2-vendors,evidence-request,ven-001,,"SOC 2 Guardian VEN-001-operation: Evidence missing, medium urgency
+Control: VEN-001 (Operation), criteria CC9.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Vendor register, review dates and risk decisions (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+VEN-002-design Collect evidence: [Design] Review vendor commitments and shared responsibilities,Task,Medium,soc2,soc2-vendors,evidence-request,ven-002,,"SOC 2 Guardian VEN-002-design: Evidence missing, medium urgency
+Control: VEN-002 (Design), criteria CC9.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Approved contractual evidence and responsibility matrix (suggested type: contract)
+Done when: Identify responsibilities that remain with the SaaS operator.
+Internal readiness item, not an audit finding or opinion."
+VEN-002-operation Collect evidence: [Operation] Review vendor commitments and shared responsibilities,Task,Medium,soc2,soc2-vendors,evidence-request,ven-002,,"SOC 2 Guardian VEN-002-operation: Evidence missing, medium urgency
+Control: VEN-002 (Operation), criteria CC9.2 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Approved contractual evidence and responsibility matrix (suggested type: contract)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+VEN-003-design Collect evidence: [Design] Reassess vendor changes and termination procedures,Task,Medium,soc2,soc2-vendors,evidence-request,ven-003,,"SOC 2 Guardian VEN-003-design: Evidence missing, medium urgency
+Control: VEN-003 (Design), criteria CC9.2, CC3.4 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+Evidence to collect: Vendor change reviews and exit procedures (suggested type: operational)
+Done when: Trace a vendor change to a documented risk decision.
+Internal readiness item, not an audit finding or opinion."
+VEN-003-operation Collect evidence: [Operation] Reassess vendor changes and termination procedures,Task,Medium,soc2,soc2-vendors,evidence-request,ven-003,,"SOC 2 Guardian VEN-003-operation: Evidence missing, medium urgency
+Control: VEN-003 (Operation), criteria CC9.2, CC3.4 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Vendor change reviews and exit procedures (suggested type: operational)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Internal readiness item, not an audit finding or opinion."
+DAT-006-operation Collect evidence: [Operation] Limit sensitive information in logs and telemetry,Task,Low,soc2,soc2-data,evidence-request,dat-006,,"SOC 2 Guardian DAT-006-operation: Evidence missing, low urgency
+Control: DAT-006 (Operation), criteria CC6.7 (interpretive mapping)
+Observation: Evidence required
+Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+Evidence to collect: Logging tests and approved telemetry configuration (suggested type: test)
+Period gaps: 2026-08-01 to 2026-10-31
+Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+Owner: Synthetic Engineering Owner
+Internal readiness item, not an audit finding or opinion."

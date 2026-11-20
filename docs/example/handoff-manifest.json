@@ -4,23 +4,23 @@
   "files": [
     {
       "path": "SOC2-READINESS.md",
-      "sha256": "71a6cafd62f264ff902fe956d4e3047c2a886ec014f8f8f9977811f802151402"
+      "sha256": "5dcbc85deeacd2f3b712c151423a22b5053c5bcbb4524d66ab912fcf5544cec7"
     },
     {
       "path": "evidence-index.csv",
-      "sha256": "ce5534e913f77f2eb5b1f9715115f7b6959cfbe2a91f3b7205551c5aff5eeb9f"
+      "sha256": "43bda29541d236b933bc3c3fa3334a56112882061c72059fa60643a2a8cae551"
     },
     {
       "path": "risk-register.csv",
-      "sha256": "6cb5688c4d15504fbf6e8790dc3416033053d23e112eda527fd44de11e4ddbea"
+      "sha256": "acf9bfcae28b3ecc8402fd7858f3f6b9ef9ee484616afcd4256eb8edbd90b3fe"
     },
     {
       "path": "assessment-redacted.json",
-      "sha256": "c25447c01710b09978a496d25672f0558b71019a419f891310eb8731601b496b"
+      "sha256": "35428dfd2eb0ac5279c107d5531a5a52600de39e35ef3add5a18fe7ece07c332"
     },
     {
       "path": "SOC2-READINESS.pdf",
-      "sha256": "35b9d2228deff7a614b8affda58d28f3547c1793d6fdccb9df57bff98d97ba91"
+      "sha256": "6fec77c37ae71284d29afb22023908157badf36f842ff9dd0f557d69532a4995"
     }
   ]
 }
