@@ -42,10 +42,10 @@ For you (`~/.copilot/skills`):
 gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent github-copilot --scope user
 ```
 
-For one repository:
+For one repository (installs to the shared `.agents/skills`):
 
 ```bash
-gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent github-copilot --scope project
+gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent github-copilot
 ```
 
 Git only, into the repository's `.github/skills`:
@@ -62,10 +62,10 @@ For you (`~/.cursor/skills`):
 gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent cursor --scope user
 ```
 
-For one repository:
+For one repository (installs to the shared `.agents/skills`):
 
 ```bash
-gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent cursor --scope project
+gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent cursor
 ```
 
 Git only, into the repository's `.cursor/skills`:
