@@ -1,210 +1,489 @@
-- [ ] Collect evidence: [Design] Assign accountable security and control owners (GOV-001-design)
-  Control GOV-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace each critical system to an accountable owner.
-- [ ] Collect evidence: [Operation] Assign accountable security and control owners (GOV-001-operation)
-  Control GOV-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Maintain security policies and staff acknowledgment (GOV-002-design)
-  Control GOV-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review acknowledgments against the staff population.
-- [ ] Collect evidence: [Operation] Maintain security policies and staff acknowledgment (GOV-002-operation)
-  Control GOV-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Review personnel screening and onboarding evidence (GOV-003-design)
-  Control GOV-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Sample hires without reading sensitive personnel records.
-- [ ] Collect evidence: [Operation] Review personnel screening and onboarding evidence (GOV-003-operation)
-  Control GOV-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Train personnel for their security responsibilities (GOV-004-design)
-  Control GOV-004; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile completed training with in-scope personnel.
-- [ ] Collect evidence: [Operation] Train personnel for their security responsibilities (GOV-004-operation)
-  Control GOV-004; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Review risk assessments and treatment decisions (GOV-005-design)
-  Control GOV-005; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace material risks to owners and decisions.
-- [ ] Collect evidence: [Operation] Review risk assessments and treatment decisions (GOV-005-operation)
-  Control GOV-005; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Evaluate control performance and unresolved deficiencies (GOV-006-design)
-  Control GOV-006; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Sample deficiencies through resolution or accepted risk.
-- [ ] Collect evidence: [Operation] Evaluate control performance and unresolved deficiencies (GOV-006-operation)
-  Control GOV-006; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Communicate security commitments and reporting channels (GOV-007-design)
-  Control GOV-007; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Compare customer commitments with implemented controls.
-- [ ] Collect evidence: [Operation] Communicate security commitments and reporting channels (GOV-007-operation)
-  Control GOV-007; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Maintain scoped inventories and system description inputs (GOV-008-design)
-  Control GOV-008; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile inventory with deployed systems and vendors.
-- [ ] Collect evidence: [Operation] Maintain scoped inventories and system description inputs (GOV-008-operation)
-  Control GOV-008; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Operation] Authenticate application and administrative users (IAM-001-operation)
-  Control IAM-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Protect privileged access with strong authentication (IAM-002-design)
-  Control IAM-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Verify enforcement for all identified administrative entry points.
-- [ ] Collect evidence: [Operation] Protect privileged access with strong authentication (IAM-002-operation)
-  Control IAM-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Enforce server-side roles and object permissions (IAM-003-design)
-  Control IAM-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Attempt cross-role and cross-object actions with synthetic users.
-- [ ] Collect evidence: [Operation] Enforce server-side roles and object permissions (IAM-003-operation)
-  Control IAM-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Isolate tenant data across services and retrieval (IAM-004-design)
-  Control IAM-004; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Attempt cross-tenant access using synthetic records.
-- [ ] Collect evidence: [Operation] Isolate tenant data across services and retrieval (IAM-004-operation)
-  Control IAM-004; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Approve provisioning and remove departed users (IAM-005-design)
-  Control IAM-005; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile personnel changes with granted and revoked access.
-- [ ] Collect evidence: [Operation] Approve provisioning and remove departed users (IAM-005-operation)
-  Control IAM-005; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Review access rights and service identities periodically (IAM-006-design)
-  Control IAM-006; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile all privileged identities with reviewed entries.
-- [ ] Collect evidence: [Operation] Review access rights and service identities periodically (IAM-006-operation)
-  Control IAM-006; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Limit and rotate service credentials (IAM-007-design)
-  Control IAM-007; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Inspect credential metadata without exposing values.
-- [ ] Collect evidence: [Operation] Limit and rotate service credentials (IAM-007-operation)
-  Control IAM-007; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Constrain sessions and invalidate revoked access (IAM-008-design)
-  Control IAM-008; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Replay an expired or revoked session.
-- [ ] Collect evidence: [Operation] Constrain sessions and invalidate revoked access (IAM-008-operation)
-  Control IAM-008; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Require independent review of production code changes (CHG-001-design)
-  Control CHG-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Check approval timing, reviewer identity and approved commit.
-- [ ] Fix: [Operation] Require independent review of production code changes (CHG-001-operation)
-  Control CHG-001; dimension operation. Collect August release records and resolve the two approval exceptions. Done when: Reconcile all production release paths with reviews of the deployed commits.
-- [ ] Collect evidence: [Design] Protect release branches and review bypass permissions (CHG-002-design)
-  Control CHG-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Assess direct pushes, administrator bypass and stale approvals.
-- [ ] Collect evidence: [Operation] Protect release branches and review bypass permissions (CHG-002-operation)
-  Control CHG-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Run required checks before production deployment (CHG-003-design)
-  Control CHG-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile deployed commits with successful required checks.
-- [ ] Collect evidence: [Operation] Run required checks before production deployment (CHG-003-operation)
-  Control CHG-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Restrict and trace production deployments (CHG-004-design)
-  Control CHG-004; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace releases to authorized actors and immutable commits.
-- [ ] Collect evidence: [Operation] Restrict and trace production deployments (CHG-004-operation)
-  Control CHG-004; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Control emergency changes and retrospective review (CHG-005-design)
-  Control CHG-005; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile exceptions with production release history.
-- [ ] Collect evidence: [Operation] Control emergency changes and retrospective review (CHG-005-operation)
-  Control CHG-005; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Test database migrations and recovery paths (CHG-006-design)
-  Control CHG-006; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Apply representative migrations to an isolated synthetic database.
-- [ ] Collect evidence: [Operation] Test database migrations and recovery paths (CHG-006-operation)
-  Control CHG-006; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Pin and protect build inputs and dependencies (CHG-007-design)
-  Control CHG-007; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace a deployed artifact to reviewed source and dependencies.
-- [ ] Collect evidence: [Operation] Pin and protect build inputs and dependencies (CHG-007-operation)
-  Control CHG-007; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Separate production credentials and development access (CHG-008-design)
-  Control CHG-008; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Check development identities cannot access production secrets.
-- [ ] Collect evidence: [Operation] Separate production credentials and development access (CHG-008-operation)
-  Control CHG-008; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Fix: [Design] Protect sensitive traffic with authenticated encryption (DAT-001-design)
-  Control DAT-001; dimension design. Enable certificate verification and test certificate rejection. Done when: A request using an untrusted certificate fails in an isolated test.
-- [ ] Collect evidence: [Operation] Protect sensitive traffic with authenticated encryption (DAT-001-operation)
-  Control DAT-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Protect stored information and encryption keys (DAT-002-design)
-  Control DAT-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile sensitive stores with encryption and key controls.
-- [ ] Collect evidence: [Operation] Protect stored information and encryption keys (DAT-002-operation)
-  Control DAT-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Prevent secrets from entering source and build output (DAT-003-design)
-  Control DAT-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Run an approved scanner without copying detected secrets.
-- [ ] Collect evidence: [Operation] Prevent secrets from entering source and build output (DAT-003-operation)
-  Control DAT-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Restrict public storage and network exposure (DAT-004-design)
-  Control DAT-004; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review exposure against approved service requirements.
-- [ ] Collect evidence: [Operation] Restrict public storage and network exposure (DAT-004-operation)
-  Control DAT-004; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Control retention, disposal and backup deletion (DAT-005-design)
-  Control DAT-005; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace a synthetic deletion across stores and backup policy.
-- [ ] Collect evidence: [Operation] Control retention, disposal and backup deletion (DAT-005-operation)
-  Control DAT-005; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Limit sensitive information in logs and telemetry (DAT-006-design)
-  Control DAT-006; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Send synthetic sensitive fields and inspect redacted results.
-- [ ] Collect evidence: [Operation] Limit sensitive information in logs and telemetry (DAT-006-operation)
-  Control DAT-006; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Record security events with usable identity and context (MON-001-design)
-  Control MON-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Verify actor, target, outcome and timestamp on critical events.
-- [ ] Collect evidence: [Operation] Record security events with usable identity and context (MON-001-operation)
-  Control MON-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Protect audit logs from unauthorized alteration (MON-002-design)
-  Control MON-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Attempt unauthorized modification in a safe test environment.
-- [ ] Collect evidence: [Operation] Protect audit logs from unauthorized alteration (MON-002-operation)
-  Control MON-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Test security alerts and escalation delivery (MON-003-design)
-  Control MON-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trigger a synthetic alert and confirm assigned response.
-- [ ] Collect evidence: [Operation] Test security alerts and escalation delivery (MON-003-operation)
-  Control MON-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Review vulnerabilities and configuration changes (MON-004-design)
-  Control MON-004; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile assets with dated monitoring and scan records.
-- [ ] Collect evidence: [Operation] Review vulnerabilities and configuration changes (MON-004-operation)
-  Control MON-004; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Track vulnerability remediation and accepted exceptions (MON-005-design)
-  Control MON-005; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Sample findings through closure or approved exception.
-- [ ] Collect evidence: [Operation] Track vulnerability remediation and accepted exceptions (MON-005-operation)
-  Control MON-005; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Evaluate incidents and exercise response procedures (MON-006-design)
-  Control MON-006; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace a simulated event through classification and response.
-- [ ] Collect evidence: [Operation] Evaluate incidents and exercise response procedures (MON-006-operation)
-  Control MON-006; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Document recovery and lessons after incidents (MON-007-design)
-  Control MON-007; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Verify recovery evidence and tracked improvements.
-- [ ] Collect evidence: [Operation] Document recovery and lessons after incidents (MON-007-operation)
-  Control MON-007; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Back up critical data and monitor backup failures (REC-001-design)
-  Control REC-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile critical stores with backup coverage and failures.
-- [ ] Collect evidence: [Operation] Back up critical data and monitor backup failures (REC-001-operation)
-  Control REC-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Exercise restores in an isolated environment (REC-002-design)
-  Control REC-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Restore synthetic data and verify application usability.
-- [ ] Collect evidence: [Operation] Exercise restores in an isolated environment (REC-002-operation)
-  Control REC-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Define recovery dependencies and continuity responsibilities (REC-003-design)
-  Control REC-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Walk through loss of a critical provider or operator.
-- [ ] Collect evidence: [Operation] Define recovery dependencies and continuity responsibilities (REC-003-operation)
-  Control REC-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Inventory critical vendors and assess relevant risks (VEN-001-design)
-  Control VEN-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Reconcile deployed integrations with reviewed vendors.
-- [ ] Collect evidence: [Operation] Inventory critical vendors and assess relevant risks (VEN-001-operation)
-  Control VEN-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Review vendor commitments and shared responsibilities (VEN-002-design)
-  Control VEN-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Identify responsibilities that remain with the SaaS operator.
-- [ ] Collect evidence: [Operation] Review vendor commitments and shared responsibilities (VEN-002-operation)
-  Control VEN-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Reassess vendor changes and termination procedures (VEN-003-design)
-  Control VEN-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace a vendor change to a documented risk decision.
-- [ ] Collect evidence: [Operation] Reassess vendor changes and termination procedures (VEN-003-operation)
-  Control VEN-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Enforce authorization independently of model output (AI-001-design)
-  Control AI-001; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Inject synthetic instructions requesting an unauthorized action.
-- [ ] Collect evidence: [Operation] Enforce authorization independently of model output (AI-001-operation)
-  Control AI-001; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Limit model data egress and cross-user memory (AI-002-design)
-  Control AI-002; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Attempt synthetic exfiltration and cross-user retrieval.
-- [ ] Collect evidence: [Operation] Limit model data egress and cross-user memory (AI-002-operation)
-  Control AI-002; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Review AI behavior changes and action auditability (AI-003-design)
-  Control AI-003; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Trace a released AI configuration to review and evaluations.
-- [ ] Collect evidence: [Operation] Review AI behavior changes and action auditability (AI-003-operation)
-  Control AI-003; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Review independent oversight of security decisions (GOV-009-design)
-  Control GOV-009; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
-- [ ] Collect evidence: [Operation] Review independent oversight of security decisions (GOV-009-operation)
-  Control GOV-009; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Evaluate accountability for assigned control responsibilities (GOV-010-design)
-  Control GOV-010; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
-- [ ] Collect evidence: [Operation] Evaluate accountability for assigned control responsibilities (GOV-010-operation)
-  Control GOV-010; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Assess fraud and deliberate control circumvention risks (GOV-011-design)
-  Control GOV-011; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
-- [ ] Collect evidence: [Operation] Assess fraud and deliberate control circumvention risks (GOV-011-operation)
-  Control GOV-011; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Select controls in response to assessed risks (GOV-012-design)
-  Control GOV-012; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
-- [ ] Collect evidence: [Operation] Select controls in response to assessed risks (GOV-012-operation)
-  Control GOV-012; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Review technology control responsibilities and dependencies (GOV-013-design)
-  Control GOV-013; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
-- [ ] Collect evidence: [Operation] Review technology control responsibilities and dependencies (GOV-013-operation)
-  Control GOV-013; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Implement approved control procedures and review execution (GOV-014-design)
-  Control GOV-014; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
-- [ ] Collect evidence: [Operation] Implement approved control procedures and review execution (GOV-014-operation)
-  Control GOV-014; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
-- [ ] Collect evidence: [Design] Review physical access responsibilities and provider evidence (GOV-015-design)
-  Control GOV-015; dimension design. Collect scoped implementation evidence and obtain reviewer judgment. Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
-- [ ] Collect evidence: [Operation] Review physical access responsibilities and provider evidence (GOV-015-operation)
-  Control GOV-015; dimension operation. Collect relevant operating records across the assessment period and reconcile the complete source population. Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+# SOC 2 Guardian task list: Synthetic SaaS / Demonstration
+
+> Internal readiness item, not an audit finding or opinion. Check for secrets and personal data before sharing.
+
+## Critical (8)
+
+- [ ] **IAM-002-design** Fix: [Design] Protect privileged access with strong authentication (IAM-002, CC6.1)
+  - Recommendation: Require multi-factor authentication for every administrator and privileged service account.
+  - Done when: An administrator sign-in without a second factor is rejected in an isolated test.
+  - Owner: Synthetic Platform Lead · Due: 2026-11-27
+- [ ] **DAT-003-design** Collect evidence: [Design] Prevent secrets from entering source and build output (DAT-003, CC6.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Sanitized secret-scan reports and remediation records (suggested type: test)
+  - Done when: Run an approved scanner without copying detected secrets.
+  - Owner: Unassigned · Due: not set
+- [ ] **DAT-003-operation** Collect evidence: [Operation] Prevent secrets from entering source and build output (DAT-003, CC6.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Sanitized secret-scan reports and remediation records (suggested type: test)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-002-operation** Collect evidence: [Operation] Protect privileged access with strong authentication (IAM-002, CC6.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Identity-provider configuration and privileged-user inventory (suggested type: configuration)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Synthetic Platform Lead · Due: not set
+- [ ] **IAM-003-design** Collect evidence: [Design] Enforce server-side roles and object permissions (IAM-003, CC6.3)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Role matrix and negative authorization tests (suggested type: test)
+  - Done when: Attempt cross-role and cross-object actions with synthetic users.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-003-operation** Collect evidence: [Operation] Enforce server-side roles and object permissions (IAM-003, CC6.3)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Role matrix and negative authorization tests (suggested type: test)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-004-design** Collect evidence: [Design] Isolate tenant data across services and retrieval (IAM-004, CC6.1, CC6.3)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Tenant-boundary tests for APIs, jobs, cache and vectors (suggested type: test)
+  - Done when: Attempt cross-tenant access using synthetic records.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-004-operation** Collect evidence: [Operation] Isolate tenant data across services and retrieval (IAM-004, CC6.1, CC6.3)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Tenant-boundary tests for APIs, jobs, cache and vectors (suggested type: test)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+
+## High (38)
+
+- [ ] **DAT-001-design** Fix: [Design] Protect sensitive traffic with authenticated encryption (DAT-001, CC6.7)
+  - Recommendation: Enable certificate verification and test certificate rejection.
+  - Done when: A request using an untrusted certificate fails in an isolated test.
+  - Owner: Synthetic Engineering Owner · Due: 2026-11-30
+- [ ] **MON-004-operation** Fix: [Operation] Review vulnerabilities and configuration changes (MON-004, CC7.1)
+  - Recommendation: Collect the October review records and add the missing triage record.
+  - Done when: Reconcile every weekly review in the period against its triage record.
+  - Owner: Synthetic Security Lead · Due: 2026-11-30
+- [ ] **CHG-003-operation** Collect evidence: [Operation] Run required checks before production deployment (CHG-003, CC8.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Check runs and deployment records tied to commits (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **CHG-004-design** Collect evidence: [Design] Restrict and trace production deployments (CHG-004, CC6.3, CC8.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Deployment actor, commit, environment and approval records (suggested type: operational)
+  - Done when: Trace releases to authorized actors and immutable commits.
+  - Owner: Unassigned · Due: not set
+- [ ] **CHG-004-operation** Collect evidence: [Operation] Restrict and trace production deployments (CHG-004, CC6.3, CC8.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Deployment actor, commit, environment and approval records (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **CHG-005-design** Collect evidence: [Design] Control emergency changes and retrospective review (CHG-005, CC8.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Emergency change register and retrospective decisions (suggested type: operational)
+  - Done when: Reconcile exceptions with production release history.
+  - Owner: Unassigned · Due: not set
+- [ ] **CHG-005-operation** Collect evidence: [Operation] Control emergency changes and retrospective review (CHG-005, CC8.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Emergency change register and retrospective decisions (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **CHG-006-design** Collect evidence: [Design] Test database migrations and recovery paths (CHG-006, CC8.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Migration tests and rollback or forward-recovery exercises (suggested type: test)
+  - Done when: Apply representative migrations to an isolated synthetic database.
+  - Owner: Unassigned · Due: not set
+- [ ] **CHG-006-operation** Collect evidence: [Operation] Test database migrations and recovery paths (CHG-006, CC8.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Migration tests and rollback or forward-recovery exercises (suggested type: test)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **CHG-007-design** Collect evidence: [Design] Pin and protect build inputs and dependencies (CHG-007, CC8.1, CC6.8)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Lockfiles, build workflow and artifact provenance (suggested type: configuration)
+  - Done when: Trace a deployed artifact to reviewed source and dependencies.
+  - Owner: Unassigned · Due: not set
+- [ ] **CHG-007-operation** Collect evidence: [Operation] Pin and protect build inputs and dependencies (CHG-007, CC8.1, CC6.8)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Lockfiles, build workflow and artifact provenance (suggested type: configuration)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **CHG-008-design** Collect evidence: [Design] Separate production credentials and development access (CHG-008, CC6.1, CC8.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Environment boundaries and deployment credential scopes (suggested type: configuration)
+  - Done when: Check development identities cannot access production secrets.
+  - Owner: Unassigned · Due: not set
+- [ ] **CHG-008-operation** Collect evidence: [Operation] Separate production credentials and development access (CHG-008, CC6.1, CC8.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Environment boundaries and deployment credential scopes (suggested type: configuration)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **DAT-001-operation** Collect evidence: [Operation] Protect sensitive traffic with authenticated encryption (DAT-001, CC6.7)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Transport settings and approved endpoint tests (suggested type: configuration)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Synthetic Engineering Owner · Due: not set
+- [ ] **DAT-002-design** Collect evidence: [Design] Protect stored information and encryption keys (DAT-002, CC6.1, CC6.7)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Storage settings and key-access reviews (suggested type: configuration)
+  - Done when: Reconcile sensitive stores with encryption and key controls.
+  - Owner: Unassigned · Due: not set
+- [ ] **DAT-002-operation** Collect evidence: [Operation] Protect stored information and encryption keys (DAT-002, CC6.1, CC6.7)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Storage settings and key-access reviews (suggested type: configuration)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **DAT-004-design** Collect evidence: [Design] Restrict public storage and network exposure (DAT-004, CC6.6)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Firewall, bucket and database exposure configuration (suggested type: configuration)
+  - Done when: Review exposure against approved service requirements.
+  - Owner: Unassigned · Due: not set
+- [ ] **DAT-004-operation** Collect evidence: [Operation] Restrict public storage and network exposure (DAT-004, CC6.6)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Firewall, bucket and database exposure configuration (suggested type: configuration)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-001-operation** Collect evidence: [Operation] Authenticate application and administrative users (IAM-001, CC6.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Authentication tests and production configuration (suggested type: test)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-005-design** Collect evidence: [Design] Approve provisioning and remove departed users (IAM-005, CC6.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Access requests, approval records and offboarding evidence (suggested type: operational)
+  - Done when: Reconcile personnel changes with granted and revoked access.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-005-operation** Collect evidence: [Operation] Approve provisioning and remove departed users (IAM-005, CC6.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Access requests, approval records and offboarding evidence (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-006-design** Collect evidence: [Design] Review access rights and service identities periodically (IAM-006, CC6.2, CC6.3)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Dated access reviews and remediation records (suggested type: operational)
+  - Done when: Reconcile all privileged identities with reviewed entries.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-006-operation** Collect evidence: [Operation] Review access rights and service identities periodically (IAM-006, CC6.2, CC6.3)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Dated access reviews and remediation records (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-007-design** Collect evidence: [Design] Limit and rotate service credentials (IAM-007, CC6.1, CC6.3)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Service inventory, scopes and rotation metadata (suggested type: configuration)
+  - Done when: Inspect credential metadata without exposing values.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-007-operation** Collect evidence: [Operation] Limit and rotate service credentials (IAM-007, CC6.1, CC6.3)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Service inventory, scopes and rotation metadata (suggested type: configuration)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-008-design** Collect evidence: [Design] Constrain sessions and invalidate revoked access (IAM-008, CC6.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Session expiry and revocation tests (suggested type: test)
+  - Done when: Replay an expired or revoked session.
+  - Owner: Unassigned · Due: not set
+- [ ] **IAM-008-operation** Collect evidence: [Operation] Constrain sessions and invalidate revoked access (IAM-008, CC6.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Session expiry and revocation tests (suggested type: test)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-001-design** Collect evidence: [Design] Record security events with usable identity and context (MON-001, CC7.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Audit event tests and event schema (suggested type: test)
+  - Done when: Verify actor, target, outcome and timestamp on critical events.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-001-operation** Collect evidence: [Operation] Record security events with usable identity and context (MON-001, CC7.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Audit event tests and event schema (suggested type: test)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-002-design** Collect evidence: [Design] Protect audit logs from unauthorized alteration (MON-002, CC6.1, CC7.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Log-store permissions and retention settings (suggested type: configuration)
+  - Done when: Attempt unauthorized modification in a safe test environment.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-002-operation** Collect evidence: [Operation] Protect audit logs from unauthorized alteration (MON-002, CC6.1, CC7.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Log-store permissions and retention settings (suggested type: configuration)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-003-design** Collect evidence: [Design] Test security alerts and escalation delivery (MON-003, CC7.2, CC7.3)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Alert-test receipts and response records (suggested type: operational)
+  - Done when: Trigger a synthetic alert and confirm assigned response.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-003-operation** Collect evidence: [Operation] Test security alerts and escalation delivery (MON-003, CC7.2, CC7.3)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Alert-test receipts and response records (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-004-design** Collect evidence: [Design] Review vulnerabilities and configuration changes (MON-004, CC7.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Scan history, configuration reviews and scope inventory (suggested type: operational)
+  - Done when: Reconcile assets with dated monitoring and scan records.
+  - Owner: Synthetic Security Lead · Due: not set
+- [ ] **MON-005-design** Collect evidence: [Design] Track vulnerability remediation and accepted exceptions (MON-005, CC7.1, CC7.3)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Remediation tickets, retests and risk acceptance (suggested type: operational)
+  - Done when: Sample findings through closure or approved exception.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-005-operation** Collect evidence: [Operation] Track vulnerability remediation and accepted exceptions (MON-005, CC7.1, CC7.3)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Remediation tickets, retests and risk acceptance (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **REC-002-design** Collect evidence: [Design] Exercise restores in an isolated environment (REC-002, CC9.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Restore receipts, integrity checks and measured recovery (suggested type: operational)
+  - Done when: Restore synthetic data and verify application usability.
+  - Owner: Unassigned · Due: not set
+- [ ] **REC-002-operation** Collect evidence: [Operation] Exercise restores in an isolated environment (REC-002, CC9.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Restore receipts, integrity checks and measured recovery (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+
+## Medium (48)
+
+- [ ] **CHG-001-operation** Fix: [Operation] Require independent review of production code changes (CHG-001, CC8.1)
+  - Recommendation: Collect August release records and resolve the two approval exceptions.
+  - Done when: Reconcile all production release paths with reviews of the deployed commits.
+  - Owner: Synthetic Release Owner · Due: 2026-11-30
+- [ ] **CHG-002-design** Fix: [Design] Protect release branches and review bypass permissions (CHG-002, CC8.1)
+  - Recommendation: Remove the bypass permission from the release branch and record any exception.
+  - Done when: A direct push to the release branch by an administrator is rejected in an isolated test.
+  - Owner: Synthetic Release Owner · Due: 2026-12-04
+- [ ] **CHG-001-design** Collect evidence: [Design] Require independent review of production code changes (CHG-001, CC8.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approval events reconciled with deployed commits (suggested type: operational)
+  - Done when: Check approval timing, reviewer identity and approved commit.
+  - Owner: Synthetic Release Owner · Due: not set
+- [ ] **CHG-002-operation** Collect evidence: [Operation] Protect release branches and review bypass permissions (CHG-002, CC8.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Ruleset snapshots and bypass-role reviews (suggested type: configuration)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Synthetic Release Owner · Due: not set
+- [ ] **DAT-005-design** Collect evidence: [Design] Control retention, disposal and backup deletion (DAT-005, CC6.5)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Retention schedule and disposal exercise records (suggested type: operational)
+  - Done when: Trace a synthetic deletion across stores and backup policy.
+  - Owner: Unassigned · Due: not set
+- [ ] **DAT-005-operation** Collect evidence: [Operation] Control retention, disposal and backup deletion (DAT-005, CC6.5)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Retention schedule and disposal exercise records (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-001-design** Collect evidence: [Design] Assign accountable security and control owners (GOV-001, CC1.3)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved responsibilities and dated ownership reviews (suggested type: operational)
+  - Done when: Trace each critical system to an accountable owner.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-001-operation** Collect evidence: [Operation] Assign accountable security and control owners (GOV-001, CC1.3)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved responsibilities and dated ownership reviews (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-002-design** Collect evidence: [Design] Maintain security policies and staff acknowledgment (GOV-002, CC1.1, CC2.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved policies and acknowledgment records (suggested type: policy)
+  - Done when: Review acknowledgments against the staff population.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-002-operation** Collect evidence: [Operation] Maintain security policies and staff acknowledgment (GOV-002, CC1.1, CC2.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved policies and acknowledgment records (suggested type: policy)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-003-design** Collect evidence: [Design] Review personnel screening and onboarding evidence (GOV-003, CC1.4)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Screening confirmations and onboarding checklists (suggested type: operational)
+  - Done when: Sample hires without reading sensitive personnel records.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-003-operation** Collect evidence: [Operation] Review personnel screening and onboarding evidence (GOV-003, CC1.4)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Screening confirmations and onboarding checklists (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-004-design** Collect evidence: [Design] Train personnel for their security responsibilities (GOV-004, CC1.4, CC2.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Training completion and role coverage records (suggested type: operational)
+  - Done when: Reconcile completed training with in-scope personnel.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-004-operation** Collect evidence: [Operation] Train personnel for their security responsibilities (GOV-004, CC1.4, CC2.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Training completion and role coverage records (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-005-design** Collect evidence: [Design] Review risk assessments and treatment decisions (GOV-005, CC3.1, CC3.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved risk register and treatment reviews (suggested type: operational)
+  - Done when: Trace material risks to owners and decisions.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-005-operation** Collect evidence: [Operation] Review risk assessments and treatment decisions (GOV-005, CC3.1, CC3.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved risk register and treatment reviews (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-006-design** Collect evidence: [Design] Evaluate control performance and unresolved deficiencies (GOV-006, CC4.1, CC4.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Control review records and tracked exceptions (suggested type: operational)
+  - Done when: Sample deficiencies through resolution or accepted risk.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-006-operation** Collect evidence: [Operation] Evaluate control performance and unresolved deficiencies (GOV-006, CC4.1, CC4.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Control review records and tracked exceptions (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-007-design** Collect evidence: [Design] Communicate security commitments and reporting channels (GOV-007, CC2.1, CC2.3)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Published commitments and reporting instructions (suggested type: policy)
+  - Done when: Compare customer commitments with implemented controls.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-007-operation** Collect evidence: [Operation] Communicate security commitments and reporting channels (GOV-007, CC2.1, CC2.3)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Published commitments and reporting instructions (suggested type: policy)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-008-design** Collect evidence: [Design] Maintain scoped inventories and system description inputs (GOV-008, CC2.1, CC3.4)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: System inventory, data flows, dependency owners (suggested type: operational)
+  - Done when: Reconcile inventory with deployed systems and vendors.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-008-operation** Collect evidence: [Operation] Maintain scoped inventories and system description inputs (GOV-008, CC2.1, CC3.4)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: System inventory, data flows, dependency owners (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-009-design** Collect evidence: [Design] Review independent oversight of security decisions (GOV-009, CC1.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-009-operation** Collect evidence: [Operation] Review independent oversight of security decisions (GOV-009, CC1.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-010-design** Collect evidence: [Design] Evaluate accountability for assigned control responsibilities (GOV-010, CC1.5)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-010-operation** Collect evidence: [Operation] Evaluate accountability for assigned control responsibilities (GOV-010, CC1.5)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-011-design** Collect evidence: [Design] Assess fraud and deliberate control circumvention risks (GOV-011, CC3.3)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-011-operation** Collect evidence: [Operation] Assess fraud and deliberate control circumvention risks (GOV-011, CC3.3)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-012-design** Collect evidence: [Design] Select controls in response to assessed risks (GOV-012, CC5.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-012-operation** Collect evidence: [Operation] Select controls in response to assessed risks (GOV-012, CC5.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-013-design** Collect evidence: [Design] Review technology control responsibilities and dependencies (GOV-013, CC5.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-013-operation** Collect evidence: [Operation] Review technology control responsibilities and dependencies (GOV-013, CC5.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-014-design** Collect evidence: [Design] Implement approved control procedures and review execution (GOV-014, CC5.3)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-014-operation** Collect evidence: [Operation] Implement approved control procedures and review execution (GOV-014, CC5.3)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-015-design** Collect evidence: [Design] Review physical access responsibilities and provider evidence (GOV-015, CC6.4)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: Review scoped records with the responsible human owner; repository contents alone are insufficient.
+  - Owner: Unassigned · Due: not set
+- [ ] **GOV-015-operation** Collect evidence: [Operation] Review physical access responsibilities and provider evidence (GOV-015, CC6.4)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved responsibilities, dated review records and documented decisions appropriate to this objective (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-006-design** Collect evidence: [Design] Evaluate incidents and exercise response procedures (MON-006, CC7.3, CC7.4)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Incident register and tabletop exercise records (suggested type: operational)
+  - Done when: Trace a simulated event through classification and response.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-006-operation** Collect evidence: [Operation] Evaluate incidents and exercise response procedures (MON-006, CC7.3, CC7.4)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Incident register and tabletop exercise records (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-007-design** Collect evidence: [Design] Document recovery and lessons after incidents (MON-007, CC7.5)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Recovery validation and post-incident actions (suggested type: operational)
+  - Done when: Verify recovery evidence and tracked improvements.
+  - Owner: Unassigned · Due: not set
+- [ ] **MON-007-operation** Collect evidence: [Operation] Document recovery and lessons after incidents (MON-007, CC7.5)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Recovery validation and post-incident actions (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **REC-003-design** Collect evidence: [Design] Define recovery dependencies and continuity responsibilities (REC-003, CC9.1)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Recovery objectives, runbooks and dependency inventory (suggested type: policy)
+  - Done when: Walk through loss of a critical provider or operator.
+  - Owner: Unassigned · Due: not set
+- [ ] **REC-003-operation** Collect evidence: [Operation] Define recovery dependencies and continuity responsibilities (REC-003, CC9.1)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Recovery objectives, runbooks and dependency inventory (suggested type: policy)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **VEN-001-design** Collect evidence: [Design] Inventory critical vendors and assess relevant risks (VEN-001, CC9.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Vendor register, review dates and risk decisions (suggested type: operational)
+  - Done when: Reconcile deployed integrations with reviewed vendors.
+  - Owner: Unassigned · Due: not set
+- [ ] **VEN-001-operation** Collect evidence: [Operation] Inventory critical vendors and assess relevant risks (VEN-001, CC9.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Vendor register, review dates and risk decisions (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **VEN-002-design** Collect evidence: [Design] Review vendor commitments and shared responsibilities (VEN-002, CC9.2)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Approved contractual evidence and responsibility matrix (suggested type: contract)
+  - Done when: Identify responsibilities that remain with the SaaS operator.
+  - Owner: Unassigned · Due: not set
+- [ ] **VEN-002-operation** Collect evidence: [Operation] Review vendor commitments and shared responsibilities (VEN-002, CC9.2)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Approved contractual evidence and responsibility matrix (suggested type: contract)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+- [ ] **VEN-003-design** Collect evidence: [Design] Reassess vendor changes and termination procedures (VEN-003, CC9.2, CC3.4)
+  - Recommendation: Collect scoped implementation evidence and obtain reviewer judgment.
+  - Evidence to collect: Vendor change reviews and exit procedures (suggested type: operational)
+  - Done when: Trace a vendor change to a documented risk decision.
+  - Owner: Unassigned · Due: not set
+- [ ] **VEN-003-operation** Collect evidence: [Operation] Reassess vendor changes and termination procedures (VEN-003, CC9.2, CC3.4)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Vendor change reviews and exit procedures (suggested type: operational)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Unassigned · Due: not set
+
+## Low (2)
+
+- [ ] **DAT-006-design** Fix: [Design] Limit sensitive information in logs and telemetry (DAT-006, CC6.7)
+  - Recommendation: Redact payload fields on the remaining route and add a logging test.
+  - Done when: A logged request on that route shows no personal field values in an isolated test.
+  - Owner: Synthetic Engineering Owner · Due: 2026-12-18
+- [ ] **DAT-006-operation** Collect evidence: [Operation] Limit sensitive information in logs and telemetry (DAT-006, CC6.7)
+  - Recommendation: Collect relevant operating records across the assessment period and reconcile the complete source population.
+  - Evidence to collect: Logging tests and approved telemetry configuration (suggested type: test)
+  - Done when: A responsible reviewer evaluates period coverage, population completeness, selection and exceptions; record the supported conclusion.
+  - Owner: Synthetic Engineering Owner · Due: not set

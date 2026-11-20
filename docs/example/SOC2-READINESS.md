@@ -20,12 +20,44 @@ Recovery checks support risk mitigation; this pack does not assess the Availabil
 PDF text uses built-in Western fonts; use Markdown for full Unicode content.
 
 ## Evidence status counts
-Design: failed=1, insufficient_evidence=51, verified=1
-Operation: insufficient_evidence=52, partially_verified=1
+Design: failed=2, insufficient_evidence=43, not_applicable=3, partially_verified=2, verified=3
+Operation: insufficient_evidence=47, not_applicable=3, partially_verified=2, verified=1
+
+## Status by area
+Legend: V verified, P partially verified, F failed, NA not applicable, E insufficient evidence.
+| Area | Checks | Design V/P/F/NA/E | Operation V/P/F/NA/E |
+| --- | --- | --- | --- |
+| Governance | 15 | 0/0/0/0/15 | 0/0/0/0/15 |
+| Access | 8 | 1/0/1/0/6 | 0/0/0/0/8 |
+| Changes | 8 | 1/1/0/0/6 | 0/1/0/0/7 |
+| Data | 6 | 0/1/1/0/4 | 0/0/0/0/6 |
+| Monitoring | 7 | 0/0/0/0/7 | 0/1/0/0/6 |
+| Recovery | 3 | 1/0/0/0/2 | 1/0/0/0/2 |
+| Vendors | 3 | 0/0/0/0/3 | 0/0/0/0/3 |
+| AI engineering | 3 | 0/0/0/3/0 | 0/0/0/3/0 |
+
+## Open items by urgency
+| Urgency | Confirmed gaps | Evidence requests | Total |
+| --- | --- | --- | --- |
+| critical | 1 | 7 | 8 |
+| high | 2 | 36 | 38 |
+| medium | 2 | 46 | 48 |
+| low | 1 | 1 | 2 |
+
+## Period coverage
+| Check | Operation | Covered | Uncovered | Population total/reviewed/exceptions |
+| --- | --- | --- | --- | --- |
+| CHG-001 Require independent review of production code changes | partially_verified | 2026-09-01 to 2026-10-31 | 2026-08-01 to 2026-08-31 | 18/18/2 |
+| MON-004 Review vulnerabilities and configuration changes | partially_verified | 2026-08-01 to 2026-09-30 | 2026-10-01 to 2026-10-31 | 9/9/1 |
+| REC-001 Back up critical data and monitor backup failures | verified | 2026-08-01 to 2026-10-31 | None | 92/92/0 |
 
 ## Confirmed gaps and next actions
-DAT-001 | high | Protect sensitive traffic with authenticated encryption | Owner: Synthetic Engineering Owner | Enable certificate verification and test certificate rejection.
-CHG-001 | medium | Require independent review of production code changes | Owner: Synthetic Release Owner | Collect August release records and resolve the two approval exceptions.
+IAM-002-design | critical | Protect privileged access with strong authentication | Owner: Synthetic Platform Lead | Require multi-factor authentication for every administrator and privileged service account.
+DAT-001-design | high | Protect sensitive traffic with authenticated encryption | Owner: Synthetic Engineering Owner | Enable certificate verification and test certificate rejection.
+MON-004-operation | high | Review vulnerabilities and configuration changes | Owner: Synthetic Security Lead | Collect the October review records and add the missing triage record.
+CHG-001-operation | medium | Require independent review of production code changes | Owner: Synthetic Release Owner | Collect August release records and resolve the two approval exceptions.
+CHG-002-design | medium | Protect release branches and review bypass permissions | Owner: Synthetic Release Owner | Remove the bypass permission from the release branch and record any exception.
+DAT-006-design | low | Limit sensitive information in logs and telemetry | Owner: Synthetic Engineering Owner | Redact payload fields on the remaining route and add a logging test.
 
 ## Control assessment
 
@@ -130,13 +162,13 @@ Population: total=None; reviewed=None; exceptions=None; method=
 
 ### IAM-002 | Protect privileged access with strong authentication
 Supporting criteria: CC6.1 (interpretive mapping)
-Design: insufficient_evidence; Operation: insufficient_evidence
-Rationale: No reviewer conclusion recorded.
-Evidence: None
-Reviewer: Unassigned; Owner: Unassigned
+Design: failed; Operation: insufficient_evidence
+Rationale: Synthetic example: the administrator console accepts a password alone, with no second factor for privileged accounts.
+Evidence: EX-ADMIN
+Reviewer: Synthetic Reviewer; Owner: Synthetic Platform Lead
 Period gaps: [["2026-08-01", "2026-10-31"]]
-Next action: Collect and review scoped evidence.
-Verification: Verify enforcement for all identified administrative entry points.
+Next action: Require multi-factor authentication for every administrator and privileged service account.
+Verification: An administrator sign-in without a second factor is rejected in an isolated test.
 Population: total=None; reviewed=None; exceptions=None; method=
 
 ### IAM-003 | Enforce server-side roles and object permissions
@@ -218,21 +250,21 @@ Population: total=18; reviewed=18; exceptions=2; method=All synthetic releases
 
 ### CHG-002 | Protect release branches and review bypass permissions
 Supporting criteria: CC8.1 (interpretive mapping)
-Design: insufficient_evidence; Operation: insufficient_evidence
-Rationale: No reviewer conclusion recorded.
-Evidence: None
-Reviewer: Unassigned; Owner: Unassigned
+Design: partially_verified; Operation: insufficient_evidence
+Rationale: Synthetic example: the main branch is protected, but one release branch lets administrators bypass required review.
+Evidence: EX-BRANCH
+Reviewer: Synthetic Reviewer; Owner: Synthetic Release Owner
 Period gaps: [["2026-08-01", "2026-10-31"]]
-Next action: Collect and review scoped evidence.
-Verification: Assess direct pushes, administrator bypass and stale approvals.
+Next action: Remove the bypass permission from the release branch and record any exception.
+Verification: A direct push to the release branch by an administrator is rejected in an isolated test.
 Population: total=None; reviewed=None; exceptions=None; method=
 
 ### CHG-003 | Run required checks before production deployment
 Supporting criteria: CC8.1 (interpretive mapping)
-Design: insufficient_evidence; Operation: insufficient_evidence
-Rationale: No reviewer conclusion recorded.
-Evidence: None
-Reviewer: Unassigned; Owner: Unassigned
+Design: verified; Operation: insufficient_evidence
+Rationale: Synthetic pipeline configuration requires passing tests before production deployment. No historical operation is asserted.
+Evidence: EX-CI
+Reviewer: Synthetic Reviewer; Owner: Unassigned
 Period gaps: [["2026-08-01", "2026-10-31"]]
 Next action: Collect and review scoped evidence.
 Verification: Reconcile deployed commits with successful required checks.
@@ -350,13 +382,13 @@ Population: total=None; reviewed=None; exceptions=None; method=
 
 ### DAT-006 | Limit sensitive information in logs and telemetry
 Supporting criteria: CC6.7 (interpretive mapping)
-Design: insufficient_evidence; Operation: insufficient_evidence
-Rationale: No reviewer conclusion recorded.
-Evidence: None
-Reviewer: Unassigned; Owner: Unassigned
+Design: partially_verified; Operation: insufficient_evidence
+Rationale: Synthetic example: most routes redact personal fields, but one request logger records full payloads.
+Evidence: EX-LOGS
+Reviewer: Synthetic Reviewer; Owner: Synthetic Engineering Owner
 Period gaps: [["2026-08-01", "2026-10-31"]]
-Next action: Collect and review scoped evidence.
-Verification: Send synthetic sensitive fields and inspect redacted results.
+Next action: Redact payload fields on the remaining route and add a logging test.
+Verification: A logged request on that route shows no personal field values in an isolated test.
 Population: total=None; reviewed=None; exceptions=None; method=
 
 ### MON-001 | Record security events with usable identity and context
@@ -394,14 +426,14 @@ Population: total=None; reviewed=None; exceptions=None; method=
 
 ### MON-004 | Review vulnerabilities and configuration changes
 Supporting criteria: CC7.1 (interpretive mapping)
-Design: insufficient_evidence; Operation: insufficient_evidence
-Rationale: No reviewer conclusion recorded.
-Evidence: None
-Reviewer: Unassigned; Owner: Unassigned
-Period gaps: [["2026-08-01", "2026-10-31"]]
-Next action: Collect and review scoped evidence.
-Verification: Reconcile assets with dated monitoring and scan records.
-Population: total=None; reviewed=None; exceptions=None; method=
+Design: insufficient_evidence; Operation: partially_verified
+Rationale: Synthetic weekly vulnerability reviews cover August and September; October is missing and one review has no triage record.
+Evidence: EX-VULN
+Reviewer: Synthetic Reviewer; Owner: Synthetic Security Lead
+Period gaps: [["2026-10-01", "2026-10-31"]]
+Next action: Collect the October review records and add the missing triage record.
+Verification: Reconcile every weekly review in the period against its triage record.
+Population: total=9; reviewed=9; exceptions=1; method=All scheduled reviews
 
 ### MON-005 | Track vulnerability remediation and accepted exceptions
 Supporting criteria: CC7.1, CC7.3 (interpretive mapping)
@@ -438,14 +470,14 @@ Population: total=None; reviewed=None; exceptions=None; method=
 
 ### REC-001 | Back up critical data and monitor backup failures
 Supporting criteria: CC9.1 (interpretive mapping)
-Design: insufficient_evidence; Operation: insufficient_evidence
-Rationale: No reviewer conclusion recorded.
-Evidence: None
-Reviewer: Unassigned; Owner: Unassigned
-Period gaps: [["2026-08-01", "2026-10-31"]]
+Design: verified; Operation: verified
+Rationale: Synthetic backup settings and a run log covering the whole period; every daily run was reconciled and no failure went unalerted.
+Evidence: EX-BACKUP-CFG, EX-BACKUP-RUNS
+Reviewer: Synthetic Reviewer; Owner: Unassigned
+Period gaps: []
 Next action: Collect and review scoped evidence.
-Verification: Reconcile critical stores with backup coverage and failures.
-Population: total=None; reviewed=None; exceptions=None; method=
+Verification: Reconcile every daily backup run and failure alert across the period.
+Population: total=92; reviewed=92; exceptions=0; method=All daily runs
 
 ### REC-002 | Exercise restores in an isolated environment
 Supporting criteria: CC9.1 (interpretive mapping)
@@ -504,10 +536,10 @@ Population: total=None; reviewed=None; exceptions=None; method=
 
 ### AI-001 | Enforce authorization independently of model output
 Supporting criteria: CC6.1, CC6.3 (interpretive mapping)
-Design: insufficient_evidence; Operation: insufficient_evidence
-Rationale: No reviewer conclusion recorded.
+Design: not_applicable; Operation: not_applicable
+Rationale: Synthetic product has no AI features; scope approved by the Synthetic Security Lead.
 Evidence: None
-Reviewer: Unassigned; Owner: Unassigned
+Reviewer: Synthetic Reviewer; Owner: Unassigned
 Period gaps: [["2026-08-01", "2026-10-31"]]
 Next action: Collect and review scoped evidence.
 Verification: Inject synthetic instructions requesting an unauthorized action.
@@ -515,10 +547,10 @@ Population: total=None; reviewed=None; exceptions=None; method=
 
 ### AI-002 | Limit model data egress and cross-user memory
 Supporting criteria: CC6.3, CC6.7 (interpretive mapping)
-Design: insufficient_evidence; Operation: insufficient_evidence
-Rationale: No reviewer conclusion recorded.
+Design: not_applicable; Operation: not_applicable
+Rationale: Synthetic product has no AI features; scope approved by the Synthetic Security Lead.
 Evidence: None
-Reviewer: Unassigned; Owner: Unassigned
+Reviewer: Synthetic Reviewer; Owner: Unassigned
 Period gaps: [["2026-08-01", "2026-10-31"]]
 Next action: Collect and review scoped evidence.
 Verification: Attempt synthetic exfiltration and cross-user retrieval.
@@ -526,10 +558,10 @@ Population: total=None; reviewed=None; exceptions=None; method=
 
 ### AI-003 | Review AI behavior changes and action auditability
 Supporting criteria: CC8.1, CC7.2 (interpretive mapping)
-Design: insufficient_evidence; Operation: insufficient_evidence
-Rationale: No reviewer conclusion recorded.
+Design: not_applicable; Operation: not_applicable
+Rationale: Synthetic product has no AI features; scope approved by the Synthetic Security Lead.
 Evidence: None
-Reviewer: Unassigned; Owner: Unassigned
+Reviewer: Synthetic Reviewer; Owner: Unassigned
 Period gaps: [["2026-08-01", "2026-10-31"]]
 Next action: Collect and review scoped evidence.
 Verification: Trace a released AI configuration to review and evaluations.
@@ -616,3 +648,10 @@ Population: total=None; reviewed=None; exceptions=None; method=
 EX-TLS | code | synthetic/api/client.py:12 | collected 2026-11-01 | reviewer Synthetic Reviewer | method Synthetic example representing a traced disabled TLS setting
 EX-AUTH | test | synthetic/tests/test_auth.py:1 | collected 2026-11-01 | reviewer Synthetic Reviewer | method Synthetic passing authentication test record; not an actual test run
 EX-CHANGES | operational | synthetic/change-review-register.json | collected 2026-11-01 | reviewer Synthetic Reviewer | method Synthetic release review with two exceptions
+EX-ADMIN | configuration | synthetic/admin-console/auth-settings.json | collected 2026-11-01 | reviewer Synthetic Reviewer | method Synthetic export of the administrator sign-in settings showing a password-only policy
+EX-CI | configuration | synthetic/ci/required-checks.yml | collected 2026-11-01 | reviewer Synthetic Reviewer | method Synthetic pipeline configuration requiring tests before production deployment
+EX-BRANCH | configuration | synthetic/repo/branch-protection.json | collected 2026-11-01 | reviewer Synthetic Reviewer | method Synthetic branch protection export; one release branch allows administrator bypass
+EX-LOGS | code | synthetic/api/logging.py:48 | collected 2026-11-01 | reviewer Synthetic Reviewer | method Synthetic example of a request logger that records full payloads on one route
+EX-BACKUP-CFG | configuration | synthetic/ops/backup-policy.json | collected 2026-11-01 | reviewer Synthetic Reviewer | method Synthetic backup schedule, retention and failure alert settings
+EX-BACKUP-RUNS | operational | synthetic/ops/backup-run-log.json | collected 2026-11-05 | reviewer Synthetic Reviewer | method Synthetic daily backup run log with alert reconciliation
+EX-VULN | operational | synthetic/security/vulnerability-reviews.json | collected 2026-11-03 | reviewer Synthetic Reviewer | method Synthetic weekly vulnerability review records for August and September

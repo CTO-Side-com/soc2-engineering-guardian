@@ -127,8 +127,9 @@ One function feeds Markdown, PDF and tasks. Returns:
   - `period_gaps` (operation items in `type2-readiness` mode): output of the existing `gaps_for`
   - `population`: the check's population object (operation items)
 - `period`: for `type2-readiness`, one row per check that has operation evidence or a non-default
-  operation status: check, operation status, covered intervals, uncovered ranges, population
-  total/reviewed/exceptions. Empty for `type1-readiness`.
+  operation status, except `not_applicable` (an approved N/A asserts nothing about operation, so
+  it has no coverage to show; amended 2026-11-20 during SG-6): check, operation status, covered
+  intervals, uncovered ranges, population total/reviewed/exceptions. Empty for `type1-readiness`.
 
 All text passes through `common.clean()` before any renderer sees it.
 

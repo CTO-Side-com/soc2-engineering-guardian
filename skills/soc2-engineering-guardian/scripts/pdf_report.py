@@ -516,7 +516,9 @@ class Report:
             rows.append([_c(e['id'], 40), _c(e['type'], 40), _c(e['ref'], 400), _c(e['environment'], 60), _c(e['collected_on'], 10),
                          f'{_c(p["start"], 10)} to {_c(p["end"], 10)}' if p else '–', _c(e['reviewer'], 80)])
         if rows:
-            self.table([('ID', 66), ('Type', 51), ('Reference', 146), ('Environment', 84), ('Collected', 52), ('Period', 60), ('Reviewer', 45)], rows)
+            # 7.5 pt keeps whole identifiers such as EX-BACKUP-CFG, configuration and synthetic-production on one line.
+            self.table([('ID', 77), ('Type', 52), ('Reference', 152), ('Environment', 77), ('Collected', 48), ('Period', 56), ('Reviewer', 42)],
+                       rows, size=7.5)
         else:
             self.paragraph('No evidence items are recorded.')
 

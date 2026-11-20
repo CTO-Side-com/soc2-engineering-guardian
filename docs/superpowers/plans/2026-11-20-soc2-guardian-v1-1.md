@@ -261,6 +261,8 @@ if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.pare
 
 - [ ] **Step 6: Commit** `docs(example): enrich synthetic assessment and regenerate example outputs` with `Task: SG-6`.
 
+**As built (2026-11-20):** merged `6be5397..955e2b7`; approved first review. Example: 6 confirmed gaps (IAM-002 design critical, DAT-001 design high, MON-004 operation high, CHG-001 operation medium, CHG-002 design medium, DAT-006 design low), verified designs IAM-001/CHG-003/REC-001, REC-001 operation verified over the full period (92/92/0), AI-001..003 N/A; 96 open items; PDF 21 pages. Widened mid-task (R15, R16): N/A checks left out of period coverage (spec §1 amended); Appendix B at 7.5 pt keeps the example's evidence values whole. The cover's generated-on date makes later regenerations differ in the PDF and its manifest digest. Suite 146/146.
+
 ### Task SG-7: Templates, references and SKILL.md
 
 **Files:**

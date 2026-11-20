@@ -1,9 +1,9 @@
 ---
 status: active
 phase: v1.1 · Designed PDF report, tracker exports, public-release prep
-next: SG-6 · Enriched synthetic example
+next: SG-8 · Public README, infographics, preview, manifests, CI
 tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 15:11 +0400
+updated: 2026-11-20 15:19 +0400
 ---
 
 # SOC 2 Engineering Guardian: handoff
@@ -86,7 +86,7 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 | SG-3 | Priority hints, summary model, Markdown, per-item risk register | done | 2026-11-20 14:46 | 2026-11-20 14:53 |
 | SG-4 | Designed PDF report | done | 2026-11-20 14:53 | 2026-11-20 15:11 |
 | SG-5 | Import-ready task exports | done | 2026-11-20 14:53 | 2026-11-20 15:00 |
-| SG-6 | Enriched synthetic example | todo | | |
+| SG-6 | Enriched synthetic example | done | 2026-11-20 15:11 | 2026-11-20 15:19 |
 | SG-7 | Templates, references, SKILL.md | done | 2026-11-20 14:46 | 2026-11-20 14:52 |
 | SG-8 | Public README, infographics, preview, manifests, CI | todo | | |
 | SG-9 | Final whole-branch review (security-critical) | todo | | |
@@ -118,21 +118,23 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
   next heading); top-priority lines repeat the dimension (`CHG-001-design Fix: [Design] ...`);
   the "cannot show" list in the PDF is hardcoded from README Boundaries and must be edited with it;
   non-Latin text prints as `?` (documented in Appendix C).
+- SG-6 (minor): `pdf_writer.wrap()` splits words longer than a column by character, so free-form
+  evidence IDs over ~14 characters or `external_report` still split in Appendix B (the example's
+  values are whole and pinned); prefer breaks after `-`, `/`, `_`. Regenerating the example on a
+  later day changes the PDF's generated-on line and its digest in `handoff-manifest.json`.
 
 ## Next steps
 
-1. Review SG-4 and SG-5 (reviewer agent) as each reports; merge; gate after each merge.
-2. SG-6 (enriched example, commits regenerated docs/example) after both merge.
-3. SG-8 (README, infographics, preview, manifests, CI; also the SG-7 doc minors and the
+1. Review SG-6 (reviewer agent), merge; it commits the regenerated docs/example.
+2. SG-8 (README, infographics, preview, manifests, CI; also the SG-7 doc minors and the
    install line), then SG-9 final whole-branch review (general-purpose, opus).
 
 ## In flight
 
-- 2026-11-20 14:53 · base `3ecec96`, implementer agents (sonnet, high effort), hand-backs saved to
-  `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/sg-N/report.md`:
-  - SG-4 implement: branch `sg-4-pdf-report`, worktree `~/Developer/soc2-guardian-wt/sg-4`
-  - SG-5 implement: branch `sg-5-task-exports`, worktree `~/Developer/soc2-guardian-wt/sg-5`
-- Merged so far: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3 `3ecec96`, SG-5 `f67a64a`, SG-4 (suite 140/140).
+- 2026-11-20 15:11 · SG-6 implement: implementer (sonnet, high effort), branch `sg-6-example`, worktree
+  `~/Developer/soc2-guardian-wt/sg-6`, base `1d72225`; hand-back saved to
+  `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/sg-6/report.md`.
+- Merged so far: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3 `3ecec96`, SG-5 `f67a64a`, SG-4 `1d72225`, SG-6 (suite 146/146).
 - SDD ledger and per-task scratch: `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/` (git-ignored);
   each task's hand-back is saved to `sg-N/report.md`, reviews to `sg-N/review-*.md`.
 - Uncommitted on main: `soc2-corrections-prompts.md` (user asked for it as a suggestion; kept out of the repo for now).

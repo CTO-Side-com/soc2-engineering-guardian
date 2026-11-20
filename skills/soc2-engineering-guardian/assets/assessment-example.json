@@ -60,6 +60,77 @@
         "start": "2026-09-01",
         "end": "2026-10-31"
       }
+    },
+    {
+      "id": "EX-ADMIN",
+      "type": "configuration",
+      "ref": "synthetic/admin-console/auth-settings.json",
+      "method": "Synthetic export of the administrator sign-in settings showing a password-only policy",
+      "reviewer": "Synthetic Reviewer",
+      "environment": "synthetic-production",
+      "collected_on": "2026-11-01"
+    },
+    {
+      "id": "EX-CI",
+      "type": "configuration",
+      "ref": "synthetic/ci/required-checks.yml",
+      "method": "Synthetic pipeline configuration requiring tests before production deployment",
+      "reviewer": "Synthetic Reviewer",
+      "environment": "synthetic-production",
+      "collected_on": "2026-11-01"
+    },
+    {
+      "id": "EX-BRANCH",
+      "type": "configuration",
+      "ref": "synthetic/repo/branch-protection.json",
+      "method": "Synthetic branch protection export; one release branch allows administrator bypass",
+      "reviewer": "Synthetic Reviewer",
+      "environment": "synthetic-production",
+      "collected_on": "2026-11-01"
+    },
+    {
+      "id": "EX-LOGS",
+      "type": "code",
+      "ref": "synthetic/api/logging.py:48",
+      "method": "Synthetic example of a request logger that records full payloads on one route",
+      "reviewer": "Synthetic Reviewer",
+      "environment": "synthetic-production",
+      "collected_on": "2026-11-01"
+    },
+    {
+      "id": "EX-BACKUP-CFG",
+      "type": "configuration",
+      "ref": "synthetic/ops/backup-policy.json",
+      "method": "Synthetic backup schedule, retention and failure alert settings",
+      "reviewer": "Synthetic Reviewer",
+      "environment": "synthetic-production",
+      "collected_on": "2026-11-01"
+    },
+    {
+      "id": "EX-BACKUP-RUNS",
+      "type": "operational",
+      "ref": "synthetic/ops/backup-run-log.json",
+      "method": "Synthetic daily backup run log with alert reconciliation",
+      "reviewer": "Synthetic Reviewer",
+      "environment": "synthetic-production",
+      "collected_on": "2026-11-05",
+      "period": {
+        "start": "2026-08-01",
+        "end": "2026-10-31"
+      }
+    },
+    {
+      "id": "EX-VULN",
+      "type": "operational",
+      "ref": "synthetic/security/vulnerability-reviews.json",
+      "method": "Synthetic weekly vulnerability review records for August and September",
+      "reviewer": "Synthetic Reviewer",
+      "environment": "synthetic-production",
+      "collected_on": "2026-11-03",
+      "period": {
+        "start": "2026-08-01",
+        "end": "2026-09-30"
+      }
     }
   ],
   "controls": [
@@ -292,18 +363,20 @@
     },
     {
       "id": "IAM-002",
-      "design_status": "insufficient_evidence",
+      "design_status": "failed",
       "operation_status": "insufficient_evidence",
-      "design_evidence": [],
+      "design_evidence": [
+        "EX-ADMIN"
+      ],
       "operation_evidence": [],
-      "rationale": "",
-      "reviewer": "",
+      "rationale": "Synthetic example: the administrator console accepts a password alone, with no second factor for privileged accounts.",
+      "reviewer": "Synthetic Reviewer",
       "approved_by": "",
-      "owner": "",
-      "severity": "",
-      "recommendation": "",
-      "verification_test": "",
-      "due_date": "",
+      "owner": "Synthetic Platform Lead",
+      "severity": "critical",
+      "recommendation": "Require multi-factor authentication for every administrator and privileged service account.",
+      "verification_test": "An administrator sign-in without a second factor is rejected in an isolated test.",
+      "due_date": "2026-11-27",
       "watched_paths": [],
       "population": {
         "source": "",
@@ -494,18 +567,20 @@
     },
     {
       "id": "CHG-002",
-      "design_status": "insufficient_evidence",
+      "design_status": "partially_verified",
       "operation_status": "insufficient_evidence",
-      "design_evidence": [],
+      "design_evidence": [
+        "EX-BRANCH"
+      ],
       "operation_evidence": [],
-      "rationale": "",
-      "reviewer": "",
+      "rationale": "Synthetic example: the main branch is protected, but one release branch lets administrators bypass required review.",
+      "reviewer": "Synthetic Reviewer",
       "approved_by": "",
-      "owner": "",
-      "severity": "",
-      "recommendation": "",
-      "verification_test": "",
-      "due_date": "",
+      "owner": "Synthetic Release Owner",
+      "severity": "medium",
+      "recommendation": "Remove the bypass permission from the release branch and record any exception.",
+      "verification_test": "A direct push to the release branch by an administrator is rejected in an isolated test.",
+      "due_date": "2026-12-04",
       "watched_paths": [],
       "population": {
         "source": "",
@@ -519,12 +594,14 @@
     },
     {
       "id": "CHG-003",
-      "design_status": "insufficient_evidence",
+      "design_status": "verified",
       "operation_status": "insufficient_evidence",
-      "design_evidence": [],
+      "design_evidence": [
+        "EX-CI"
+      ],
       "operation_evidence": [],
-      "rationale": "",
-      "reviewer": "",
+      "rationale": "Synthetic pipeline configuration requires passing tests before production deployment. No historical operation is asserted.",
+      "reviewer": "Synthetic Reviewer",
       "approved_by": "",
       "owner": "",
       "severity": "",
@@ -796,18 +873,20 @@
     },
     {
       "id": "DAT-006",
-      "design_status": "insufficient_evidence",
+      "design_status": "partially_verified",
       "operation_status": "insufficient_evidence",
-      "design_evidence": [],
+      "design_evidence": [
+        "EX-LOGS"
+      ],
       "operation_evidence": [],
-      "rationale": "",
-      "reviewer": "",
+      "rationale": "Synthetic example: most routes redact personal fields, but one request logger records full payloads.",
+      "reviewer": "Synthetic Reviewer",
       "approved_by": "",
-      "owner": "",
-      "severity": "",
-      "recommendation": "",
-      "verification_test": "",
-      "due_date": "",
+      "owner": "Synthetic Engineering Owner",
+      "severity": "low",
+      "recommendation": "Redact payload fields on the remaining route and add a logging test.",
+      "verification_test": "A logged request on that route shows no personal field values in an isolated test.",
+      "due_date": "2026-12-18",
       "watched_paths": [],
       "population": {
         "source": "",
@@ -897,26 +976,28 @@
     {
       "id": "MON-004",
       "design_status": "insufficient_evidence",
-      "operation_status": "insufficient_evidence",
+      "operation_status": "partially_verified",
       "design_evidence": [],
-      "operation_evidence": [],
-      "rationale": "",
-      "reviewer": "",
+      "operation_evidence": [
+        "EX-VULN"
+      ],
+      "rationale": "Synthetic weekly vulnerability reviews cover August and September; October is missing and one review has no triage record.",
+      "reviewer": "Synthetic Reviewer",
       "approved_by": "",
-      "owner": "",
-      "severity": "",
-      "recommendation": "",
-      "verification_test": "",
-      "due_date": "",
+      "owner": "Synthetic Security Lead",
+      "severity": "high",
+      "recommendation": "Collect the October review records and add the missing triage record.",
+      "verification_test": "Reconcile every weekly review in the period against its triage record.",
+      "due_date": "2026-11-30",
       "watched_paths": [],
       "population": {
-        "source": "",
-        "total": null,
-        "reviewed": null,
-        "exceptions": null,
-        "selection_method": "",
-        "completeness_method": "",
-        "reviewer": ""
+        "source": "Synthetic weekly review schedule",
+        "total": 9,
+        "reviewed": 9,
+        "exceptions": 1,
+        "selection_method": "All scheduled reviews",
+        "completeness_method": "Synthetic schedule reconciliation",
+        "reviewer": "Synthetic Reviewer"
       }
     },
     {
@@ -996,27 +1077,31 @@
     },
     {
       "id": "REC-001",
-      "design_status": "insufficient_evidence",
-      "operation_status": "insufficient_evidence",
-      "design_evidence": [],
-      "operation_evidence": [],
-      "rationale": "",
-      "reviewer": "",
+      "design_status": "verified",
+      "operation_status": "verified",
+      "design_evidence": [
+        "EX-BACKUP-CFG"
+      ],
+      "operation_evidence": [
+        "EX-BACKUP-RUNS"
+      ],
+      "rationale": "Synthetic backup settings and a run log covering the whole period; every daily run was reconciled and no failure went unalerted.",
+      "reviewer": "Synthetic Reviewer",
       "approved_by": "",
       "owner": "",
       "severity": "",
       "recommendation": "",
-      "verification_test": "",
+      "verification_test": "Reconcile every daily backup run and failure alert across the period.",
       "due_date": "",
       "watched_paths": [],
       "population": {
-        "source": "",
-        "total": null,
-        "reviewed": null,
-        "exceptions": null,
-        "selection_method": "",
-        "completeness_method": "",
-        "reviewer": ""
+        "source": "Synthetic daily backup runs",
+        "total": 92,
+        "reviewed": 92,
+        "exceptions": 0,
+        "selection_method": "All daily runs",
+        "completeness_method": "Synthetic run-count reconciliation against the schedule",
+        "reviewer": "Synthetic Reviewer"
       }
     },
     {
@@ -1146,13 +1231,13 @@
     },
     {
       "id": "AI-001",
-      "design_status": "insufficient_evidence",
-      "operation_status": "insufficient_evidence",
+      "design_status": "not_applicable",
+      "operation_status": "not_applicable",
       "design_evidence": [],
       "operation_evidence": [],
-      "rationale": "",
-      "reviewer": "",
-      "approved_by": "",
+      "rationale": "Synthetic product has no AI features; scope approved by the Synthetic Security Lead.",
+      "reviewer": "Synthetic Reviewer",
+      "approved_by": "Synthetic Security Lead",
       "owner": "",
       "severity": "",
       "recommendation": "",
@@ -1171,13 +1256,13 @@
     },
     {
       "id": "AI-002",
-      "design_status": "insufficient_evidence",
-      "operation_status": "insufficient_evidence",
+      "design_status": "not_applicable",
+      "operation_status": "not_applicable",
       "design_evidence": [],
       "operation_evidence": [],
-      "rationale": "",
-      "reviewer": "",
-      "approved_by": "",
+      "rationale": "Synthetic product has no AI features; scope approved by the Synthetic Security Lead.",
+      "reviewer": "Synthetic Reviewer",
+      "approved_by": "Synthetic Security Lead",
       "owner": "",
       "severity": "",
       "recommendation": "",
@@ -1196,13 +1281,13 @@
     },
     {
       "id": "AI-003",
-      "design_status": "insufficient_evidence",
-      "operation_status": "insufficient_evidence",
+      "design_status": "not_applicable",
+      "operation_status": "not_applicable",
       "design_evidence": [],
       "operation_evidence": [],
-      "rationale": "",
-      "reviewer": "",
-      "approved_by": "",
+      "rationale": "Synthetic product has no AI features; scope approved by the Synthetic Security Lead.",
+      "reviewer": "Synthetic Reviewer",
+      "approved_by": "Synthetic Security Lead",
       "owner": "",
       "severity": "",
       "recommendation": "",

@@ -100,6 +100,12 @@ class SummaryTests(unittest.TestCase):
         items=summarize(self.a)['items'];self.assertEqual(HEADER,rows[0]);self.assertEqual(len(items),len(rows)-1)
         self.assertEqual([i['key'] for i in items],[r[0] for r in rows[1:]])
         self.assertEqual(['CHG-001-design','CHG-001','design'],rows[1][:3]);self.assertEqual('Confirmed gap',rows[1][6]);self.assertEqual('Evidence request',rows[-1][6])
+    def test_not_applicable_operation_has_no_period_row(self):
+        c=self.check('AI-001')
+        c.update(design_status='not_applicable',operation_status='not_applicable',rationale='Synthetic product has no AI features',
+            reviewer='Synthetic Reviewer',approved_by='Synthetic Approver')
+        self.assertEqual([],validate(self.a))
+        self.assertNotIn('AI-001',[r['control_id'] for r in summarize(self.a)['period']])
     def test_markdown_sections(self):
         md=self.render_md()
         for h in ('## Status by area','## Open items by urgency','## Period coverage'):self.assertIn(h,md)

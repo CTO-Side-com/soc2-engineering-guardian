@@ -55,7 +55,7 @@ def summarize(data):
     if not type1:
         for d in lib:
             c=controls[d['id']]
-            if not c['operation_evidence'] and c['operation_status']=='insufficient_evidence':continue
+            if c['operation_status']=='not_applicable' or (not c['operation_evidence'] and c['operation_status']=='insufficient_evidence'):continue
             p=c.get('population') or {}
             period.append({'control_id':d['id'],'title':clean(d['title']),'operation_status':c['operation_status'],
                 'covered':[[e['period']['start'],e['period']['end']] for e in (ev.get(r,{}) for r in c['operation_evidence'])
