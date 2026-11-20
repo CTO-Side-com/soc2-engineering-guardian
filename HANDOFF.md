@@ -1,9 +1,9 @@
 ---
-status: paused
+status: active
 phase: v1.1 · Built and reviewed on main, not published
-next: Publish to GitHub (Needs you)
+next: Publish · create repo, push, check CI
 tests: unit 159/159 · repo 9/9 (2026-11-20, macOS, Python 3.13); CI not run yet (unpublished)
-updated: 2026-11-20 17:01 +0400
+updated: 2026-11-20 17:05 +0400
 ---
 # SOC 2 Engineering Guardian: handoff
 
@@ -76,15 +76,19 @@ GitHub exports) are still open and still yours to run or drop.
 - [x] Marketplace name stays `ctoside-soc2` (answered 2026-11-20 16:58).
 - [x] SG-9 past its fix cap: apply the reviewer's one-line JWT fix (`(?<!-)` before `eyJ`) with a
       red-then-green timing test and a README note on camelCase names, then merge (answered 2026-11-20 16:58).
-
+- [x] Publish: create public `CTO-Side-com/soc2-engineering-guardian` and push (answered 2026-11-20 17:05, "push").
+- [x] Symlink guard, v1.1.1 (not started): when an output path crosses a symlinked folder outside the
+      working directory that is not root-owned, the scripts stop and name the link; the agent informs
+      the user and asks whether to refuse or accept; accepting re-runs with an explicit flag
+      (answered 2026-11-20 17:05: "inform and ask the user what it shall do, refuse or accept").
 ## Needs you
 
 - [x] 2026-11-20 · Marketplace name: both plugins say `ctoside`, and a user can register only one
       marketplace per name (Claude Code marketplace reference). Rename this one to `ctoside-soc2`,
       or list it inside hipaa-guardian's `ctoside` marketplace? (recommend rename; spec "Open")
-- [ ] 2026-11-20 · Publish: create public `CTO-Side-com/soc2-engineering-guardian` and push once
+- [x] 2026-11-20 · Publish: create public `CTO-Side-com/soc2-engineering-guardian` and push once
       tests and the final review are green? (recommended; nothing is pushed until you say so)
-- [ ] 2026-11-20 · Symlink guard, one step further than the narrowed rule: also refuse a symlinked
+- [x] 2026-11-20 · Symlink guard, one step further than the narrowed rule: also refuse a symlinked
       folder outside the working directory when it is not owned by root? The final review wrote
       through a planted `soc2-output` link when the audited repo was not the working directory;
       system aliases (`/tmp`, `/var`) are root-owned and would stay allowed. (recommend yes, as a
@@ -204,7 +208,7 @@ canvas.save(out, optimize=True)
 
 1. Your call (Needs you): create public `CTO-Side-com/soc2-engineering-guardian` and push; then
    check CI on Linux for 3.9/3.11/3.13 and that the README badge and images resolve on GitHub.
-2. v1.1.1: the symlink-guard question in Needs you; then a hardening pass over `## Follow-ups`
+2. v1.1.1: the symlink guard's inform-and-ask behaviour (Decisions); then a hardening pass over `## Follow-ups`
    (redaction gaps listed under SG-9, newline flattening in `tasks.md` and Slack text, PDF header
    width, test-depth items).
 3. Correction prompts 2 and 5 if you want them.
