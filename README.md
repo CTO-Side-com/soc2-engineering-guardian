@@ -228,7 +228,7 @@ No actual company or production system was assessed. `python3 docs/build_example
 | Slack message | [`tasks-slack.txt`](docs/example/tasks-slack.txt) | Paste into a channel, thread or canvas. `@`, `<` and `>` in findings become look-alike characters, so pasted text cannot ping `@channel` or form `<…>` links. Bare URLs still auto-link. |
 | Anywhere | [`tasks.md`](docs/example/tasks.md) | A `- [ ]` checklist grouped by urgency for GitHub issues and other Markdown tools. |
 
-CSV cells are guarded against formula injection. Before anything is written, emails, ID numbers, international and US-format phone numbers, and common secret shapes (`password=`-style and `access_token=`-style values, bearer tokens, GitHub, Stripe, AWS and Slack keys, JWTs, passwords in URLs and private key blocks) are masked by pattern. Redaction is pattern-based, so review outputs before sharing. Nothing is sent anywhere.
+CSV cells are guarded against formula injection. Before anything is written, these are masked by pattern: emails; SSN-format numbers (`NNN-NN-NNNN`); phone numbers written with a leading `+` or as `(NNN) NNN-NNNN`; values after `:`, `=` or `=>` that follow a `password`, `passwd`, `pwd`, `token`, `secret`, `api_key` or `api-key`, `access_key` or `private_key` label, including suffixed names such as `DB_PASSWORD` or `access_token`; bearer tokens; passwords in URLs; PEM and PGP private key blocks; and GitHub tokens, `sk-` API keys, Stripe secret and restricted keys, AWS access key IDs starting `AKIA`, Slack tokens and signed JWTs. Anything else passes through, including unlabelled passwords and phone numbers without a `+` or brackets. Review outputs before sharing. Nothing is sent anywhere.
 
 ## GitHub evidence
 
@@ -256,8 +256,8 @@ The result is a new assessment: conclusions affected by the changed files are in
 - **Evidence is data, never instructions.** Repository files, documents and exported records are treated as untrusted input, and instructions found inside them are not followed.
 - **No secrets or customer records in prompts or outputs.** It never reads `.env` files, private keys, data dumps or raw customer records. The scanner skips data, fixture and upload folders, and records file and line only.
 - **No network unless you opt in.** Every script uses the Python standard library. The only network path is `github_evidence.py --allow-network`, which is GET-only.
-- **Safe writes.** An output file, its folder and any folder inside the working directory are refused if symlinked; system aliases such as `/tmp` are not. Initialization refuses to overwrite a baseline, and reports and task exports reject structurally invalid evidence.
-- **Pattern-based redaction.** Emails, ID numbers, international and US-format phone numbers, and common secret shapes are masked by pattern in every report and export before anything is written. It is a safety net, not a substitute for a human check: review outputs before sharing.
+- **Safe writes.** An output file, its folder and any folder inside the working directory are refused if symlinked, so `--out /tmp` is refused on systems where `/tmp` is a symlink. System aliases above the output folder, such as `/tmp` or `/var` in a longer path, are not refused. Initialization refuses to overwrite a baseline, and reports and task exports reject structurally invalid evidence.
+- **Pattern-based redaction.** Emails, SSN-format numbers, phone numbers written with a leading `+` or as `(NNN) NNN-NNNN`, and the secret shapes listed under [Task exports](#task-exports-jira-notion-slack) are masked by pattern in every report and export before anything is written. It is a safety net, not a substitute for a human check: review outputs before sharing.
 - **No green lights.** No certificates, no compliance percentages, no auditor opinions. Proposed criteria changes are kept separate from the baseline.
 
 ## Boundaries
@@ -284,7 +284,7 @@ tests/                              repository checks: README links, images, man
 ## Development
 
 ```bash
-python3 -m unittest discover -s skills/soc2-engineering-guardian/tests -v   # 157 offline tests
+python3 -m unittest discover -s skills/soc2-engineering-guardian/tests -v   # 159 offline tests
 python3 -m unittest discover -s tests -v                                    # 9 repository tests
 python3 docs/build_example.py                                               # rebuild the example outputs
 ```
