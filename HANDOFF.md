@@ -3,7 +3,7 @@ status: active
 phase: v1.1 · Published
 next: v1.1.1 · Symlink guard informs and asks
 tests: unit 159/159 · repo 9/9; CI green on Python 3.9/3.11/3.13, 1 skip on Linux (case-variant symlink test) (2026-11-20)
-updated: 2026-11-20 17:07 +0400
+updated: 2026-11-20 17:24 +0400
 ---
 # SOC 2 Engineering Guardian: handoff
 
@@ -13,6 +13,7 @@ updated: 2026-11-20 17:07 +0400
   `c4abed9` from `~/Downloads/SOC2_Engineering_Guardian.bundle`.
 - Published 2026-11-20 17:07: public https://github.com/CTO-Side-com/soc2-engineering-guardian (`origin`),
   homepage ctoside.com, topics as hipaa-guardian's; first push `5ff31b3`, CI run 44741421121 green.
+- Last commit before this update: `b668fa5` (pushed; CI run 44741593784 green on 3.9/3.11/3.13).
   The old local bundle stays as remote `bundle`.
 - Sibling and model: `~/Projects/Skills/hipaa-guardian` (public, same CTOside family).
 
