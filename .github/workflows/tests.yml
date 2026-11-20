@@ -1,27 +1,29 @@
-name: SOC 2 Guardian tests
+name: tests
+
 on:
   push:
-    paths:
-      - 'skills/soc2-engineering-guardian/**'
-      - 'docs/**'
-      - '.github/workflows/tests.yml'
   pull_request:
-    paths:
-      - 'skills/soc2-engineering-guardian/**'
-      - 'docs/**'
-      - '.github/workflows/tests.yml'
+
 permissions:
   contents: read
+
 jobs:
-  offline-tests:
-    runs-on: ubuntu-latest
+  unit:
+    # Pinned: setup-python publishes no Python 3.9 build for ubuntu-latest, and the README
+    # promises 3.9+.
+    runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
-        python: ['3.9', '3.11', '3.13']
+        python: ["3.9", "3.11", "3.13"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python }}
-      - run: python -m unittest discover -s skills/soc2-engineering-guardian/tests -v
-      - run: python docs/build_example.py
+      - name: Skill unit tests (stdlib only, offline)
+        run: python -m unittest discover -s skills/soc2-engineering-guardian/tests -v
+      - name: Repository tests (README, images, manifests, CI)
+        run: python -m unittest discover -s tests -v
+      - name: Example outputs still build
+        run: python docs/build_example.py

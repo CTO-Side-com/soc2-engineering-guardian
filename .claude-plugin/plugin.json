@@ -1,16 +1,14 @@
 {
   "name": "soc2-engineering-guardian",
-  "description": "Evidence-first SOC 2 engineering readiness: original Security checks, separate design and period operation, GitHub metadata, PDF reports and remediation tasks.",
-  "version": "1.0.0",
+  "description": "Evidence-first SOC 2 engineering readiness: 53 original Security checks, separate design and period operation, GitHub metadata, PDF reports and remediation tasks.",
+  "version": "1.1.0",
   "author": {
-    "name": "CTOside"
+    "name": "CTOside",
+    "url": "https://ctoside.com"
   },
+  "homepage": "https://github.com/CTO-Side-com/soc2-engineering-guardian",
+  "repository": "https://github.com/CTO-Side-com/soc2-engineering-guardian",
   "license": "MIT",
-  "keywords": [
-    "soc2",
-    "security",
-    "engineering",
-    "evidence",
-    "readiness"
-  ]
+  "category": "security",
+  "keywords": ["soc2", "security", "compliance", "audit", "evidence", "readiness", "engineering"]
 }
