@@ -128,28 +128,6 @@ def lines(data):
                    ' | reviewer '+e['reviewer']+' | method '+e['method'])
     return [clean(line,20000) for line in out]
 
-def pdf_report(data,content,path):
-    from pdf_writer import PDF,wrap
-    pdf=PDF(title='SOC 2 Engineering Readiness',author='CTOside',subject=NOTICE)
-    y=0
-    def page():
-        nonlocal y
-        pdf.add_page();pdf.rect(0,0,612,45,fill='#101827')
-        pdf.text(36,29,'CTOside / SOC 2 Engineering Guardian',12,True,color='#FFFFFF')
-        pdf.line(36,750,576,750,color='#39B9D0')
-        pdf.text(36,767,'Internal readiness only. Not an auditor opinion.',8,color='#526174')
-        pdf.text(540,767,str(len(pdf.pages)),8,color='#526174');y=72
-    page()
-    for text in content:
-        heading=text.startswith('#');size=15 if text.startswith('# ') else 11 if heading else 9
-        value=text.lstrip('# ').strip() if heading else text
-        if not value:y+=6;continue
-        for part in wrap(value,size,540,bold=heading):
-            if y+size+6>732:page()
-            pdf.text(36,y,part,size,heading,color='#AF2867' if heading else '#182437');y+=size+5
-        y+=4 if heading else 1
-    target(path).write_bytes(pdf.output())
-
 def render(data,out,pdf=False):
     require_valid(data);out=target(str(out)+'/placeholder').parent
     content=lines(data)
@@ -168,7 +146,9 @@ def render(data,out,pdf=False):
         if isinstance(obj,list):return [scrub(v) for v in obj]
         return clean(obj,20000) if isinstance(obj,str) else obj
     write(out/'assessment-redacted.json',scrub(data))
-    if pdf:pdf_report(data,content,out/'SOC2-READINESS.pdf')
+    if pdf:
+        from pdf_report import render_pdf  # lazy: pdf_report imports this module
+        target(out/'SOC2-READINESS.pdf').write_bytes(render_pdf(data))
     names=['SOC2-READINESS.md','evidence-index.csv','risk-register.csv','assessment-redacted.json']+(['SOC2-READINESS.pdf'] if pdf else [])
     write(out/'handoff-manifest.json',{'notice':NOTICE,'raw_evidence_included':False,
         'files':[{'path':n,'sha256':digest(out/n)} for n in names]})
