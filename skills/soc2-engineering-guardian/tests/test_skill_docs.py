@@ -1,10 +1,8 @@
 """Documentation invariants for SKILL.md, references and templates."""
 from pathlib import Path
+import json
 import re
-import sys
 import unittest
-
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 
 SKILL=Path(__file__).resolve().parents[1]
 SKILL_MD=SKILL/'SKILL.md'
@@ -39,7 +37,7 @@ class SkillDocTests(unittest.TestCase):
         self.assertIn('SOC 2',top['description'])
 
     def test_relative_links_resolve(self):
-        files=[SKILL_MD]+sorted((SKILL/'references').glob('*.md'))
+        files=[SKILL_MD]+sorted((SKILL/'references').glob('*.md'))+sorted((SKILL/'assets').glob('*.md'))
         checked=0
         for f in files:
             for target in re.findall(r'\]\(([^)\s]+)\)',f.read_text(encoding='utf-8')):
@@ -64,6 +62,37 @@ class SkillDocTests(unittest.TestCase):
         text=SKILL_MD.read_text(encoding='utf-8')
         self.assertRegex(text,r'\b17 (regex )?(scanner )?rules')
         self.assertNotIn('13 regex',text)
+
+    def test_ai_threats_cite_existing_checks(self):
+        known={c['id'] for c in json.loads((SKILL/'references'/'controls.json').read_text(encoding='utf-8'))['controls']}
+        cited=set(re.findall(r'\b[A-Z]{2,3}-\d{3}\b',(SKILL/'references'/'ai-saas-threats.md').read_text(encoding='utf-8')))
+        self.assertTrue(cited,'no check ids cited')
+        self.assertFalse(cited-known,f'unknown check ids: {sorted(cited-known)}')
+
+    def test_install_guide_has_public_commands(self):
+        text=(SKILL/'references'/'installation.md').read_text(encoding='utf-8')
+        self.assertIn('/plugin install soc2-engineering-guardian@ctoside-soc2',text)
+        self.assertIn('gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian',text)
+
+    def test_vendor_register_wording(self):
+        text=(SKILL/'assets'/'SUBSERVICE-VENDOR-REGISTER.md').read_text(encoding='utf-8')
+        self.assertIn('unmodified',text)
+        self.assertNotIn('unqualified',text)
+        bridge=[l for l in text.splitlines() if l.startswith('- **Bridge letter')]
+        self.assertEqual(len(bridge),1)
+        self.assertIn('not an auditor opinion',bridge[0])
+
+    def test_outputs_section_precedes_no_safety_text(self):
+        heading=None
+        for para in re.split(r'\n\s*\n',SKILL_MD.read_text(encoding='utf-8')):
+            for line in para.splitlines():
+                if line.startswith('## '):
+                    heading=line
+            if 'independent CPA engagement' in para:
+                self.assertIsNotNone(heading)
+                self.assertNotEqual(heading,'## Outputs')
+                return
+        self.fail('closing safety paragraph not found')
 
 if __name__=='__main__':
     unittest.main()

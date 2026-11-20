@@ -3,7 +3,7 @@ status: active
 phase: v1.1 · Designed PDF report, tracker exports, public-release prep
 next: SG-8 · Public README, infographics, preview, manifests, CI
 tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 15:19 +0400
+updated: 2026-11-20 15:24 +0400
 ---
 
 # SOC 2 Engineering Guardian: handoff
@@ -88,7 +88,8 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 | SG-5 | Import-ready task exports | done | 2026-11-20 14:53 | 2026-11-20 15:00 |
 | SG-6 | Enriched synthetic example | done | 2026-11-20 15:11 | 2026-11-20 15:19 |
 | SG-7 | Templates, references, SKILL.md | done | 2026-11-20 14:46 | 2026-11-20 14:52 |
-| SG-8 | Public README, infographics, preview, manifests, CI | todo | | |
+| SG-8 | Public README, infographics, preview, manifests, CI | active | 2026-11-20 15:20 | |
+| SG-10 | Skill doc fixes from SG-7 review; public install commands | done | 2026-11-20 15:20 | 2026-11-20 15:24 |
 | SG-9 | Final whole-branch review (security-critical) | todo | | |
 
 ## Follow-ups
@@ -101,12 +102,9 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
   `log.info`, `secret_key`, `password_hash` and camelCase names, and its `<prefix>_password` match is
   untested; `credential-in-url` alternation is thinly tested and `?token=` pagination hits; the CI
   rules have no comment or multi-line tests.
-- SG-7 (minor, carried into SG-8's contract): move SKILL.md `## Outputs` below the recheck and
-  closing safety paragraphs; vendor register says "unmodified opinion" and that a bridge letter is a
-  vendor assertion, not an auditor opinion, and does not extend the period; link test also scans
-  `assets/*.md`; test that check IDs cited in `ai-saas-threats.md` exist. Left for hardening:
-  Outputs file-name and forbidden-wording tests, rule-count test tied to the scanner list, unused
-  `sys.path.insert` in `test_skill_docs.py`, trailing space in `SYSTEM-DESCRIPTION.md`.
+- SG-7 (minor): Outputs placement, opinion wording, asset link scan and cited-ID test fixed by
+  SG-10. Left for hardening: Outputs file-name and forbidden-wording tests, rule-count test tied to
+  the scanner list, trailing space in `SYSTEM-DESCRIPTION.md`.
 - SG-3 (minor, test depth; SG-9 review focus): `test_item_text_is_redacted` checks `observation`
   only; no test for `csv_safe` on risk-register cells, for `code` evidence being excluded from period
   coverage, or for a reviewer `severity` overriding the hint on an evidence request. Pre-existing:
@@ -122,19 +120,23 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
   evidence IDs over ~14 characters or `external_report` still split in Appendix B (the example's
   values are whole and pinned); prefer breaks after `-`, `/`, `_`. Regenerating the example on a
   later day changes the PDF's generated-on line and its digest in `handoff-manifest.json`.
+- SG-10 (minor): `test_install_guide_has_public_commands` checks two substrings only (misses a
+  stray `--scope project` on Copilot/Cursor, a wrong `--agent`, a missing git destination); the
+  Outputs-placement test proves only "not under Outputs" (assert `## Recheck and summarize`);
+  installation.md's "other agents" line names none (sibling names Codex, Gemini CLI).
 
 ## Next steps
 
-1. Review SG-6 (reviewer agent), merge; it commits the regenerated docs/example.
-2. SG-8 (README, infographics, preview, manifests, CI; also the SG-7 doc minors and the
-   install line), then SG-9 final whole-branch review (general-purpose, opus).
+1. Review SG-8 (reviewer agent) when it reports; merge; gate.
+2. SG-9 final whole-branch review (general-purpose, opus, high effort; ≤3 plants; ≤2 fix rounds).
+3. Sprint end: README test counts, HANDOFF `tests:` line, tick rows, `docs: record v1.1 state in handoff`.
 
 ## In flight
 
-- 2026-11-20 15:11 · SG-6 implement: implementer (sonnet, high effort), branch `sg-6-example`, worktree
-  `~/Developer/soc2-guardian-wt/sg-6`, base `1d72225`; hand-back saved to
-  `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/sg-6/report.md`.
-- Merged so far: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3 `3ecec96`, SG-5 `f67a64a`, SG-4 `1d72225`, SG-6 (suite 146/146).
+- 2026-11-20 15:20 · base `7ab9c2d`, implementer agents (sonnet, high effort), hand-backs saved to
+  `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/sg-N/report.md`:
+  - SG-8 implement: branch `sg-8-public-readme`, worktree `~/Developer/soc2-guardian-wt/sg-8`
+- Merged so far: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3 `3ecec96`, SG-5 `f67a64a`, SG-4 `1d72225`, SG-6 `7ab9c2d`, SG-10 (suite 150/150).
 - SDD ledger and per-task scratch: `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/` (git-ignored);
   each task's hand-back is saved to `sg-N/report.md`, reviews to `sg-N/review-*.md`.
 - Uncommitted on main: `soc2-corrections-prompts.md` (user asked for it as a suggestion; kept out of the repo for now).

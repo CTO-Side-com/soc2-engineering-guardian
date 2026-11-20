@@ -95,6 +95,8 @@ Tell the user how to import task files. Nothing is sent anywhere automatically.
 
 Templates for the two narrative inputs an auditor will ask for: [SYSTEM-DESCRIPTION.md](assets/SYSTEM-DESCRIPTION.md) and [SUBSERVICE-VENDOR-REGISTER.md](assets/SUBSERVICE-VENDOR-REGISTER.md). Fill them only from evidence; they are not the management description of the system. Install instructions: [installation.md](references/installation.md).
 
+## Recheck and summarize
+
 For change-aware rechecks, create a newline-separated list of repository-relative changed files using an approved Git diff, then run:
 
 ```bash

@@ -311,6 +311,34 @@ if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.pare
 
 - [ ] **Step 8: Commit** `docs(readme): public readme with infographics, preview and install guide` with `Task: SG-8`.
 
+### Task SG-10: Skill doc fixes from the SG-7 review (added 2026-11-20, ruling R17)
+
+**Files:**
+- Modify: `skills/soc2-engineering-guardian/SKILL.md`, `assets/SUBSERVICE-VENDOR-REGISTER.md`, `references/installation.md`
+- Test: `skills/soc2-engineering-guardian/tests/test_skill_docs.py` (extend)
+
+**Public names (shared with SG-8's README, use verbatim):**
+- Claude Code plugin: `/plugin marketplace add CTO-Side-com/soc2-engineering-guardian` then `/plugin install soc2-engineering-guardian@ctoside-soc2`
+- GitHub CLI (gh 2.90+): `gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian --agent <claude-code|github-copilot|cursor> [--scope user|project]`
+- Git only: `tmp=$(mktemp -d) && git clone --depth 1 https://github.com/CTO-Side-com/soc2-engineering-guardian.git "$tmp" && mkdir -p <dest> && cp -R "$tmp/skills/soc2-engineering-guardian" <dest>/ && rm -rf "$tmp"` with `<dest>` `~/.claude/skills`, `.github/skills`, `.cursor/skills`
+- Marketplace name `ctoside-soc2` is provisional (open decision); state nothing about that in user docs.
+
+- [ ] **Step 1: Write tests** in `test_skill_docs.py`:
+  - extend `test_relative_links_resolve` to also scan `assets/*.md`;
+  - `test_ai_threats_cite_existing_checks`: every `[A-Z]{2,3}-\d{3}` in `references/ai-saas-threats.md` exists in `references/controls.json`;
+  - `test_install_guide_has_public_commands`: `references/installation.md` contains `/plugin install soc2-engineering-guardian@ctoside-soc2` and `gh skill install CTO-Side-com/soc2-engineering-guardian soc2-engineering-guardian`;
+  - `test_vendor_register_wording`: the register contains `unmodified`, does not contain `unqualified`, and its bridge-letter text contains `not an auditor opinion`;
+  - `test_outputs_section_precedes_no_safety_text`: in SKILL.md, the paragraph containing `independent CPA engagement` is not under the `## Outputs` heading (the nearest preceding `## ` heading is not `## Outputs`).
+  - Remove the unused `sys.path.insert` line if nothing needs it.
+- [ ] **Step 2: Run** `test_skill_docs.py`. Expected: the four new tests FAIL (the extended link test may pass if no asset links are broken — say so). Paste.
+- [ ] **Step 3: Fix:** move `## Outputs` (or add a `## Recheck and summarize` heading) so the recheck paragraph, its code block and the closing safety paragraph sit under a fitting heading — keep every sentence; vendor register: "unmodified opinion, or exceptions we have assessed"; bridge letter = a vendor management assertion covering the time since the report period ended, not an auditor opinion, and it does not extend the opinion period; installation.md gains the public commands above per agent (plugin, gh user/project, git) before the existing copy-the-folder section.
+- [ ] **Step 4: Run** `test_skill_docs.py` and the full suite.
+- [ ] **Step 5: Commit** `docs(skill): place outputs section, fix opinion wording, add public install commands` with `Task: SG-10`.
+
+**As built (2026-11-20):** merged `7d07545..ab77c47`; approved first review. SKILL.md gains `## Recheck and summarize` (no sentence moved or lost); vendor register says "unmodified opinion" and the bridge letter is a vendor management assertion that does not extend the opinion period; installation.md carries the public plugin, gh and git commands per agent, matched to the published HIPAA form (R18: Copilot and Cursor project installs carry no `--scope`). Suite 150/150.
+
+---
+
 ### Task SG-9: Final whole-branch review
 
 - [ ] **Step 1:** Orchestrator records the time and the review dispatch in HANDOFF.md, then dispatches `general-purpose` on opus at high effort with: the spec, this plan, `git diff c4abed9..main`, and the Review Focus list. Scope: correctness, redaction leaks, symlink guard, Type 1 handling, PDF layout on the example, CSV import shapes.
