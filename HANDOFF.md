@@ -1,51 +1,56 @@
 ---
-status: active
-phase: v1.1 · Designed PDF report, tracker exports, public-release prep
-next: Sprint end · record v1.1 state
-tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 17:00 +0400
+status: paused
+phase: v1.1 · Built and reviewed on main, not published
+next: Publish to GitHub (Needs you)
+tests: unit 159/159 · repo 9/9 (2026-11-20, macOS, Python 3.13); CI not run yet (unpublished)
+updated: 2026-11-20 17:01 +0400
 ---
-
 # SOC 2 Engineering Guardian: handoff
 
 ## Current state
 
-- v1.0.0 is the initial commit `c4abed9`, created from `~/Downloads/SOC2_Engineering_Guardian.bundle`.
-  `~/Downloads/SOC2_Engineering_Guardian_Source.zip` is the same tree except the README install
-  section (zip wording: extract, `claude --plugin-dir .`).
+- v1.1.0 is built on `main` (sprint commits `afe94b7`..this one); v1.0.0 is the initial commit
+  `c4abed9` from `~/Downloads/SOC2_Engineering_Guardian.bundle`.
 - Not published. `origin` points at the local bundle; `CTO-Side-com/soc2-engineering-guardian`
-  does not exist on GitHub yet.
-- Model for this round: `~/Projects/Skills/hipaa-guardian` (public, v1.0, same CTOside family).
+  does not exist on GitHub yet. Nothing has been pushed.
+- Sibling and model: `~/Projects/Skills/hipaa-guardian` (public, same CTOside family).
 
 ## What's working
 
-- 53 original checks, separate design/operation statuses, period-gap detection, population
-  fields, validator, recheck, GitHub metadata normalizer, scanner (13 rules), Markdown report,
-  evidence index, risk register, hashed handoff manifest.
-- PDF exists but is a plain text dump; task exports are one flat row shape for every tracker.
+- 53 checks (GOV 15, IAM 8, CHG 8, MON 7, DAT 6, REC 3, VEN 3, AI 3) with separate design and
+  operation statuses, period-gap detection, populations, validator, recheck, GitHub metadata
+  normalizer; Type 1 shows operation as not assessed everywhere.
+- Scanner: 17 SOC 2 rules (secrets in logs and URLs, unpinned Actions, `pull_request_target`,
+  Postgres `sslmode=disable`, Sentry `send_default_pii`, …), never records the matched text.
+- Outputs: designed PDF (21 pages on the example), Markdown, evidence index, per-item risk
+  register, redacted assessment, hashed manifest; tasks for Jira, Notion, Slack (list and text)
+  and Markdown.
+- Safety: pattern-based redaction of named shapes in every output (README lists them; all
+  patterns linear), CSV formula guard incl. tab/CR, narrowed output symlink guard.
+- Docs: README with banner, four infographics and PDF preview; install guide per agent;
+  SYSTEM-DESCRIPTION and SUBSERVICE-VENDOR-REGISTER templates; AI SaaS threat model; enriched
+  synthetic example in `docs/example/`. Manifests 1.1.0, marketplace `ctoside-soc2`. CI matrix
+  Python 3.9/3.11/3.13 on `ubuntu-24.04`.
 
 ## Known problems
 
-- ~~5 tests error on macOS: `common.target()` refused any symlinked ancestor (`/var`, `/tmp`).~~
-  Fixed by SG-1 (merged 2026-11-20 14:45).
-- Scanner still carries two HIPAA rules (`phi-log-candidate`, `patient-identifier-in-url`) and the
-  typo "esensitive".
-- CI runs `ubuntu-latest` with Python 3.9; hipaa-guardian found setup-python has no 3.9 build
-  there (fixed by pinning `ubuntu-24.04`, hipaa commit `85eeb14`).
-- Both this plugin and hipaa-guardian declare marketplace name `ctoside`.
 - `recheck.py` fails open on nested changes: `PurePosixPath.match` never crosses a folder, so
   `watched_paths: ["backend/**"]` keeps a check verified when `backend/sub/x.py` changes (verified
-  2026-11-20).
+  2026-11-20; correction prompt 2).
 - `github_evidence.py` crashes with an `AttributeError` traceback on `"head": null` or a non-object
-  review row (verified 2026-11-20).
-- README install section is stale (git bundle, failed-publication sentence).
+  review row (verified 2026-11-20; correction prompt 5).
+- The output symlink guard does not check folders outside the working directory beyond the output
+  folder itself (Needs you).
+- Fixed in v1.1: macOS symlink-guard test errors (SG-1), HIPAA scanner rules and the "esensitive"
+  typo (SG-2), CI runner (SG-8), shared marketplace name (SG-8, `ctoside-soc2`), stale README
+  install section (SG-8).
 
 ## Correction prompts
 
-`soc2-corrections-prompts.md` (repo root, uncommitted: user asked for it as a suggestion, not run)
-holds 7 self-contained prompts for Claude Code or Codex, one per defect above; prompt 7 (marketplace
-rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.1 plan drops spec
-§6 (symlink guard), §7 (scanner) and the CI part of §10.
+`soc2-corrections-prompts.md` (repo root, uncommitted: you asked for it as a suggestion, not run)
+holds 7 self-contained prompts. Prompts 1 (symlink guard), 3 (scanner), 4 (CI), 6 (README install)
+and 7 (marketplace) are now built by v1.1. Prompts 2 (recheck nested folders) and 5 (malformed
+GitHub exports) are still open and still yours to run or drop.
 
 ## Decisions (2026-11-20)
 
@@ -154,17 +159,60 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
   `+` or brackets (README says so); `scrub()` drops one entry when two keys redact to the same
   string; commit `b990383` alone has the repo count test red (merge is green).
 
+## Regenerate the README preview
+
+`docs/images/report-preview.png` is PDF pages 1, 2 and 4 of `docs/example/SOC2-READINESS.pdf`.
+Pillow is used only here, in a scratch script, never in committed code. With `$S` a scratch folder:
+
+```bash
+for p in 1 2 4; do pdftoppm -r 110 -png -f $p -l $p docs/example/SOC2-READINESS.pdf "$S/page"; done
+python3 "$S/compose_preview.py" "$S" docs/images/report-preview.png   # keep it under 400 KB
+```
+
+`$S/compose_preview.py`:
+
+```python
+import sys
+from PIL import Image, ImageDraw, ImageFilter
+scratch, out = sys.argv[1], sys.argv[2]
+pages = [scratch + '/page-%s.png' % n for n in ('01', '02', '04')]
+PW, PAD, GAP, BG = 470, 32, 26, (244, 243, 239)
+ims = []
+for p in pages:
+    im = Image.open(p).convert('RGB')
+    ims.append(im.resize((PW, round(im.height * PW / im.width)), Image.LANCZOS))
+H = max(i.height for i in ims) + 2 * PAD
+W = 2 * PAD + 3 * PW + 2 * GAP
+shadow = Image.new('RGB', (W, H), BG)
+d = ImageDraw.Draw(shadow)
+x = PAD
+for im in ims:
+    d.rectangle([x + 3, PAD + 5, x + im.width + 3, PAD + im.height + 5], fill=(214, 212, 204))
+    x += PW + GAP
+canvas = shadow.filter(ImageFilter.GaussianBlur(5))
+x = PAD
+d = ImageDraw.Draw(canvas)
+for im in ims:
+    canvas.paste(im, (x, PAD))
+    d.rectangle([x, PAD, x + im.width - 1, PAD + im.height - 1], outline=(225, 224, 217))
+    x += PW + GAP
+canvas = canvas.quantize(colors=256, method=Image.MEDIANCUT, dither=Image.FLOYDSTEINBERG)
+canvas.save(out, optimize=True)
+```
+
 ## Next steps
 
-1. Sprint end: README test counts, HANDOFF `tests:` line, the preview regeneration commands (script in
-   `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/sg-8/compose_preview.py`), tick rows,
-   `docs: record v1.1 state in handoff`.
+1. Your call (Needs you): create public `CTO-Side-com/soc2-engineering-guardian` and push; then
+   check CI on Linux for 3.9/3.11/3.13 and that the README badge and images resolve on GitHub.
+2. v1.1.1: the symlink-guard question in Needs you; then a hardening pass over `## Follow-ups`
+   (redaction gaps listed under SG-9, newline flattening in `tasks.md` and Slack text, PDF header
+   width, test-depth items).
+3. Correction prompts 2 and 5 if you want them.
 
 ## In flight
 
-- Nothing running. Sprint end next.
-- Merged so far: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3 `3ecec96`, SG-5 `f67a64a`, SG-4 `1d72225`, SG-6 `7ab9c2d`, SG-10 `85cf220`, SG-8 `a1cb2a5`, SG-9 fixes (suites 159/159, repo 9/9).
-- SDD ledger and per-task scratch: `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/` (git-ignored);
-  each task's hand-back is saved to `sg-N/report.md`, reviews to `sg-N/review-*.md`.
-- Uncommitted on main: `soc2-corrections-prompts.md` (user asked for it as a suggestion; kept out of the repo for now).
-
+- Nothing running. All v1.1 tasks merged: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3
+  `3ecec96`, SG-5 `f67a64a`, SG-4 `1d72225`, SG-6 `7ab9c2d`, SG-10 `85cf220`, SG-8 `a1cb2a5`, SG-9
+  `ed443fd`. Each merge commit body carries its task report, review and cost.
+- Uncommitted on main: `soc2-corrections-prompts.md` (you asked for it as a suggestion; kept out of
+  the repo).
