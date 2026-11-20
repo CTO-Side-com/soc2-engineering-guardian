@@ -3,6 +3,7 @@ import csv
 import json
 import sys
 import tempfile
+import time
 import unittest
 from pathlib import Path
 
@@ -20,6 +21,7 @@ from validate_assessment import validate
 PASSWORD = 'Hunter2' + 'Synthetic'
 STRIPE = 'sk_' + 'live_SYNTHETIC0000000000'
 TOKEN = 'SYNTH' + 'tok123456'
+REDIS_PW = 'SYNTH' + 'redispw'
 PROBES = [  # (text, value that must not survive)
     ('key ' + STRIPE + ' leaked', STRIPE),
     ('key ' + 'sk_' + 'test_SYNTHETIC0000000000', 'sk_' + 'test_SYNTHETIC0000000000'),
@@ -46,10 +48,20 @@ PROBES = [  # (text, value that must not survive)
     ('Authorization: Bearer ' + 'SYNTHbearer000', 'SYNTHbearer000'),
     ('mail jane.doe@example.com', 'jane.doe@example.com'),
     ('ssn 123-45-6789', '123-45-6789'),
+    ('cache redis://:' + REDIS_PW + '@cache:6379', REDIS_PW),
+    ('-----BEGIN PGP ' + 'PRIVATE KEY BLOCK-----\n\nlQOYBSYNTHETICPGPBODY\n-----END PGP PRIVATE KEY BLOCK-----',
+     'SYNTHETICPGPBODY'),
+    ('slack ' + 'xapp' + '-1-A0SYNTH-0000-SYNTHETICappTOKEN', 'SYNTHETICappTOKEN'),
+    ('key ' + 'sk_' + 'live_SYNTH_body_0000000000 leaked', 'body_0000000000'),
+    ('header X-API-Key: ' + 'SYNTHapikey01', 'SYNTHapikey01'),
+    ('password => ' + 'SynthArrowPw1', 'SynthArrowPw1'),
 ]
 ORDINARY = ['2026-08-01', 'Period 2026-08-01 to 2026-10-31', 'Population 92/92/0', 'IAM-002-design', 'v1.1.0',
             'See https://example.com/runbook', 'The password policy requires rotation every 90 days.',
-            'Period gaps: [["2026-08-01", "2026-10-31"]]', 'Done when: reviewer signs off']
+            'Period gaps: [["2026-08-01", "2026-10-31"]]', 'Done when: reviewer signs off',
+            'Rollback +3 2026-09-14 release']
+# Each of these takes seconds when a rule backtracks quadratically.
+LINEAR = [('a_' * 50000), ('ghp_' * 25000), ('a.' * 50000)]
 
 
 def evidence(kind='code', eid='E1'):
@@ -84,8 +96,23 @@ class RedactionTests(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertEqual(text, clean(text))
 
+    def test_clean_masks_phone_but_keeps_following_date(self):
+        for text in ('Paged +1 415 555 0100 on 2026-08-01', 'Paged +1 415 555 0100 2026-08-01'):
+            with self.subTest(text=text):
+                out = clean(text)
+                self.assertNotIn('555 0100', out)
+                self.assertTrue(out.endswith(' 2026-08-01'), out)
+
+    def test_clean_is_linear(self):
+        for text in LINEAR:
+            with self.subTest(text=text[:4]):
+                start = time.perf_counter()
+                clean(text)
+                self.assertLess(time.perf_counter() - start, 1.0)
+
     def test_secret_in_rationale_reaches_no_output(self):
-        doc = assessment('config/prod.env commits DB_PASSWORD=' + PASSWORD + ' and ' + STRIPE,
+        doc = assessment('config/prod.env commits DB_PASSWORD=' + PASSWORD + ' and ' + STRIPE +
+                         ', cache at redis://:' + REDIS_PW + '@cache:6379',
                          'Rotate access_token=' + TOKEN)
         self.assertEqual([], validate(doc))
         with tempfile.TemporaryDirectory() as root:
@@ -99,7 +126,7 @@ class RedactionTests(unittest.TestCase):
                 data = path.read_bytes()
                 text = b'\n'.join(test_pdf.streams(data)) if path.suffix == '.pdf' else data
                 self.assertGreater(len(text), 0, path.name)
-                for secret in (PASSWORD, STRIPE, TOKEN):
+                for secret in (PASSWORD, STRIPE, TOKEN, REDIS_PW):
                     with self.subTest(file=path.name, secret=secret[:6]):
                         self.assertNotIn(secret.encode(), text)
 

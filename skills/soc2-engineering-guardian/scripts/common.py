@@ -47,16 +47,19 @@ def write(path, data, overwrite=True):
 def clean(value, limit=3000):
     text = str(value).encode('utf-8', 'replace').decode('utf-8')
     # A key body spans lines no single-token rule reaches; an unterminated block is masked to the end.
-    text = re.sub(r'(?s)-----BEGIN [A-Z ]*PRIVATE KEY-----(?:.*?-----END [A-Z ]*PRIVATE KEY-----|.*)', '[REDACTED_SECRET]', text)
-    # Before the email rule, which would take pw@host.tld and lose the host.
-    text = re.sub(r'(?i)\b([a-z][a-z0-9+.-]*://)[^/\s:@]+:[^/\s@]+@', r'\1[REDACTED_SECRET]@', text)
-    text = re.sub(r'\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b', '[REDACTED_EMAIL]', text)
+    text = re.sub(r'(?s)-----BEGIN [A-Z ]*PRIVATE KEY(?: BLOCK)?-----(?:.*?-----END [A-Z ]*PRIVATE KEY(?: BLOCK)?-----|.*)', '[REDACTED_SECRET]', text)
+    # Before the email rule, which would take pw@host.tld and lose the host. Bounded runs before :// and @
+    # keep both rules linear on long dotted text, which every \b position would otherwise rescan.
+    text = re.sub(r'(?i)\b([a-z][a-z0-9+.-]{0,31}://)[^/\s:@]*:[^/\s@]+@', r'\1[REDACTED_SECRET]@', text)
+    text = re.sub(r'\b[\w.+-]{1,64}@[\w.-]+\.[A-Za-z]{2,}\b', '[REDACTED_EMAIL]', text)
     text = re.sub(r'\b\d{3}-\d{2}-\d{4}\b', '[REDACTED_ID]', text)
     # Only shapes no date, range, population, check ID or version can take: a leading + or a bracketed area code.
-    text = re.sub(r'(?<![\w+])\+\d(?:[ .()-]{0,2}\d){6,14}\b|\(\d{3}\) ?\d{3}-\d{4}\b', '[REDACTED_PHONE]', text)
-    # \b cannot precede the keyword in DB_PASSWORD or access_token, since _ is a word character.
-    text = re.sub(r'''(?i)\bbearer\s+\S+|(?<![A-Za-z0-9])(?:\w*_)?(?:token|passw(?:or)?d|pwd|secret|api_?key|access_?key|private_?key)["']?\s*[:=]\s*(?:"[^"\n]*"?|'[^'\n]*'?|\S+)''', '[REDACTED_SECRET]', text)
-    text = re.sub(r'\b(?:gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+|sk-[A-Za-z0-9_-]{16,}|[sr]k_(?:live|test)_[A-Za-z0-9]+|AKIA[0-9A-Z]{16}|xox[abprs]-[A-Za-z0-9-]+|eyJ[\w-]+\.eyJ[\w-]+\.[\w-]+)\b', '[REDACTED_SECRET]', text)
+    # A digit group never starts an ISO date, so +3 2026-09-14 stays and a date after a number survives.
+    text = re.sub(r'(?<![\w+])\+\d(?:[ .()-]{0,2}(?!\d{4}-\d{2}-\d{2})\d){6,14}\b|\(\d{3}\) ?\d{3}-\d{4}\b', '[REDACTED_PHONE]', text)
+    # \b cannot precede the keyword in DB_PASSWORD or access_token, since _ is a word character; the lookbehind
+    # admits _ without a \w* prefix, which would rescan every _ from each start.
+    text = re.sub(r'''(?i)\bbearer\s+\S+|(?<![A-Za-z0-9])(?:token|passw(?:or)?d|pwd|secret|api[_-]?key|access_?key|private_?key)["']?\s*(?:=>|[:=])\s*(?:"[^"\n]*"?|'[^'\n]*'?|\S+)''', '[REDACTED_SECRET]', text)
+    text = re.sub(r'\b(?:gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+|sk-[A-Za-z0-9_-]{16,}|[sr]k_(?:live|test)_[A-Za-z0-9_]{16,}|AKIA[0-9A-Z]{16}|(?:xox[abeprs]|xapp)-[A-Za-z0-9-]+|eyJ[\w-]+\.eyJ[\w-]+\.[\w-]+)\b', '[REDACTED_SECRET]', text)
     return text[:limit]
 
 def csv_safe(value):
