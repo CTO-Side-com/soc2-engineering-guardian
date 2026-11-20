@@ -24,6 +24,8 @@ An evidence interval must describe relevant records across that interval, not me
 
 Give each confirmed gap a severity, accountable owner, action and done-when test. Keep evidence collection tasks separate from engineering fixes. Test changes in a synthetic isolated environment. Retain the baseline and historic exceptions; rechecks invalidate assertions rather than silently carrying them forward. Human reviewers decide closure and auditor handoff.
 
+`priority_hint` values in the control library are urgency defaults for unreviewed items, not risk ratings; a reviewer's `severity` replaces them.
+
 ## Sharing and limitations
 
 The PDF/Markdown report, evidence index, risk register and handoff manifest contain references and reviewed summaries, not raw evidence files. The manifest hashes the generated report files. Task exports do not contact trackers. Security-sensitive assessments belong outside public repositories. Redaction covers common email/identifier/token patterns only; manual review is required. Repository file paths and reference URLs can themselves reveal sensitive information.
