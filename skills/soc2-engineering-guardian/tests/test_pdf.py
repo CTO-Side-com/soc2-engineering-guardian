@@ -55,6 +55,26 @@ def streams(pdf):
     return [zlib.decompress(m.group(1)) for m in re.finditer(rb'stream\n(.*?)\nendstream', pdf, re.S)]
 
 
+PAGE_W, PAGE_H = 612.0, 792.0
+BODY_FLOOR = 58.0  # pdf_report.BOTTOM measured from the page bottom; the footer sits below it
+
+
+def body_text_ops(stream):
+    """(x, y, text) for each text run except the footer's, whose baseline is below the body floor by design."""
+    ops = re.findall(rb'(-?[\d.]+) (-?[\d.]+) Td \((.*?)\) Tj ET', stream)
+    return [(float(x), float(y), t) for x, y, t in ops
+            if not (t.startswith(b'SOC 2 Engineering Guardian') and b'auditor opinion' in t)
+            and not re.fullmatch(rb'Page \d+ of \d+', t)]
+
+
+def five_gaps(long_rationale=True):
+    doc = synthetic()
+    doc['evidence'] += [evidence('code', eid='E3')]
+    for cid in ('CHG-002', 'IAM-002', 'MON-001'):
+        gap(doc, cid, 'design', 'failed', 'high', ('Long finding text. ' * 40) if long_rationale else 'Short', ['E3'])
+    return doc
+
+
 def text_of(doc):
     return b'\n'.join(streams(render_pdf(doc)))
 
@@ -128,8 +148,59 @@ class PdfReportTests(unittest.TestCase):
         gap(doc, 'CHG-002', 'design', 'failed', 'high', 'Long finding text. ' * 160, [f'X{i}' for i in range(60)])
         self.assertEqual([], validate(doc))
         for stream in streams(render_pdf(doc)):
-            for y in re.findall(rb'(-?[\d.]+) Td', stream):
-                self.assertGreaterEqual(float(y), 25, 'text drawn below the footer or off the page')
+            for x, y, _ in body_text_ops(stream):
+                self.assertGreaterEqual(y, BODY_FLOOR, 'body text drawn into the footer zone or off the page')
+                self.assertLessEqual(y, PAGE_H, 'text drawn above the page')
+                self.assertTrue(0 <= x <= PAGE_W, f'text starts off the page at x={x}')
+
+    def test_header_on_every_page_after_cover(self):
+        found = streams(render_pdf(synthetic()))
+        self.assertNotIn(b'CONFIDENTIAL', found[0])
+        for number, stream in enumerate(found[1:], 2):
+            self.assertIn(b'CONFIDENTIAL', stream, f'page {number} has no running header')
+
+    def test_page_numbers_count_every_page(self):
+        found = streams(render_pdf(synthetic()))
+        total = len(found)
+        self.assertGreaterEqual(total, 7)
+        joined = b'\n'.join(found)
+        for n in range(1, total + 1):
+            self.assertEqual(1, joined.count(f'(Page {n} of {total})'.encode()), f'Page {n} of {total}')
+        self.assertNotIn(f'Page {total + 1} of'.encode(), joined)
+
+    def test_oversized_cell_is_cut_with_pointer(self):
+        doc = synthetic()
+        doc['in_scope_systems'] = [f'system {i} ' + 'word ' * 38 for i in range(150)]  # ~30,000 characters in one cell
+        gap(doc, 'CHG-002', 'design', 'failed', 'high', 'word ' * 4000, ['E1'])
+        self.assertEqual([], validate(doc))
+        found = streams(render_pdf(doc))
+        self.assertIn(b'continues in assessment.json', b'\n'.join(found))
+        for stream in found:
+            for x, y, _ in body_text_ops(stream):
+                self.assertTrue(BODY_FLOOR <= y <= PAGE_H and 0 <= x <= PAGE_W, f'text off the page at {x},{y}')
+
+    def test_exec_summary_fits_one_page_with_five_gaps(self):
+        doc = five_gaps()
+        self.assertEqual([], validate(doc))
+        found = streams(render_pdf(doc))
+        page2, page3 = found[1], found[2]
+        keys = ('CHG-001-design', 'IAM-001-operation', 'CHG-002-design', 'IAM-002-design', 'MON-001-design')
+        self.assertIn(b'Top priorities', page2)
+        for key in keys:
+            self.assertIn(key.encode(), page2, f'{key} missing from the executive summary page')
+            self.assertNotIn(key.encode(), page3, f'{key} spilled onto page 3')
+
+    def test_evidence_index_does_not_split_words(self):
+        doc = json.loads(json.dumps(synthetic()).replace('"E2"', '"EX-CHANGES"'))
+        doc['environment'] = 'synthetic-production'
+        for e in doc['evidence']:
+            e['environment'] = 'synthetic-production'
+        doc['evidence'][0]['ref'] = 'synthetic/change-review-register.json'
+        self.assertEqual([], validate(doc))
+        runs = {t for stream in streams(render_pdf(doc)) for _, _, t in body_text_ops(stream)}
+        for whole in (b'synthetic-production', b'controlled-records/review.json', b'synthetic/change-review-register.json',
+                      b'operational', b'EX-CHANGES', b'2026-09-01 to', b'Synthetic', b'Reviewer'):
+            self.assertIn(whole, runs, f'{whole!r} was split across lines')
 
     def test_type2_has_period_coverage_section(self):
         text = text_of(synthetic())

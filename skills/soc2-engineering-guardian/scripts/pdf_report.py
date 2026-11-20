@@ -138,10 +138,12 @@ class Report:
             self.y += leading
         self.y += after
 
-    def bullets(self, items, size=9.5):
+    def bullets(self, items, size=9.5, one_line=False):
         leading = size * 1.42
         for item in items:
             lines = wrap(item, size, CW - 14)
+            if one_line and len(lines) > 1:
+                lines = [self.ellipsize(lines[0], size, CW - 14)]
             self.need(leading * min(len(lines), 2))
             self.pdf.text(M + 2, self.y, '•', size, True, NAVY)
             for line in lines:
@@ -150,6 +152,12 @@ class Report:
                 self.y += leading
             self.y += 2
         self.y += 4
+
+    @staticmethod
+    def ellipsize(line, size, width):
+        while line and text_width(line + '…', size) > width:
+            line = line[:-1]
+        return line.rstrip() + '…'
 
     def chip(self, x, baseline, label, fill, ink, size=7.2):
         width = text_width(label, size, True) + 10
@@ -280,14 +288,17 @@ class Report:
             rows.append([self.severity_chip(level), str(gaps), str(asks), str(gaps + asks)])
         self.table([('Urgency', 120), ('Confirmed gaps', 128), ('Evidence requests', 128), ('Total', 128)], rows)
         if not self.type1:
+            self.y += 4
             rows = [r for r in self.s['period'] if r['operation_status'] in ('verified', 'partially_verified')]
             open_ = sum(1 for r in rows if r['uncovered'])
             self.paragraph(f'Period coverage: {len(rows)} {"check asserts" if len(rows) == 1 else "checks assert"} operation; '
                            f'{open_} {"has" if open_ == 1 else "have"} uncovered dates.', color=INK_2)
-        self.subheading('Top priorities')
         top = (self.gaps_ or self.requests)[:5]
+        # Keep the heading with its bullets: a half list stranded on the next page leaves that page nearly empty.
+        self.need(24 + (len(top) - 1) * 15.5 + 14 if top else 48)
+        self.subheading('Top priorities')
         if top:
-            self.bullets([f'{i["key"]}  {i["summary"]} ({SEVERITY[i["severity"]][0]})' for i in top])
+            self.bullets([f'{i["key"]}  {i["summary"]} ({SEVERITY[i["severity"]][0]})' for i in top], one_line=True)
         else:
             self.paragraph('No open items are recorded.')
 
@@ -295,7 +306,7 @@ class Report:
         self.need(100)
         self.pdf.text(M, self.y, caption.upper(), 7.2, True, MUTED)
         self.y += 8
-        gap, height = 8, 54
+        gap, height = 8, 50
         width = (CW - 4 * gap) / 5
         for i, key in enumerate(STATUS_ORDER):
             label, _, fill, _ = STATUS[key]
@@ -304,8 +315,8 @@ class Report:
             self.pdf.rect(x + 10, self.y + 11, 7, 7, fill=fill, radius=1.5)
             for j, line in enumerate(wrap(label, 7.8, width - 30)[:2]):
                 self.pdf.text(x + 21, self.y + 17.5 + j * 9.5, line, 7.8, False, INK_2)
-            self.pdf.text(x + 10, self.y + 46, str(counts.get(key, 0)), 20, True, INK)
-        self.y += height + 12
+            self.pdf.text(x + 10, self.y + 43, str(counts.get(key, 0)), 20, True, INK)
+        self.y += height + 10
 
     def not_assessed_panel(self, caption):
         self.pdf.text(M, self.y, caption.upper(), 7.2, True, MUTED)
@@ -316,7 +327,7 @@ class Report:
 
     def coverage_chart(self):
         by_area = self.s['by_area']
-        label_w, tip_w, bar_h, row_h = 112, 26, 8, 24
+        label_w, tip_w, bar_h, row_h = 112, 26, 8, 20
         x0 = M + label_w
         span = CW - label_w - tip_w
         peak = max(sum(a['design'].values()) for a in by_area.values()) or 1
@@ -354,7 +365,7 @@ class Report:
             self.y += row_h
         self.pdf.line(x0 - 1, start - 2, x0 - 1, self.y - 4, AXIS, 0.75)
         self.pdf.text(M, self.y + 4, 'D = design, O = operation', 7, False, MUTED)
-        self.y += 12
+        self.y += 8
 
     def scope(self):
         self.new_page()
@@ -416,7 +427,7 @@ class Report:
         self.need(min(height, BOTTOM - TOP))
         x = M
         for chip in (self.status_chip(item['status']), self.severity_chip(item['severity']),
-                     ('chip', item['dimension'].title(), NAVY, WHITE)):
+                     ('chip', item['dimension'].title(), INK_2, WHITE)):
             x += self.chip(x, self.y - 1, *chip[1:]) + 5
         x += 4
         for line in wrap(f'{item["key"]}  {item["title"]}', 11, M + CW - x, True):
@@ -505,7 +516,7 @@ class Report:
             rows.append([_c(e['id'], 40), _c(e['type'], 40), _c(e['ref'], 400), _c(e['environment'], 60), _c(e['collected_on'], 10),
                          f'{_c(p["start"], 10)} to {_c(p["end"], 10)}' if p else '–', _c(e['reviewer'], 80)])
         if rows:
-            self.table([('ID', 66), ('Type', 58), ('Reference', 110), ('Environment', 70), ('Collected', 58), ('Period', 76), ('Reviewer', 66)], rows)
+            self.table([('ID', 66), ('Type', 51), ('Reference', 146), ('Environment', 84), ('Collected', 52), ('Period', 60), ('Reviewer', 45)], rows)
         else:
             self.paragraph('No evidence items are recorded.')
 
