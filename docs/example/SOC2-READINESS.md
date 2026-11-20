@@ -50,9 +50,6 @@ Legend: V verified, P partially verified, F failed, NA not applicable, E insuffi
 | CHG-001 Require independent review of production code changes | partially_verified | 2026-09-01 to 2026-10-31 | 2026-08-01 to 2026-08-31 | 18/18/2 |
 | MON-004 Review vulnerabilities and configuration changes | partially_verified | 2026-08-01 to 2026-09-30 | 2026-10-01 to 2026-10-31 | 9/9/1 |
 | REC-001 Back up critical data and monitor backup failures | verified | 2026-08-01 to 2026-10-31 | None | 92/92/0 |
-| AI-001 Enforce authorization independently of model output | not_applicable | None | 2026-08-01 to 2026-10-31 | n/a/n/a/n/a |
-| AI-002 Limit model data egress and cross-user memory | not_applicable | None | 2026-08-01 to 2026-10-31 | n/a/n/a/n/a |
-| AI-003 Review AI behavior changes and action auditability | not_applicable | None | 2026-08-01 to 2026-10-31 | n/a/n/a/n/a |
 
 ## Confirmed gaps and next actions
 IAM-002-design | critical | Protect privileged access with strong authentication | Owner: Synthetic Platform Lead | Require multi-factor authentication for every administrator and privileged service account.

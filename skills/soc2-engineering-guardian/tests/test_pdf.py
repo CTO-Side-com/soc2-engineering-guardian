@@ -202,6 +202,15 @@ class PdfReportTests(unittest.TestCase):
                       b'operational', b'EX-CHANGES', b'2026-09-01 to', b'Synthetic', b'Reviewer'):
             self.assertIn(whole, runs, f'{whole!r} was split across lines')
 
+    def test_example_evidence_index_keeps_values_whole(self):
+        example = json.loads((SCRIPTS.parent / 'assets' / 'assessment-example.json').read_text(encoding='utf-8'))
+        self.assertEqual([], validate(example))
+        page = next(s for s in streams(render_pdf(example)) if b'Appendix B: evidence index' in s)
+        runs = {t for _, _, t in body_text_ops(page)}
+        for e in example['evidence']:
+            for key in ('id', 'type', 'ref', 'environment'):
+                self.assertIn(e[key].encode(), runs, f'{e["id"]} {key} {e[key]!r} was split across lines')
+
     def test_type2_has_period_coverage_section(self):
         text = text_of(synthetic())
         self.assertIn(b'Period coverage', text)

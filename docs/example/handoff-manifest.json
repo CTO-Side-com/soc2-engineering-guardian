@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "SOC2-READINESS.md",
-      "sha256": "5dcbc85deeacd2f3b712c151423a22b5053c5bcbb4524d66ab912fcf5544cec7"
+      "sha256": "1fcad28160dde4538f30b4bf676da76b22566dd20422027adb5d4e1fb440b8f8"
     },
     {
       "path": "evidence-index.csv",
@@ -20,7 +20,7 @@
     },
     {
       "path": "SOC2-READINESS.pdf",
-      "sha256": "6fec77c37ae71284d29afb22023908157badf36f842ff9dd0f557d69532a4995"
+      "sha256": "b4f54642fb3a63783136ddf40d8c58da153124c02b1c781a4a5db59513a06d06"
     }
   ]
 }
