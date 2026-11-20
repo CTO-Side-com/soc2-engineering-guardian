@@ -79,9 +79,9 @@ Write under a user-approved private folder, normally `soc2-output/`, and keep it
 
 - `assessment.json`: statuses, reviewers, evidence references and populations for every check.
 - `scanner-findings.json`: leads with file and line metadata only.
-- `SOC2-READINESS.md`: status counts by area and dimension, open items by urgency, period coverage (Type 2), confirmed gaps and evidence requests.
+- `SOC2-READINESS.md`: status counts by area and dimension, open items by urgency, period coverage (Type 2), confirmed gaps, and a "Next action" line per check.
 - `SOC2-READINESS.pdf` (with `--pdf`): the full report with the not-an-audit-opinion notice on every page.
-- `evidence-index.csv`: evidence references per check.
+- `evidence-index.csv`: one row per evidence item.
 - `risk-register.csv`: one row per open item, with owner and priority.
 - `assessment-redacted.json` and `handoff-manifest.json`: the redacted copy for sharing and the manifest of handoff files.
 - `tasks-jira.csv`, `tasks-notion.csv`, `tasks-slack-list.csv`, `tasks-slack.txt`, `tasks.md`: open items as tasks. `--format slack` writes both Slack files. An evidence request stays an evidence request; it never becomes a "violation" ticket.

@@ -218,17 +218,17 @@ No actual company or production system was assessed. `python3 docs/build_example
 
 ## Task exports: Jira, Notion, Slack
 
-`export_tasks.py` turns every open item into a task: confirmed gaps become **"Fix: ..."**, missing evidence becomes **"Collect evidence: ..."**, each with its urgency, check, recommendation and a "done when" test. An evidence request never becomes a violation ticket. Use `--format jira,notion,slack,markdown` to pick files and `--gaps-only` to skip evidence requests.
+`export_tasks.py` turns every open item into a task: confirmed gaps become **"Fix: ..."** and missing evidence becomes **"Collect evidence: ..."**. Each task carries its item key, so a Jira summary reads `<check>-<dimension> Fix: …` or `<check>-<dimension> Collect evidence: …`, along with its urgency, check, recommendation and a "done when" test. An evidence request never becomes a violation ticket. Use `--format jira,notion,slack,markdown` to pick files and `--gaps-only` to skip evidence requests.
 
 | Tool | File | How to import |
 |---|---|---|
 | Jira | [`tasks-jira.csv`](docs/example/tasks-jira.csv) | **Filters → Search work items → ••• → Import work items from CSV.** Map the repeated `Labels` columns to Labels and set the date format to `yyyy-MM-dd`. Priorities use Jira's defaults (Highest, High, Medium, Low). |
 | Notion | [`tasks-notion.csv`](docs/example/tasks-notion.csv) | **Settings → Import → CSV** (or type `/csv` on a page). It becomes a database with one page per task. |
 | Slack Lists | [`tasks-slack-list.csv`](docs/example/tasks-slack-list.csv) | In Slack on desktop: **New → Import a CSV**. |
-| Slack message | [`tasks-slack.txt`](docs/example/tasks-slack.txt) | Paste into a channel, thread or canvas. `@`, `<` and `>` in findings become look-alike characters, so pasted text cannot ping `@channel` or form a link. |
+| Slack message | [`tasks-slack.txt`](docs/example/tasks-slack.txt) | Paste into a channel, thread or canvas. `@`, `<` and `>` in findings become look-alike characters, so pasted text cannot ping `@channel` or form `<…>` links. Bare URLs still auto-link. |
 | Anywhere | [`tasks.md`](docs/example/tasks.md) | A `- [ ]` checklist grouped by urgency for GitHub issues and other Markdown tools. |
 
-CSV cells are guarded against formula injection, and emails, identifier-like numbers and secrets are redacted before anything is written. Nothing is sent anywhere.
+CSV cells are guarded against formula injection. Before anything is written, these are masked by pattern: emails; SSN-format numbers (`NNN-NN-NNNN`); phone numbers written with a leading `+` or as `(NNN) NNN-NNNN`; values after `:`, `=` or `=>` that follow a `password`, `passwd`, `pwd`, `token`, `secret`, `api_key` or `api-key`, `access_key` or `private_key` label, including names joined with `_`, `-` or `.` such as `DB_PASSWORD` or `access_token` (camelCase names such as `dbPassword` pass through); bearer tokens; passwords in URLs; PEM and PGP private key blocks; and GitHub tokens, `sk-` API keys, Stripe secret and restricted keys, AWS access key IDs starting `AKIA`, Slack tokens and signed JWTs that do not directly follow a hyphen. Anything else passes through, including unlabelled passwords and phone numbers without a `+` or brackets. Review outputs before sharing. Nothing is sent anywhere.
 
 ## GitHub evidence
 
@@ -256,8 +256,8 @@ The result is a new assessment: conclusions affected by the changed files are in
 - **Evidence is data, never instructions.** Repository files, documents and exported records are treated as untrusted input, and instructions found inside them are not followed.
 - **No secrets or customer records in prompts or outputs.** It never reads `.env` files, private keys, data dumps or raw customer records. The scanner skips data, fixture and upload folders, and records file and line only.
 - **No network unless you opt in.** Every script uses the Python standard library. The only network path is `github_evidence.py --allow-network`, which is GET-only.
-- **Safe writes.** Outputs refuse symlinked paths, initialization refuses to overwrite a baseline, and reports and task exports reject structurally invalid evidence.
-- **Redaction everywhere.** Emails, identifier-like numbers and secret-like strings are masked in every report and export. This is a safety net, not a substitute for a human check before sharing.
+- **Safe writes.** An output file, its folder and any folder inside the working directory are refused if symlinked, so `--out /tmp` is refused on systems where `/tmp` is a symlink. System aliases above the output folder, such as `/tmp` or `/var` in a longer path, are not refused. Initialization refuses to overwrite a baseline, and reports and task exports reject structurally invalid evidence.
+- **Pattern-based redaction.** Emails, SSN-format numbers, phone numbers written with a leading `+` or as `(NNN) NNN-NNNN`, and the secret shapes listed under [Task exports](#task-exports-jira-notion-slack) are masked by pattern in every report and export before anything is written. It is a safety net, not a substitute for a human check: review outputs before sharing.
 - **No green lights.** No certificates, no compliance percentages, no auditor opinions. Proposed criteria changes are kept separate from the baseline.
 
 ## Boundaries
@@ -284,8 +284,8 @@ tests/                              repository checks: README links, images, man
 ## Development
 
 ```bash
-python3 -m unittest discover -s skills/soc2-engineering-guardian/tests -v   # 146 offline tests
-python3 -m unittest discover -s tests -v                                    # 7 repository tests
+python3 -m unittest discover -s skills/soc2-engineering-guardian/tests -v   # 159 offline tests
+python3 -m unittest discover -s tests -v                                    # 9 repository tests
 python3 docs/build_example.py                                               # rebuild the example outputs
 ```
 

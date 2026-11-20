@@ -1,9 +1,9 @@
 ---
 status: active
 phase: v1.1 · Designed PDF report, tracker exports, public-release prep
-next: SG-9 · Final whole-branch review
+next: Sprint end · record v1.1 state
 tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 15:33 +0400
+updated: 2026-11-20 17:00 +0400
 ---
 
 # SOC 2 Engineering Guardian: handoff
@@ -68,14 +68,28 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
       stay with the user.
 - [x] Process: full pipeline (over ~1,000 lines); final review by general-purpose on the strongest
       model (redaction and the symlink guard are security-relevant).
+- [x] Marketplace name stays `ctoside-soc2` (answered 2026-11-20 16:58).
+- [x] SG-9 past its fix cap: apply the reviewer's one-line JWT fix (`(?<!-)` before `eyJ`) with a
+      red-then-green timing test and a README note on camelCase names, then merge (answered 2026-11-20 16:58).
 
 ## Needs you
 
-- [ ] 2026-11-20 · Marketplace name: both plugins say `ctoside`, and a user can register only one
+- [x] 2026-11-20 · Marketplace name: both plugins say `ctoside`, and a user can register only one
       marketplace per name (Claude Code marketplace reference). Rename this one to `ctoside-soc2`,
       or list it inside hipaa-guardian's `ctoside` marketplace? (recommend rename; spec "Open")
 - [ ] 2026-11-20 · Publish: create public `CTO-Side-com/soc2-engineering-guardian` and push once
       tests and the final review are green? (recommended; nothing is pushed until you say so)
+- [ ] 2026-11-20 · Symlink guard, one step further than the narrowed rule: also refuse a symlinked
+      folder outside the working directory when it is not owned by root? The final review wrote
+      through a planted `soc2-output` link when the audited repo was not the working directory;
+      system aliases (`/tmp`, `/var`) are root-owned and would stay allowed. (recommend yes, as a
+      v1.1.1 follow-up; v1.1 ships your approved rule)
+- [x] 2026-11-20 · SG-9 is out of fix rounds (2/2) with one blocking item: the JWT pattern added to
+      `clean()` in round 1 takes 7.7 s on 100k characters of `eyJ-` (bound 1 s; slowdown, not a
+      leak). The reviewer checked a one-line fix (`(?<!-)` before `eyJ`: 41 ms, 159/159). Allow it as
+      a third, orchestrator-applied fix (test red then green, both suites, then merge), merge as is
+      with a follow-up, or hold? (recommend the one-line fix; main today still leaks secrets that the
+      branch masks)
 
 ## Tasks
 
@@ -90,7 +104,7 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 | SG-7 | Templates, references, SKILL.md | done | 2026-11-20 14:46 | 2026-11-20 14:52 |
 | SG-8 | Public README, infographics, preview, manifests, CI | done | 2026-11-20 15:20 | 2026-11-20 15:33 |
 | SG-10 | Skill doc fixes from SG-7 review; public install commands | done | 2026-11-20 15:20 | 2026-11-20 15:24 |
-| SG-9 | Final whole-branch review (security-critical) | todo | | |
+| SG-9 | Final whole-branch review (security-critical) | done | 2026-11-20 15:33 | 2026-11-20 17:00 |
 
 ## Follow-ups
 
@@ -130,19 +144,26 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
   `'fail-fast: false'` are substring checks. CI rebuilds the example without diffing it (the PDF
   carries a generated-on date). README says gaps become "Fix: ..." while the Jira summary carries
   the item key first. `claude --plugin-dir .` is in the README but not in `installation.md`.
+- SG-9 (minor, later): the PDF running header has no width limit (an 80-character product name of
+  wide letters overlaps CONFIDENTIAL); user newlines are not flattened in `tasks.md`,
+  `tasks-slack.txt` or the Markdown report, so a recommendation can forge a task line, and backtick
+  fences survive in the Slack text; PDF Appendix A follows `controls.json` order (GOV-009..015 print
+  after AI-003).
+- SG-9 (minor, later): redaction does not catch `Authorization: Basic`, `ASIA…` key IDs, unsigned
+  JWTs, camelCase labels (`dbPassword=`), a JWT straight after a hyphen, or phone numbers without a
+  `+` or brackets (README says so); `scrub()` drops one entry when two keys redact to the same
+  string; commit `b990383` alone has the repo count test red (merge is green).
 
 ## Next steps
 
-1. SG-9 final whole-branch review (general-purpose, opus, high effort; ≤3 plants; ≤2 fix rounds).
-2. Sprint end: README test counts, HANDOFF `tests:` line, the preview regeneration commands (script in
+1. Sprint end: README test counts, HANDOFF `tests:` line, the preview regeneration commands (script in
    `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/sg-8/compose_preview.py`), tick rows,
    `docs: record v1.1 state in handoff`.
 
 ## In flight
 
-- 2026-11-20 15:20 · base `7ab9c2d`, implementer agents (sonnet, high effort), hand-backs saved to
-  `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/sg-N/report.md`:
-- Merged so far: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3 `3ecec96`, SG-5 `f67a64a`, SG-4 `1d72225`, SG-6 `7ab9c2d`, SG-10 `85cf220`, SG-8 (suites 150/150, repo 7/7).
+- Nothing running. Sprint end next.
+- Merged so far: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3 `3ecec96`, SG-5 `f67a64a`, SG-4 `1d72225`, SG-6 `7ab9c2d`, SG-10 `85cf220`, SG-8 `a1cb2a5`, SG-9 fixes (suites 159/159, repo 9/9).
 - SDD ledger and per-task scratch: `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/` (git-ignored);
   each task's hand-back is saved to `sg-N/report.md`, reviews to `sg-N/review-*.md`.
 - Uncommitted on main: `soc2-corrections-prompts.md` (user asked for it as a suggestion; kept out of the repo for now).
