@@ -205,6 +205,8 @@ if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.pare
 
 - [ ] **Step 6: Commit** `feat(report): add designed pdf report` with `Task: SG-4`.
 
+**As built (2026-11-20):** merged `c6fe896..930deec`. `pdf_report.py` (Report class, ~560 lines); `render()` imports it lazily (pdf_report imports render_report). Review approved with layout minors; fix round 1 (fresh agent) kept the executive summary on page 2 with five gaps (one-line priorities, tighter chart and tiles), widened Appendix B columns, made the dimension chip grey, and added tests for header, `Page N of M`, the `[continues in assessment.json]` cut and word splits. Orchestrator finish: tile number baseline and footnote gap. Example PDF 22 pages. Suite 140/140.
+
 ### Task SG-5: Import-ready task exports
 
 **Files:**

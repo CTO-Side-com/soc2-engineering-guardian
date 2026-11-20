@@ -1,9 +1,9 @@
 ---
 status: active
 phase: v1.1 · Designed PDF report, tracker exports, public-release prep
-next: SG-4 · SG-5 in parallel
+next: SG-6 · Enriched synthetic example
 tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 15:00 +0400
+updated: 2026-11-20 15:11 +0400
 ---
 
 # SOC 2 Engineering Guardian: handoff
@@ -84,7 +84,7 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 | SG-1 | Narrow output symlink guard; CSV tab/CR guard (security-critical) | done | 2026-11-20 03:27 | 2026-11-20 14:45 |
 | SG-2 | Scanner: SOC 2 rules, 17 total | done | 2026-11-20 14:46 | 2026-11-20 14:51 |
 | SG-3 | Priority hints, summary model, Markdown, per-item risk register | done | 2026-11-20 14:46 | 2026-11-20 14:53 |
-| SG-4 | Designed PDF report | review | 2026-11-20 14:53 | |
+| SG-4 | Designed PDF report | done | 2026-11-20 14:53 | 2026-11-20 15:11 |
 | SG-5 | Import-ready task exports | done | 2026-11-20 14:53 | 2026-11-20 15:00 |
 | SG-6 | Enriched synthetic example | todo | | |
 | SG-7 | Templates, references, SKILL.md | done | 2026-11-20 14:46 | 2026-11-20 14:52 |
@@ -114,6 +114,10 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 - SG-5 (minor; SG-9 review focus): no test pins the per-line `csv_safe()` inside the Jira
   Description (a planted skip survived); user newlines are not flattened in `tasks-slack.txt` and
   `tasks.md` (a recommendation can forge a bullet) and backtick fences survive in the Slack text.
+- SG-4 (minor): page 2 is dense with five priorities (chart rows 20 pt, footnote close to the
+  next heading); top-priority lines repeat the dimension (`CHG-001-design Fix: [Design] ...`);
+  the "cannot show" list in the PDF is hardcoded from README Boundaries and must be edited with it;
+  non-Latin text prints as `?` (documented in Appendix C).
 
 ## Next steps
 
@@ -128,7 +132,7 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
   `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/sg-N/report.md`:
   - SG-4 implement: branch `sg-4-pdf-report`, worktree `~/Developer/soc2-guardian-wt/sg-4`
   - SG-5 implement: branch `sg-5-task-exports`, worktree `~/Developer/soc2-guardian-wt/sg-5`
-- Merged so far: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3 `3ecec96`, SG-5 (suite 122/122).
+- Merged so far: SG-1 `afe94b7`, SG-2 `cfb3b2a`, SG-7 `0543f29`, SG-3 `3ecec96`, SG-5 `f67a64a`, SG-4 (suite 140/140).
 - SDD ledger and per-task scratch: `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/` (git-ignored);
   each task's hand-back is saved to `sg-N/report.md`, reviews to `sg-N/review-*.md`.
 - Uncommitted on main: `soc2-corrections-prompts.md` (user asked for it as a suggestion; kept out of the repo for now).
