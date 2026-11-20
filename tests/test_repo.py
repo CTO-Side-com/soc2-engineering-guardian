@@ -5,6 +5,7 @@ skill's own suite cannot cover them. Standard library only.
 """
 import json
 import re
+import sys
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -13,6 +14,16 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / 'skills' / 'soc2-engineering-guardian'
 REPO_URL = 'https://github.com/CTO-Side-com/soc2-engineering-guardian'
 SVG_NS = '{http://www.w3.org/2000/svg}'
+# Pinned word for word: these limits are what keeps a reader from taking the output as an audit.
+BOUNDARIES = (
+    'Repository inspection cannot establish staff practices, historical enforcement, provider settings or complete '
+    'operational populations. GitHub exports require reconciliation with every release path. Current branch rules '
+    'cannot prove earlier enforcement. The optional collector does not collect rulesets, check runs, deployment '
+    'statuses or workflow logs.\n\n'
+    'The baseline references 2017 TSC with 2022 revised points of focus. Proposed 2027 updates are kept separate. '
+    'Official criteria wording and logos are not redistributed; check titles and test suggestions are original. '
+    'Recovery checks support risk mitigation, not an assessment of the additional Availability category. Mappings '
+    'need engagement-specific review.')
 
 
 def _skill_version():
@@ -57,13 +68,31 @@ class ReadmeTests(unittest.TestCase):
     def test_readme_is_current(self):
         for stale in ('bundle', 'publication was not completed', '13 conservative'):
             self.assertNotIn(stale, self.text.lower(), 'stale README text: ' + stale)
-        for needed in ('17', '/plugin install soc2-engineering-guardian@ctoside-soc2',
+        for needed in ('/plugin install soc2-engineering-guardian@ctoside-soc2',
                        '/plugin marketplace add CTO-Side-com/soc2-engineering-guardian'):
             self.assertTrue(needed in self.text, 'README lacks: ' + needed)
 
+    def test_readme_rule_count_matches_scanner(self):
+        sys.path.insert(0, str(SKILL / 'scripts'))
+        try:
+            from repo_scan import PATTERNS
+        finally:
+            sys.path.remove(str(SKILL / 'scripts'))
+        self.assertIn('**Runs an offline scanner** with %d conservative rules' % len(PATTERNS), self.text)
+
+    def test_readme_test_counts_match_suites(self):
+        for start, label in ((SKILL / 'tests', 'offline tests'), (ROOT / 'tests', 'repository tests')):
+            count = unittest.TestLoader().discover(str(start), top_level_dir=str(start)).countTestCases()
+            command = 'python3 -m unittest discover -s ' + start.relative_to(ROOT).as_posix() + ' -v'
+            match = re.search(re.escape(command) + r' +# (\d+) ' + label + '$', self.text, re.M)
+            self.assertIsNotNone(match, 'README lacks the count line for ' + command)
+            self.assertEqual(count, int(match.group(1)), 'README count for ' + command)
+
     def test_readme_keeps_not_a_report_notice(self):
         self.assertIn('not a SOC 2 report', self.text)
-        self.assertIn('## Boundaries', self.text)
+        section = re.search(r'^## Boundaries\n\n(.*?)\n+^## ', self.text, re.M | re.S)
+        self.assertIsNotNone(section, 'README has no Boundaries section')
+        self.assertEqual(BOUNDARIES, section.group(1))
 
 
 class SvgTests(unittest.TestCase):
@@ -114,8 +143,8 @@ class CiTests(unittest.TestCase):
         text = (ROOT / '.github' / 'workflows' / 'tests.yml').read_text(encoding='utf-8')
         self.assertRegex(text, r'runs-on:\s*ubuntu-24\.04')
         self.assertNotRegex(text, r'runs-on:\s*ubuntu-latest')
-        self.assertIn('fail-fast: false', text)
-        self.assertIn('3.9', text)
+        self.assertRegex(text, r'(?m)^ +fail-fast: false$')
+        self.assertRegex(text, r'(?m)^ +python: \["3\.9", "3\.11", "3\.13"\]$')
         self.assertIn('python -m unittest discover -s tests -v', text)
         self.assertIn('python -m unittest discover -s skills/soc2-engineering-guardian/tests -v', text)
         self.assertIn('python docs/build_example.py', text)
