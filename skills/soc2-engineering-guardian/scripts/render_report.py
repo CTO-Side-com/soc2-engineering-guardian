@@ -142,7 +142,7 @@ def render(data,out,pdf=False):
             w.writerow([csv_safe(x) for x in [i['key'],i['control_id'],i['dimension'],i['title'],', '.join(i['criteria']),i['status'],
                 'Confirmed gap' if i['kind']=='gap' else 'Evidence request',i['severity'],i['owner'],i['due_date'],i['recommendation'],i['done_when'],i['evidence_refs']]])
     def scrub(obj):
-        if isinstance(obj,dict):return {k:scrub(v) for k,v in obj.items()}
+        if isinstance(obj,dict):return {clean(k,200) if isinstance(k,str) else k:scrub(v) for k,v in obj.items()}
         if isinstance(obj,list):return [scrub(v) for v in obj]
         return clean(obj,20000) if isinstance(obj,str) else obj
     write(out/'assessment-redacted.json',scrub(data))
