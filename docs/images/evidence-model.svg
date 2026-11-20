@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 676" width="960" height="676" role="img" aria-labelledby="t d">
+  <title id="t">The evidence model: two dimensions, five statuses</title>
+  <desc id="d">Every check gets a design status and an operation status, each one of verified, partially verified, failed, not applicable or insufficient evidence. Design statuses need a named reviewer and dated evidence of the real configuration. Operation statuses need evidence across the period with a complete population, a sample and exceptions. Not applicable needs a scope rationale and a named human approver. Insufficient evidence is the default and lists the artifact to collect. A coverage bar shows a period gap as uncovered dates: August is uncovered on CHG-001 and October on MON-004, while REC-001 is covered for the full period.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .h { font-size: 22px; font-weight: 700; fill: #101827; }
+      .s { font-size: 13px; fill: #52514e; }
+      .ct { font-size: 15px; font-weight: 700; fill: #0b0b0b; }
+      .k { font-size: 11px; font-weight: 700; fill: #8a8984; letter-spacing: 0.06em; }
+      .cd { font-size: 12.5px; fill: #0b0b0b; }
+      .card { fill: #ffffff; stroke: #e1e0d9; }
+      .rule { font-size: 13px; fill: #0b0b0b; }
+      .m { font-size: 11.5px; font-weight: 600; fill: #52514e; }
+      .f { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; fill: #0b0b0b; }
+      .gt { font-size: 11px; fill: #8f1f1f; text-anchor: middle; font-weight: 600; }
+      .ot { font-size: 11px; fill: #ffffff; text-anchor: middle; font-weight: 600; }
+      .code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; fill: #101827; font-weight: 600; }
+    </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="959" height="675" rx="16" fill="#fcfcfb" stroke="#e1e0d9"/>
+  <rect x="36" y="26" width="56" height="3" fill="#39B9D0"/>
+  <text class="h" x="36" y="56">Two dimensions, five statuses, evidence for each</text>
+  <text class="s" x="36" y="80">No status is set automatically. Scanner hits are leads; a person records the determination.</text>
+
+  <text class="k" x="36" y="116">DESIGN</text><text class="s" x="99" y="116">Is the control built to meet the need?</text>
+  <g>
+    <rect class="card" x="36" y="128" width="168" height="120" rx="12"/>
+    <rect x="52" y="144" width="10" height="10" rx="2" fill="#0ca30c"/>
+    <text class="ct" x="70" y="154">Verified</text>
+    <text class="cd" x="52" y="184">Named reviewer</text>
+    <text class="cd" x="52" y="203">Dated, scoped evidence</text>
+    <text class="cd" x="52" y="222">Real configuration</text>
+  </g>
+  <g>
+    <rect class="card" x="216" y="128" width="168" height="120" rx="12"/>
+    <rect x="232" y="144" width="10" height="10" rx="2" fill="#fab219"/>
+    <text class="ct" x="250" y="154">Partially verified</text>
+    <text class="cd" x="232" y="184">Reviewer and evidence</text>
+    <text class="cd" x="232" y="203">The specific gap</text>
+    <text class="cd" x="232" y="222">A recommendation</text>
+  </g>
+  <g>
+    <rect class="card" x="396" y="128" width="168" height="120" rx="12"/>
+    <rect x="412" y="144" width="10" height="10" rx="2" fill="#d03b3b"/>
+    <text class="ct" x="430" y="154">Failed</text>
+    <text class="cd" x="412" y="184">Reviewer and evidence</text>
+    <text class="cd" x="412" y="203">What is missing or wrong</text>
+    <text class="cd" x="412" y="222">A recommendation</text>
+  </g>
+  <g>
+    <rect class="card" x="576" y="128" width="168" height="120" rx="12"/>
+    <rect x="592" y="144" width="10" height="10" rx="2" fill="#e1e0d9" stroke="#a8a79f"/>
+    <text class="ct" x="610" y="154">Not applicable</text>
+    <text class="cd" x="592" y="184">Scope rationale</text>
+    <text class="cd" x="592" y="203">Named human approver</text>
+  </g>
+  <g>
+    <rect class="card" x="756" y="128" width="168" height="120" rx="12"/>
+    <rect x="772" y="144" width="10" height="10" rx="2" fill="#a8a79f"/>
+    <text class="ct" x="790" y="154">Insufficient</text>
+    <text class="cd" x="772" y="184">No evidence recorded</text>
+    <text class="cd" x="772" y="203">The default for a check</text>
+    <text class="cd" x="772" y="222">Lists what to collect</text>
+  </g>
+  <text class="k" x="36" y="270">OPERATION</text><text class="s" x="124" y="270">Did it run across the period?</text>
+  <g>
+    <rect class="card" x="36" y="282" width="168" height="120" rx="12"/>
+    <rect x="52" y="298" width="10" height="10" rx="2" fill="#0ca30c"/>
+    <text class="ct" x="70" y="308">Verified</text>
+    <text class="cd" x="52" y="338">Whole period covered</text>
+    <text class="cd" x="52" y="357">Complete population</text>
+    <text class="cd" x="52" y="376">Sample and exceptions</text>
+  </g>
+  <g>
+    <rect class="card" x="216" y="282" width="168" height="120" rx="12"/>
+    <rect x="232" y="298" width="10" height="10" rx="2" fill="#fab219"/>
+    <text class="ct" x="250" y="308">Partially verified</text>
+    <text class="cd" x="232" y="338">Part of the period or</text>
+    <text class="cd" x="232" y="357">population is evidenced</text>
+    <text class="cd" x="232" y="376">Uncovered part is dated</text>
+  </g>
+  <g>
+    <rect class="card" x="396" y="282" width="168" height="120" rx="12"/>
+    <rect x="412" y="298" width="10" height="10" rx="2" fill="#d03b3b"/>
+    <text class="ct" x="430" y="308">Failed</text>
+    <text class="cd" x="412" y="338">Evidence the check did</text>
+    <text class="cd" x="412" y="357">not operate as designed</text>
+    <text class="cd" x="412" y="376">A recommendation</text>
+  </g>
+  <g>
+    <rect class="card" x="576" y="282" width="168" height="120" rx="12"/>
+    <rect x="592" y="298" width="10" height="10" rx="2" fill="#e1e0d9" stroke="#a8a79f"/>
+    <text class="ct" x="610" y="308">Not applicable</text>
+    <text class="cd" x="592" y="338">Scope rationale</text>
+    <text class="cd" x="592" y="357">Named human approver</text>
+  </g>
+  <g>
+    <rect class="card" x="756" y="282" width="168" height="120" rx="12"/>
+    <rect x="772" y="298" width="10" height="10" rx="2" fill="#a8a79f"/>
+    <text class="ct" x="790" y="308">Insufficient</text>
+    <text class="cd" x="772" y="338">No period evidence yet</text>
+    <text class="cd" x="772" y="357">The default for a check</text>
+    <text class="cd" x="772" y="376">Lists records to collect</text>
+  </g>
+
+  <text class="k" x="36" y="464">PERIOD COVERAGE</text><text class="s" x="168" y="464">Type 2 only. Gaps are dates, never a percentage. Example period 2026-08-01 to 2026-10-31.</text>
+  <line x1="140.0" y1="476" x2="140.0" y2="588" stroke="#c3c2b7" stroke-width="1"/>
+  <line x1="390.7" y1="476" x2="390.7" y2="588" stroke="#c3c2b7" stroke-width="1"/>
+  <line x1="633.3" y1="476" x2="633.3" y2="588" stroke="#c3c2b7" stroke-width="1"/>
+  <text class="m" x="146.0" y="490">Aug</text>
+  <text class="m" x="396.7" y="490">Sep</text>
+  <text class="m" x="639.3" y="490">Oct</text>
+  <text class="f" x="36" y="514">CHG-001</text>
+  <rect x="140.5" y="500" width="249.7" height="20" rx="3" fill="#fbeeee" stroke="#d03b3b" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text class="gt" x="265.3" y="514.5">uncovered, listed by date</text>
+  <rect x="391.2" y="500" width="492.3" height="20" rx="3" fill="#101827"/>
+  <text class="ot" x="637.3" y="514.5">covered by dated evidence</text>
+  <text class="f" x="36" y="544">MON-004</text>
+  <rect x="140.5" y="530" width="492.3" height="20" rx="3" fill="#101827"/>
+  <text class="ot" x="386.7" y="544.5">covered by dated evidence</text>
+  <rect x="633.8" y="530" width="249.7" height="20" rx="3" fill="#fbeeee" stroke="#d03b3b" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text class="gt" x="758.7" y="544.5">uncovered, listed by date</text>
+  <text class="f" x="36" y="574">REC-001</text>
+  <rect x="140.5" y="560" width="743.0" height="20" rx="3" fill="#101827"/>
+  <text class="ot" x="512.0" y="574.5">covered by dated evidence</text>
+
+  <rect x="36" y="604" width="888" height="38" rx="10" fill="#e9edf3"/>
+  <text x="56" y="628"><tspan class="code">validate_assessment.py</tspan><tspan class="rule" dx="10">rejects any status without its evidence. No evidence means insufficient, never verified.</tspan></text>
+</svg>

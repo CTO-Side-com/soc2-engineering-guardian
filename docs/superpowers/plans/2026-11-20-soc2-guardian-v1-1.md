@@ -311,6 +311,8 @@ if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.pare
 
 - [ ] **Step 8: Commit** `docs(readme): public readme with infographics, preview and install guide` with `Task: SG-8`.
 
+**As built (2026-11-20):** merged `997a109`; approved first review. README 302 lines (banner, badges, IMPORTANT box, outputs/workflow/evidence-model/control-library SVGs, install per agent identical to `references/installation.md` plus `claude --plugin-dir .`, an added Example section, Boundaries unchanged); manifests 1.1.0 with marketplace `ctoside-soc2`; CI ubuntu-24.04, 3.9/3.11/3.13, checkout and setup-python v7, skill tests, repo tests, example build; `report-preview.png` 110 KB from PDF pages 1, 2, 4. SVGs were checked in headless Chrome because qlmanage crops them to a square. `tests/test_repo.py` 7 tests. Suites 150/150 and 7/7.
+
 ### Task SG-10: Skill doc fixes from the SG-7 review (added 2026-11-20, ruling R17)
 
 **Files:**

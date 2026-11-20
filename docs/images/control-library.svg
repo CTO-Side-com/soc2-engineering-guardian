@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" role="img" aria-labelledby="t d">
+  <title id="t">The control library: 53 checks by area</title>
+  <desc id="d">Governance 15, access 8, changes 8, monitoring 7, data 6, recovery 3, vendors 3 and AI engineering 3, for 53 original checks. They carry interpretive mappings to the Security common criteria and are not the complete Trust Services Criteria. The three AI engineering checks are engineering extensions.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .h { font-size: 22px; font-weight: 700; fill: #101827; }
+      .s { font-size: 13px; fill: #52514e; }
+      .l { font-size: 13px; font-weight: 600; fill: #0b0b0b; }
+      .cd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; fill: #8a8984; }
+      .c { font-size: 12.5px; font-weight: 700; fill: #52514e; }
+      .d { font-size: 12.5px; fill: #52514e; }
+      .lg { font-size: 12.5px; fill: #52514e; }
+      .reg { fill: #101827; }
+      .eng { fill: #39B9D0; }
+    </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="959" height="469" rx="16" fill="#fcfcfb" stroke="#e1e0d9"/>
+  <rect x="36" y="26" width="56" height="3" fill="#39B9D0"/>
+  <text class="h" x="36" y="56">53 original checks, eight areas</text>
+  <text class="s" x="36" y="80">Each check in references/controls.json has a plain-language title, interpretive criteria mappings and a verification test.</text>
+
+  <rect class="reg" x="36" y="98" width="12" height="12" rx="3"/>
+  <text class="lg" x="54" y="108.5">Engineering and organizational checks (50)</text>
+  <rect class="eng" x="330" y="98" width="12" height="12" rx="3"/>
+  <text class="lg" x="348" y="108.5">Engineering extension: AI features (3)</text>
+
+  <!-- 20 px per check; bars start at x=196 -->
+  <line x1="195" y1="124" x2="195" y2="396" stroke="#c3c2b7" stroke-width="1"/>
+  <text class="l" x="36" y="145">Governance</text><text class="cd" x="146" y="145">GOV</text>
+  <path class="reg" d="M196 132h296a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-296z"/>
+  <text class="c" x="508" y="145.5">15</text>
+  <text class="d" x="548" y="145.5">Owners, policies, training, risk, oversight</text>
+  <text class="l" x="36" y="179">Access</text><text class="cd" x="146" y="179">IAM</text>
+  <path class="reg" d="M196 166h156a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-156z"/>
+  <text class="c" x="368" y="179.5">8</text>
+  <text class="d" x="548" y="179.5">Authentication, privilege, tenancy, access reviews</text>
+  <text class="l" x="36" y="213">Changes</text><text class="cd" x="146" y="213">CHG</text>
+  <path class="reg" d="M196 200h156a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-156z"/>
+  <text class="c" x="368" y="213.5">8</text>
+  <text class="d" x="548" y="213.5">Code review, protected branches, deploys, emergencies</text>
+  <text class="l" x="36" y="247">Monitoring</text><text class="cd" x="146" y="247">MON</text>
+  <path class="reg" d="M196 234h136a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-136z"/>
+  <text class="c" x="348" y="247.5">7</text>
+  <text class="d" x="548" y="247.5">Logs, alerts, vulnerabilities, incident review</text>
+  <text class="l" x="36" y="281">Data</text><text class="cd" x="146" y="281">DAT</text>
+  <path class="reg" d="M196 268h116a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-116z"/>
+  <text class="c" x="328" y="281.5">6</text>
+  <text class="d" x="548" y="281.5">Encryption, secrets, exposure, retention, telemetry</text>
+  <text class="l" x="36" y="315">Recovery</text><text class="cd" x="146" y="315">REC</text>
+  <path class="reg" d="M196 302h56a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-56z"/>
+  <text class="c" x="268" y="315.5">3</text>
+  <text class="d" x="548" y="315.5">Backups, restore tests, continuity</text>
+  <text class="l" x="36" y="349">Vendors</text><text class="cd" x="146" y="349">VEN</text>
+  <path class="reg" d="M196 336h56a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-56z"/>
+  <text class="c" x="268" y="349.5">3</text>
+  <text class="d" x="548" y="349.5">Inventory, commitments, reassessment</text>
+  <text class="l" x="36" y="383">AI engineering</text><text class="cd" x="146" y="383">AI</text>
+  <path class="eng" d="M196 370h56a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-56z"/>
+  <text class="c" x="268" y="383.5">3</text>
+  <text class="d" x="548" y="383.5">Authorization, data egress, behaviour changes</text>
+
+  <rect x="36" y="408" width="888" height="38" rx="10" fill="#e9edf3"/>
+  <text class="s" x="56" y="432" fill="#0b0b0b" style="fill:#0b0b0b">Security common criteria only, mapped interpretively. Not the complete TSC and no other category.</text>
+</svg>

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 584" width="960" height="584" role="img" aria-labelledby="t d">
+  <title id="t">How a SOC 2 Engineering Guardian assessment runs</title>
+  <desc id="d">Nine steps: scope the assessment, set the boundary and fill the templates, scan the repository offline, gather GitHub evidence, review design, review operation and period coverage, validate, render the report and task files, then recheck after changes in a loop that gathers fresh evidence for the affected checks.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#101827"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .h { font-size: 22px; font-weight: 700; fill: #101827; }
+      .s { font-size: 13px; fill: #52514e; }
+      .ct { font-size: 15.5px; font-weight: 700; fill: #0b0b0b; }
+      .cd { font-size: 12.5px; fill: #52514e; }
+      .n { font-size: 13px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .card { fill: #ffffff; stroke: #e1e0d9; }
+      .hl { fill: #ffffff; stroke: #101827; stroke-width: 1.5; }
+      .ar { stroke: #101827; stroke-width: 1.6; fill: none; }
+      .loop { font-size: 12.5px; fill: #101827; text-anchor: middle; font-weight: 600; }
+    </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="959" height="583" rx="16" fill="#fcfcfb" stroke="#e1e0d9"/>
+  <rect x="36" y="26" width="56" height="3" fill="#39B9D0"/>
+  <text class="h" x="36" y="56">How an assessment runs</text>
+  <text class="s" x="36" y="80">Read-only by default. Every step leaves evidence a person can re-check.</text>
+
+  <g>
+    <rect class="card" x="36" y="104" width="276" height="112" rx="12"/>
+    <circle cx="66" cy="136" r="14" fill="#101827"/><text class="n" x="66" y="140.5">1</text>
+    <text class="ct" x="90" y="141">Scope</text>
+    <text class="cd" x="56" y="176">Product, environment, period</text>
+    <text class="cd" x="56" y="196">Type 1 or Type 2 readiness</text>
+  </g>
+  <g>
+    <rect class="card" x="342" y="104" width="276" height="112" rx="12"/>
+    <circle cx="372" cy="136" r="14" fill="#101827"/><text class="n" x="372" y="140.5">2</text>
+    <text class="ct" x="396" y="141">Boundary and templates</text>
+    <text class="cd" x="362" y="176">System description and subservice</text>
+    <text class="cd" x="362" y="196">vendor register, from evidence</text>
+  </g>
+  <g>
+    <rect class="card" x="648" y="104" width="276" height="112" rx="12"/>
+    <circle cx="678" cy="136" r="14" fill="#101827"/><text class="n" x="678" y="140.5">3</text>
+    <text class="ct" x="702" y="141">Scan</text>
+    <text class="cd" x="668" y="176">17 offline rules, file and line</text>
+    <text class="cd" x="668" y="196">Leads only, never a verdict</text>
+  </g>
+  <g>
+    <rect class="card" x="36" y="256" width="276" height="112" rx="12"/>
+    <circle cx="66" cy="288" r="14" fill="#101827"/><text class="n" x="66" y="292.5">4</text>
+    <text class="ct" x="90" y="293">GitHub evidence</text>
+    <text class="cd" x="56" y="328">Local API exports; optional</text>
+    <text class="cd" x="56" y="348">GET-only collection after opt-in</text>
+  </g>
+  <g>
+    <rect class="card" x="342" y="256" width="276" height="112" rx="12"/>
+    <circle cx="372" cy="288" r="14" fill="#101827"/><text class="n" x="372" y="292.5">5</text>
+    <text class="ct" x="396" y="293">Design review</text>
+    <text class="cd" x="362" y="328">Is it implemented, not just</text>
+    <text class="cd" x="362" y="348">written down? Named reviewer</text>
+  </g>
+  <g>
+    <rect class="card" x="648" y="256" width="276" height="112" rx="12"/>
+    <circle cx="678" cy="288" r="14" fill="#101827"/><text class="n" x="678" y="292.5">6</text>
+    <text class="ct" x="702" y="293">Operation and period</text>
+    <text class="cd" x="668" y="328">Full period, population, sample,</text>
+    <text class="cd" x="668" y="348">exceptions and gaps by date</text>
+  </g>
+  <g>
+    <rect class="card" x="36" y="408" width="276" height="112" rx="12"/>
+    <circle cx="66" cy="440" r="14" fill="#101827"/><text class="n" x="66" y="444.5">7</text>
+    <text class="ct" x="90" y="445">Validate</text>
+    <text class="cd" x="56" y="480">validate_assessment.py rejects</text>
+    <text class="cd" x="56" y="500">any status without evidence</text>
+  </g>
+  <g>
+    <rect class="hl" x="342" y="408" width="276" height="112" rx="12"/>
+    <circle cx="372" cy="440" r="14" fill="#101827"/><text class="n" x="372" y="444.5">8</text>
+    <text class="ct" x="396" y="445">Report and tasks</text>
+    <text class="cd" x="362" y="480">PDF, Markdown, CSV registers,</text>
+    <text class="cd" x="362" y="500">Jira, Notion, Slack tasks</text>
+  </g>
+  <g>
+    <rect class="card" x="648" y="408" width="276" height="112" rx="12"/>
+    <circle cx="678" cy="440" r="14" fill="#101827"/><text class="n" x="678" y="444.5">9</text>
+    <text class="ct" x="702" y="445">Recheck</text>
+    <text class="cd" x="668" y="480">Changed files invalidate affected</text>
+    <text class="cd" x="668" y="500">conclusions; evidence is gathered again</text>
+  </g>
+
+  <path class="ar" d="M316 160H336" marker-end="url(#a)"/>
+  <path class="ar" d="M622 160H642" marker-end="url(#a)"/>
+  <path class="ar" d="M316 312H336" marker-end="url(#a)"/>
+  <path class="ar" d="M622 312H642" marker-end="url(#a)"/>
+  <path class="ar" d="M316 464H336" marker-end="url(#a)"/>
+  <path class="ar" d="M622 464H642" marker-end="url(#a)"/>
+  <path class="ar" d="M786 220V238H174V250" marker-end="url(#a)"/>
+  <path class="ar" d="M786 372V390H174V402" marker-end="url(#a)"/>
+  <path class="ar" d="M786 524V544H18V312H30" stroke-dasharray="5 5" marker-end="url(#a)"/>
+  <text class="loop" x="480" y="568">recheck loop: re-verify the affected checks after every approved change</text>
+</svg>
