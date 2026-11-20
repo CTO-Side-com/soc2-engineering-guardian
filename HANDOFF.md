@@ -1,9 +1,9 @@
 ---
 status: active
 phase: v1.1 · Designed PDF report, tracker exports, public-release prep
-next: SG-1 · Narrow the output symlink guard (after plan review)
+next: SG-2 · SG-3 · SG-7 in parallel
 tests: unit 61/66 on macOS (5 errors: symlink guard rejects /var temp dirs), CI green on Linux (2026-11-20)
-updated: 2026-11-20 03:20 +0400
+updated: 2026-11-20 14:45 +0400
 ---
 
 # SOC 2 Engineering Guardian: handoff
@@ -26,8 +26,8 @@ updated: 2026-11-20 03:20 +0400
 
 ## Known problems
 
-- 5 tests error on macOS: `common.target()` refuses a path if any ancestor is a symlink, and
-  `/var`, `/tmp` are symlinks on macOS. Linux CI passes.
+- ~~5 tests error on macOS: `common.target()` refused any symlinked ancestor (`/var`, `/tmp`).~~
+  Fixed by SG-1 (merged 2026-11-20 14:45).
 - Scanner still carries two HIPAA rules (`phi-log-candidate`, `patient-identifier-in-url`) and the
   typo "esensitive".
 - CI runs `ubuntu-latest` with Python 3.9; hipaa-guardian found setup-python has no 3.9 build
@@ -81,7 +81,7 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 
 | ID | Task | Status | Started | Finished |
 |---|---|---|---|---|
-| SG-1 | Narrow output symlink guard; CSV tab/CR guard (security-critical) | todo | | |
+| SG-1 | Narrow output symlink guard; CSV tab/CR guard (security-critical) | done | 2026-11-20 03:27 | 2026-11-20 14:45 |
 | SG-2 | Scanner: SOC 2 rules, 17 total | todo | | |
 | SG-3 | Priority hints, summary model, Markdown, per-item risk register | todo | | |
 | SG-4 | Designed PDF report | todo | | |
@@ -91,10 +91,23 @@ rename) is gated on the Needs-you decision. If they are run before v1.1, the v1.
 | SG-8 | Public README, infographics, preview, manifests, CI | todo | | |
 | SG-9 | Final whole-branch review (security-critical) | todo | | |
 
+## Follow-ups
+
+- SG-1 (minor, by design per spec §6): writing straight into `/tmp/x.json` on macOS is refused
+  because the parent folder is the `/tmp` alias; a symlink deeper than the parent in a path
+  outside the working directory is not checked; a no-permission folder raises `PermissionError`
+  rather than `ValueError`; the check-then-open window is unchanged from v1.0.
+
 ## Next steps
 
-1. User reviews `docs/superpowers/plans/2026-11-20-soc2-guardian-v1-1.md`.
-2. Dispatch SG-1 (general-purpose, opus, high effort) in worktree
-   `~/Developer/soc2-guardian-wt/sg-1` on branch `sg-1-symlink-guard`; save its hand-back to
-   `<scratchpad>/sg-1/report.md`; review; merge to main.
-3. Then SG-2, SG-3, SG-7 in parallel; then SG-4 and SG-5; then SG-6; SG-8; SG-9.
+1. Dispatch SG-2, SG-3, SG-7 in parallel (implementer, sonnet, high effort), one worktree each
+   under `~/Developer/soc2-guardian-wt/sg-N`, branched from main after the SG-1 merge.
+2. Review each (reviewer agent), merge, quick gate after each merge.
+3. Then SG-4 and SG-5 in parallel; then SG-6; SG-8; SG-9 final review.
+
+## In flight
+
+- SDD ledger and per-task scratch: `.superpowers/sdd/2026-11-20-soc2-guardian-v1-1/` (git-ignored);
+  each task's hand-back is saved to `sg-N/report.md`, reviews to `sg-N/review-*.md`.
+- Uncommitted on main: `soc2-corrections-prompts.md` (user asked for it as a suggestion; kept out of the repo for now).
+

@@ -1,6 +1,7 @@
 """Shared offline assessment primitives. No compliance conclusions are automated."""
 import hashlib
 import json
+import os
 import re
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -26,11 +27,17 @@ def iso(value):
     return date.fromisoformat(value)
 
 def target(path):
-    path = Path(path).absolute()
-    if any(p.is_symlink() for p in [path, *path.parents]):
+    # System aliases above the working directory (macOS /var -> /private/var) are trusted;
+    # a symlink planted inside it, or as the file or its folder, is not.
+    p = Path(os.path.abspath(path))  # lexical: '..' collapsed before checking
+    root = os.stat(os.getcwd())
+    def inside(a):  # a lies strictly below the working directory; by file identity, as names can differ in case
+        r = Path(os.path.realpath(a.parent))
+        return any(os.path.exists(x) and os.path.samestat(os.stat(x), root) for x in (r, *r.parents))
+    if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.parents if inside(a)):
         raise ValueError('Refusing symlink output path')
-    path.parent.mkdir(parents=True, exist_ok=True)
-    return path
+    p.parent.mkdir(parents=True, exist_ok=True)
+    return p
 
 def write(path, data, overwrite=True):
     with target(path).open('w' if overwrite else 'x', encoding='utf-8') as stream:
@@ -46,8 +53,9 @@ def clean(value, limit=3000):
     return text[:limit]
 
 def csv_safe(value):
-    text = clean(value).replace('\r', ' ').replace('\n', ' ')
-    return "'" + text if text.lstrip().startswith(('=', '+', '-', '@')) else text
+    head = clean(value)  # checked before CR is flattened, so a leading tab or CR still counts
+    text = head.replace('\r', ' ').replace('\n', ' ')
+    return "'" + text if head.lstrip(' ').startswith(('\t', '\r')) or text.lstrip().startswith(('=', '+', '-', '@')) else text
 
 def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()

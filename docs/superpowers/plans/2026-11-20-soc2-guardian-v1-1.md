@@ -96,6 +96,8 @@ if p.is_symlink() or p.parent.is_symlink() or any(a.is_symlink() for a in p.pare
 
 - [ ] **Step 6: Commit** `fix(common): only refuse symlinks inside the output path, not system folders` with `Task: SG-1`.
 
+**As built (2026-11-20):** merged `6c51cf7..1608a80`. Review found a case-variant bypass in the string-based `inside()` (macOS disks ignore case); fixed by comparing ancestry with `os.path.samestat` against `os.stat(os.getcwd())`. Three tests added beyond the brief: case-variant path, symlinked parent outside the working directory, `..` normalised before checking. Suite 74/74.
+
 ### Task SG-2: Scanner rules for SOC 2
 
 **Files:**
